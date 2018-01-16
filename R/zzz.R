@@ -12,7 +12,7 @@ getFormalsTable <- function(fun) {
 }
 
 
-args_gdal_rasterize <- data.table::fread("
+args_gdal_rasterize <- read.csv(text = "
 arg,            flag,            narg, repeatable
 src_datasource, -src_datasource, 1,    FALSE
 dst_filename,   -dst_filename,   1,    FALSE
@@ -37,9 +37,10 @@ tap,            -tap,            0,    FALSE
 ts,             -ts,             2,    FALSE
 ot,             -ot,             1,    FALSE
 q,              -q,              0,    FALSE",
-key = "arg", data.table=TRUE)
+stringsAsFactors=FALSE, strip.white = TRUE,
+colClasses=c("character", "character", "numeric", "logical"))
 
-args_gdal_translate <- data.table::fread("
+args_gdal_translate <- read.csv(text = "
 arg,         flag,         narg, repeatable
 src_dataset, ,             1,    FALSE
 dst_dataset, ,             1,    FALSE
@@ -74,10 +75,11 @@ norat,       -norat,       0,    FALSE
 oo,          -oo,          1,    FALSE
 sd_index,    -sd_index,    1,    FALSE
 config,      --config,     Inf,  FALSE",
-key = "arg", data.table=TRUE)
+stringsAsFactors=FALSE, strip.white = TRUE,
+colClasses=c("character", "character", "numeric", "logical"))
 
 
-args_gdalwarp <- data.table::fread("
+args_gdalwarp <- read.csv(text = "
 arg,             flag,             narg, repeatable
 srcfile,         ,                 1,    TRUE
 dstfile,         ,                 1,    FALSE
@@ -121,10 +123,11 @@ setci,           -setci,           0,    FALSE
 oo,              -oo,              1,    FALSE
 doo,             -doo,             1,    FALSE
 config,          --config,         Inf,  TRUE",
-key = "arg", data.table=TRUE)
+stringsAsFactors=FALSE, strip.white = TRUE,
+colClasses=c("character", "character", "numeric", "logical"))
 
 
-args_gdaldem <- data.table::fread("
+args_gdaldem <- read.csv(text = "
 arg,                 flag,                 narg, repeatable
 mode,                ,                     1,    TRUE
 input_dem,           ,                     1,    FALSE
@@ -147,10 +150,11 @@ color_text_file,     -color_text_file,     1,    FALSE
 alpha,               -alpha,               0,    FALSE
 exact_color_entry,   -exact_color_entry,   0,    FALSE
 nearest_color_entry, -nearest_color_entry, 0,    FALSE",
-key = "arg", data.table=TRUE)
+stringsAsFactors=FALSE, strip.white = TRUE,
+colClasses=c("character", "character", "numeric", "logical"))
 
 
-args_gdal_contour <- data.table::fread("
+args_gdal_contour <- read.csv(text = "
 arg,          flag,     narg, repeatable
 src_filename, ,         1,    FALSE
 dst_filename, ,         1,    FALSE
@@ -167,10 +171,11 @@ off,          -off,     1,    FALSE
 fl,           -fl,      1,    FALSE
 nln,          -nln,     1,    FALSE
 config,       --config, 1,    TRUE",
-key = "arg", data.table=TRUE)
+stringsAsFactors=FALSE, strip.white = TRUE,
+colClasses=c("character", "character", "numeric", "logical"))
 
 
-args_gdalinfo <- data.table::fread("
+args_gdalinfo <- read.csv(text = "
 arg,          flag,            narg, repeatable
 datasetname,  ,                1, FALSE
 json,         -json,           0, FALSE
@@ -190,10 +195,11 @@ sd,           -sd,             1, FALSE
 proj4,        -proj4,          0, FALSE
 oo,           -oo,             1, FALSE
 config,       --config,        1, TRUE",
-key = "arg", data.table=TRUE)
+stringsAsFactors=FALSE, strip.white = TRUE,
+colClasses=c("character", "character", "numeric", "logical"))
 
 
-args_gdaltindex <- data.table::fread("
+args_gdaltindex <- read.csv(text = "
 arg,                       flag,                       narg, repeatable
 datasetname,               ,                           1,    FALSE
 index_file,                -index_file,                1,    FALSE
@@ -207,8 +213,8 @@ src_srs_name,              -src_srs_name,              1,    FALSE
 src_srs_format,            -src_srs_format,            1,    FALSE
 lyr_name,                  -lyr_name,                  1,    FALSE
 config,                    --config,                   1,    TRUE",
-key = "arg", data.table=TRUE)
-
+stringsAsFactors=FALSE, strip.white = TRUE,
+colClasses=c("character", "character", "numeric", "logical"))
 
 
 

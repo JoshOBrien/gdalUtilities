@@ -15,10 +15,11 @@ process_repeated_flag <- function(flag, val, narg) {
 
 ## Workhorse function
 process_args <- function(args, formalsTable) {
+    ft <- formalsTable
     opts <- lapply(names(args), function(nm) {
-        flag <- formalsTable[nm, flag]
-        narg <- formalsTable[nm, narg]
-        repeatable <- formalsTable[nm, repeatable]
+        flag       <- ft[ft$arg==nm, "flag"]
+        narg       <- ft[ft$arg==nm, "narg"]
+        repeatable <- ft[ft$arg==nm, "repeatable"]
         val <- args[[nm]]
         if(repeatable) {
             ## Handle repeatable flags

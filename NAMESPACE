@@ -1,4 +1,2 @@
 export(gdal_rasterize)
-export(gdal_rasterize2)
 
-import(data.table)

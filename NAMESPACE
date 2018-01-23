@@ -1,2 +1,4 @@
 export(gdal_rasterize)
+export(gdal_translate)
+export(gdalwarp)
 

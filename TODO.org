@@ -46,3 +46,18 @@ gdUtils::r_ogr2ogr(src_datasource_name, dst_datasource_name,
 ** Repeatable formals with variable numbers of arguments.
 - In [[http://www.gdal.org/gdal_translate.html][~gdal_translate~]], the ~-gcp~ formal has the following signature:
   ~[-gcp pixel line easting northing [elevation]]*~
+** Modify starsUtils:::process_args to never pass on NULL?
+At present, ~gdalinfo()~ uses a bit of a kludge to avoid errors in the
+case when it's called with just a file path (i.e. with no additional
+options). That's because otherwise, we (understandably) get an error
+warning that:
+
+#+BEGIN_SRC 
+Error in CPL_gdalinfo(source, options) : 
+  Not compatible with STRSXP: [type=NULL].
+#+END_SRC
+
+The likely better solution is to make the fix in ~process_args()~,
+with a concluding test for whether it's ~NULL~ and, if so, replacement
+with ~""~. But first, I want to check whether any others of the
+functions in the package emit similar warnings.

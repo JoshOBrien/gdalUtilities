@@ -176,30 +176,6 @@ stringsAsFactors=FALSE, strip.white = TRUE,
 colClasses=c("character", "character", "numeric", "logical"))
 
 
-args_gdalinfo <- read.csv(text = "
-arg,          flag,            narg, repeatable
-datasetname,  ,                1, FALSE
-json,         -json,           0, FALSE
-mm,           -mm,             0, FALSE
-stats,        -stats,          0, FALSE
-approx_stats, -approx_stats,   0, FALSE
-hist,         -hist,           0, FALSE
-nogcp,        -nogcp,          0, FALSE
-nomd,         -nomd,           0, FALSE
-norat,        -norat,          0, FALSE
-noct,         -noct,           0, FALSE
-checksum,     -checksum,       0, FALSE
-listmdd,      -listmdd,        0, FALSE
-mdd,          -mdd,            1, FALSE
-nofl,         -nofl,           0, FALSE
-sd,           -sd,             1, FALSE
-proj4,        -proj4,          0, FALSE
-oo,           -oo,             1, FALSE
-config,       --config,        1, TRUE",
-stringsAsFactors=FALSE, strip.white = TRUE,
-colClasses=c("character", "character", "numeric", "logical"))
-
-
 args_gdaltindex <- read.csv(text = "
 arg,                       flag,                       narg, repeatable
 datasetname,               ,                           1,    FALSE
@@ -284,7 +260,33 @@ stringsAsFactors=FALSE, strip.white = TRUE,
 colClasses=c("character", "character", "numeric", "logical"))
 
 
-
+args_gdalinfo <- read.csv(text = "
+arg,           flag,         narg, repeatable
+datasetname,   ,                1, FALSE
+json,          -json,           0, FALSE
+mm,            -mm,             0, FALSE
+stats,         -stats,          0, FALSE
+approx_stats,  -approx_stats,   0, FALSE
+hist,          -hist,           0, FALSE
+nogcp,         -nogcp,          0, FALSE
+nomd,          -nomd,           0, FALSE
+norat,         -norat,           0, FALSE
+noct,          -noct,           0, FALSE
+nofl,          -nofl,           0, FALSE
+checksum,      -checksum,       0, FALSE
+proj4,         -proj4,          0, FALSE
+oo,            -oo,             1, FALSE
+listmdd,       -listmdd,        0, FALSE
+mdd,           -mdd,            1, FALSE
+sd,            -sd,             1, FALSE",
+## version,       --version,       0, FALSE
+## formats,       --formats,       0, FALSE
+## format,        --format,        1, FALSE
+## optfile,       --optfile,       1, FALSE
+## config,        --config,        1, FALSE
+## debug,         --debug,         1, FALSE",
+stringsAsFactors=FALSE, strip.white = TRUE,
+colClasses=c("character", "character", "numeric", "logical"))
 
 
 
@@ -294,9 +296,10 @@ assign("args_gdal_translate", args_gdal_translate, envir = .gdUtilsEnv)
 assign("args_gdalwarp",       args_gdalwarp,       envir = .gdUtilsEnv)
 assign("args_gdaldem",        args_gdaldem,        envir = .gdUtilsEnv)
 assign("args_gdal_contour",   args_gdal_contour,   envir = .gdUtilsEnv)
-assign("args_gdalinfo",       args_gdalinfo,       envir = .gdUtilsEnv)
 assign("args_gdaltindex",     args_gdaltindex,     envir = .gdUtilsEnv)
 assign("args_ogr2ogr",        args_ogr2ogr,        envir = .gdUtilsEnv)
+assign("args_gdalinfo",       args_gdalinfo,       envir = .gdUtilsEnv)
+
 
 
 

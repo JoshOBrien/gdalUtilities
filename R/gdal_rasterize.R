@@ -1,28 +1,3 @@
-0
-## ##' @title Interface to GDAL rasterize utility
-## ##' @param input Path to vector file to be rasterized
-## ##' @param output Path to outputted raster file
-## ##' @param options Character vector containing "tokenized" options
-## ##' @return Called for its side effect.
-## ##' @export
-## ##' @author Josh O'Brien
-## ##' @examples
-## ##' \dontrun{
-## ##' file.copy(system.file("extdata/rasterize_eg", package="gdUtils"),
-## ##'           ".", recursive=TRUE)
-## ##' ## Command-line equivalent:
-## ##' ## gdal_rasterize -a "ID_2" "rasterize_eg/SPDF.shp" "rasterize_SPDF.tif"
-## ##' gdal_rasterize("rasterize_eg/SPDF.shp",
-## ##'                "rasterize_eg/SPDF.tif",
-## ##'                options = c("-a", "ID_2"))
-## ##' plot(raster("rasterize_eg/SPDF.tif"))
-## ##' }
-## gdal_rasterize <- function(input, output, options) {
-##     st_gdal_utils("rasterize", input, output, options)
-## }
-
-
-
 ##' This function provides an interface mirroring that of the GDAL
 ##' command-line app \code{gdal_rasterize}.
 ##'
@@ -33,7 +8,7 @@
 ##' @examples
 ##' \dontrun{
 ##' library(raster)
-##' file.copy(system.file("extdata/rasterize_eg", package="gdUtils"),
+##' file.copy(system.file("extdata/rasterize_eg", package="starsUtils"),
 ##'           ".", recursive=TRUE)
 ##' gdal_rasterize("rasterize_eg/SPDF.shp", "rasterize_eg/SPDF.tif", a="ID_2")
 ##' plot(raster("rasterize_eg/SPDF.tif"))

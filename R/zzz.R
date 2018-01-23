@@ -8,7 +8,8 @@ getFormalsTable <- function(fun) {
            gdaldem        = get("args_gdaldem", envir=.gdUtilsEnv),
            gdal_contour   = get("args_gdal_contour", envir=.gdUtilsEnv),
            gdalinfo       = get("args_gdalinfo", envir=.gdUtilsEnv),
-           gdaltindex     = get("args_gdaltindex", envir=.gdUtilsEnv))
+           gdaltindex     = get("args_gdaltindex", envir=.gdUtilsEnv),
+           ogr2ogr        = get("args_ogr2ogr", envir=.gdUtilsEnv))
 }
 
 
@@ -217,6 +218,73 @@ stringsAsFactors=FALSE, strip.white = TRUE,
 colClasses=c("character", "character", "numeric", "logical"))
 
 
+args_ogr2ogr <- read.csv(text = "
+arg,                   flag,                       narg, repeatable
+src_datasource_name,   ,                              1,    FALSE
+dst_datasource_name,   ,                              1,    FALSE
+layer,                 ,                              1,    FALSE
+f,                     -f,                            1,    FALSE
+append,                -append,                       0,    FALSE
+overwrite,             -overwrite,                    0,    FALSE
+update,                -update,                       0,    FALSE
+select,                -select,                       1,    FALSE
+progress,              -progress,                     0,    FALSE
+sql,                   -sql,                          1,    FALSE
+dialect,               -dialect,                      1,    FALSE
+where,                 -where,                        1,    FALSE
+skipfailures,          -skipfailures,                 0,    FALSE
+spat,                  -spat,                         4,    FALSE
+spat_srs,              -spat_srs,                     1,     FALSE
+geomfield,             -geomfield,                    1,     FALSE
+dsco,                  -dsco,                         1,     FALSE
+lco,                   -lco,                          1,     FALSE
+nln,                   -nln,                          1,     FALSE
+nlt,                   -nlt,                          1,     FALSE
+dim,                   -dim,                          1,     FALSE
+a_srs,                 -a_srs,                        1,     FALSE
+t_srs,                 -t_srs,                        1,     FALSE
+s_srs,                 -s_srs,                        1,     FALSE
+preserve_fid,          -preserve_fid,                 0,    FALSE
+fid,                   -fid,                          1,     FALSE
+oo,                    -oo,                           1,     FALSE
+doo,                   -doo,                          1,     FALSE
+gt,                    -gt,                           1,     FALSE
+ds_transaction,        -ds_transaction,               0,    FALSE
+clipsrc,               -clipsrc,                      1,     FALSE
+clipsrcsql,            -clipsrcsql,                   1,     FALSE
+clipsrclayer,          -clipsrclayer,                 1,     FALSE
+clipsrcwhere,          -clipsrcwhere,                 1,     FALSE
+clipdst,               -clipdst,                      4,    FALSE
+clipdstsql,            -clipdstsql,                   1,     FALSE
+clipdstlayer,          -clipdstlayer,                 1,     FALSE
+clipdstwhere,          -clipdstwhere,                 1,     FALSE
+wrapdateline,          -wrapdateline,                 0,    FALSE
+datelineoffset,        -datelineoffset,               0,    FALSE
+simplify,              -simplify,                     1,     FALSE
+segmentize,            -segmentize,                   1,     FALSE
+fieldTypeToString,     -fieldTypeToString,            1,     FALSE
+mapFieldType,          -mapFieldType,                 1,     FALSE
+unsetFieldWidth,       -unsetFieldWidth,              0,    FALSE
+splitlistfields,       -splitlistfields,              0,    FALSE
+maxsubfields,          -maxsubfields,                 1,     FALSE
+explodecollections,    -explodecollections,           0,    FALSE
+zfield,                -zfield,                       1,     FALSE
+gcp,                   -gcp,                          4,    TRUE
+order,                 -order,                        1,     FALSE
+tps,                   -tps,                          0,    FALSE
+fieldmap,              -fieldmap,                     1,     FALSE
+addfields,             -addfields,                    0,    FALSE
+relaxedFieldNameMatch, -relaxedFieldNameMatch,        0,    FALSE
+forceNullable,         -forceNullable,                0,    FALSE
+unsetDefault,          -unsetDefault,                 0,    FALSE
+unsetFid,              -unsetFid,                     0,    FALSE
+nomd,                  -nomd,                         0,    FALSE
+mo,                    -mo,                           0,    FALSE",
+stringsAsFactors=FALSE, strip.white = TRUE,
+colClasses=c("character", "character", "numeric", "logical"))
+
+
+
 
 
 
@@ -228,6 +296,7 @@ assign("args_gdaldem",        args_gdaldem,        envir = .gdUtilsEnv)
 assign("args_gdal_contour",   args_gdal_contour,   envir = .gdUtilsEnv)
 assign("args_gdalinfo",       args_gdalinfo,       envir = .gdUtilsEnv)
 assign("args_gdaltindex",     args_gdaltindex,     envir = .gdUtilsEnv)
+assign("args_ogr2ogr",        args_ogr2ogr,        envir = .gdUtilsEnv)
 
 
 

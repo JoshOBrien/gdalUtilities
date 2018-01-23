@@ -8,7 +8,7 @@
 ##' @examples
 ##' \dontrun{
 ##' ## Shrink a tiff by 50% in both x and y dimensions
-##' file.copy(system.file("extdata/europe.tif", package = "gdUtils"), ".")
+##' file.copy(system.file("extdata/europe.tif", package = "starsUtils"), ".")
 ##' gdal_translate("europe.tif", "europe_small.tif", outsize=c("50%","50%"))
 ##' }
 gdal_translate <-

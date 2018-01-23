@@ -1,0 +1,48 @@
+
+* Utilities provided by stars::st_gdal_utils()
+
+- [ ] ~gdalinfo~ (using switch ~info~)
+- [X] ~gdalwarp~ (using switch ~warp~)
+- [X] ~gdal_rasterize~ (using switch ~rasterize~)
+- [X] ~gdal_translate~ (using switch ~translate~)
+- [X]  ~ogr2ogr~ a.k.a. ~gdalvectortranslate~ ([[http://www.gdal.org/gdal__utils_8h.html#aa176ae667bc857ab9c6016dbe62166eb][here]] and [[https://github.com/OSGeo/gdal/blob/a1df7cb9df2fe3cbcfac974b434b01ac6a1946e5/gdal/apps/ogr2ogr_lib.cpp][here]]) (via
+  ~vectortranslate~)
+- [ ] ~gdalbuildvrt~ (using switch ~buildvrt~)
+- [ ] ~gdaldemprocessing~ (using switch ~demprocessing~)
+- [ ] ~gdalnearblack~ (using switch ~nearblack~)
+- [ ] ~gdal_grid~ (using switch ~grid~)
+
+* Utilities taking more than one list of options
+
+* Command-line examples of each underlying utility
+
+** ogr2ogr()
+
+#+BEGIN_SRC R 
+src_datasource_name <- system.file("external/tahoe_highrez_training.shp", package="gdalUtils")
+dst_datasource_name <- paste(tempfile(),".shp",sep="")
+# reproject the input to mercator
+gdUtils::r_ogr2ogr(src_datasource_name,dst_datasource_name,
+                   layer = "tahoe_highrez_training", t_srs="EPSG:3395")
+library(gdalUtils)
+ogrinfo(src_datasource_name,"tahoe_highrez_training")
+ogrinfo(dirname(dst_datasource_name),layer=remove_file_extension(basename(dst_datasource_name)))
+ogrinfo(dirname(dst_datasource_name),layer="tahoe_highrez_training")
+
+dst_datasource_name <- paste(tempfile(),".kml",sep="")
+gdUtils::r_ogr2ogr(src_datasource_name, dst_datasource_name, 
+                   layer = "tahoe_highrez_training", f="KML")
+#+END_SRC 
+
+
+
+
+
+* Argument-processing complications
+** Formals taking variable number of arguments
+- In [[http://www.gdal.org/ogr2ogr.html][~ogr2ogr~]], for example, the ~-clipsrc~ formal has this signature:
+  ~-clipsrc [xmin ymin xmax ymax]|WKT|datasource|spat_extent~
+
+** Repeatable formals with variable numbers of arguments.
+- In [[http://www.gdal.org/gdal_translate.html][~gdal_translate~]], the ~-gcp~ formal has the following signature:
+  ~[-gcp pixel line easting northing [elevation]]*~

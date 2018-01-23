@@ -8,7 +8,7 @@
 ##' @examples
 ##' \dontrun{
 ##' ## Set up some ground control points, then warp
-##' file.copy(system.file("extdata/tahoe.tif", package = "gdUtils"), ".")
+##' file.copy(system.file("extdata/tahoe.tif", package = "starsUtils"), ".")
 ##' gcp <- matrix(c(100, 300, -119.93226, 39.28977, ## A
 ##'                 0, 300, -119.93281, 39.28977,   ## B
 ##'                 100, 400, -119.93226, 39.28922, ## C

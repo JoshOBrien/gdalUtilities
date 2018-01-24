@@ -8,21 +8,25 @@
 ##' @author Josh O'Brien
 ##' @examples
 ##' \dontrun{
-##' ff <- system.file("extdata/maunga.tif", package="starsUtils")
-##' gdalinfo(ff)
+##' file.copy(system.file("extdata/tahoe.tif", package = "starsUtils"),
+##'           "./a.tif")
+##' file.copy(system.file("extdata/tahoe.tif", package = "starsUtils"),
+##'           "./b.tif")
+##' nearblack("a.tif", "b.tif")
+##' nearblack("a.tif", near=100)
 ##' }
 nearblack <-
-    function(infile, o, ..., of, co, white, color, near, nb, setalpha,
-             setmask, q)
+    function(infile, o = infile, ..., of, co, white, color, near, nb,
+             setalpha, setmask, q)
 {
     ## Unlike `as.list(match.call())`, forces eval of arguments
     args <-  mget(names(match.call())[-1])
     args[c("infile", "o")] <- NULL
     formalsTable <- getFormalsTable("nearblack")
-    opts <- process_args(args, formalsTable)
+    opts <- c(character(0), process_args(args, formalsTable))
     ## Mandatory argument is not prepended with a flag
     gdal_utils("nearblack", infile, o, options=opts)
-    invisible(datasetname)
+    invisible(o)
 }
 
 

@@ -23,7 +23,7 @@ nearblack <-
     args <-  mget(names(match.call())[-1])
     args[c("infile", "o")] <- NULL
     formalsTable <- getFormalsTable("nearblack")
-    opts <- c(character(0), process_args(args, formalsTable))
+    opts <- process_args(args, formalsTable)
     ## Mandatory argument is not prepended with a flag
     gdal_utils("nearblack", infile, o, options=opts)
     invisible(o)

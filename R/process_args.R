@@ -35,5 +35,5 @@ process_args <- function(args, formalsTable) {
             }
         }
     })
-    unlist(opts)
+    c(character(0), unlist(opts))
 }

@@ -10,7 +10,8 @@ getFormalsTable <- function(fun) {
            gdalinfo       = get("args_gdalinfo", envir=.gdUtilsEnv),
            gdaltindex     = get("args_gdaltindex", envir=.gdUtilsEnv),
            ogr2ogr        = get("args_ogr2ogr", envir=.gdUtilsEnv),
-           nearblack      = get("args_nearblack", envir=.gdUtilsEnv))
+           nearblack      = get("args_nearblack", envir=.gdUtilsEnv),
+           gdalbuildvrt   = get("args_gdalbuildvrt", envir=.gdUtilsEnv))
 }
 
 
@@ -39,8 +40,8 @@ tap,            -tap,            0,    FALSE
 ts,             -ts,             2,    FALSE
 ot,             -ot,             1,    FALSE
 q,              -q,              0,    FALSE",
-stringsAsFactors=FALSE, strip.white = TRUE,
-colClasses=c("character", "character", "numeric", "logical"))
+stringsAsFactors = FALSE, strip.white = TRUE,
+colClasses = c("character", "character", "numeric", "logical"))
 
 args_gdal_translate <- read.csv(text = "
 arg,         flag,         narg, repeatable
@@ -77,8 +78,8 @@ norat,       -norat,       0,    FALSE
 oo,          -oo,          1,    FALSE
 sd_index,    -sd_index,    1,    FALSE
 config,      --config,     Inf,  FALSE",
-stringsAsFactors=FALSE, strip.white = TRUE,
-colClasses=c("character", "character", "numeric", "logical"))
+stringsAsFactors = FALSE, strip.white = TRUE,
+colClasses = c("character", "character", "numeric", "logical"))
 
 
 args_gdalwarp <- read.csv(text = "
@@ -125,8 +126,8 @@ setci,           -setci,           0,    FALSE
 oo,              -oo,              1,    FALSE
 doo,             -doo,             1,    FALSE
 config,          --config,         Inf,  TRUE",
-stringsAsFactors=FALSE, strip.white = TRUE,
-colClasses=c("character", "character", "numeric", "logical"))
+stringsAsFactors = FALSE, strip.white = TRUE,
+colClasses = c("character", "character", "numeric", "logical"))
 
 
 args_gdaldem <- read.csv(text = "
@@ -153,8 +154,8 @@ color_text_file,     -color_text_file,     1,    FALSE
 alpha,               -alpha,               0,    FALSE
 exact_color_entry,   -exact_color_entry,   0,    FALSE
 nearest_color_entry, -nearest_color_entry, 0,    FALSE",
-stringsAsFactors=FALSE, strip.white = TRUE,
-colClasses=c("character", "character", "numeric", "logical"))
+stringsAsFactors = FALSE, strip.white = TRUE,
+colClasses = c("character", "character", "numeric", "logical"))
 
 
 args_gdal_contour <- read.csv(text = "
@@ -174,8 +175,8 @@ off,          -off,     1,    FALSE
 fl,           -fl,      1,    FALSE
 nln,          -nln,     1,    FALSE
 config,       --config, 1,    TRUE",
-stringsAsFactors=FALSE, strip.white = TRUE,
-colClasses=c("character", "character", "numeric", "logical"))
+stringsAsFactors = FALSE, strip.white = TRUE,
+colClasses = c("character", "character", "numeric", "logical"))
 
 
 args_gdaltindex <- read.csv(text = "
@@ -258,8 +259,8 @@ unsetDefault,          -unsetDefault,                 0,    FALSE
 unsetFid,              -unsetFid,                     0,    FALSE
 nomd,                  -nomd,                         0,    FALSE
 mo,                    -mo,                           0,    FALSE",
-stringsAsFactors=FALSE, strip.white = TRUE,
-colClasses=c("character", "character", "numeric", "logical"))
+stringsAsFactors = FALSE, strip.white = TRUE,
+colClasses = c("character", "character", "numeric", "logical"))
 
 
 args_gdalinfo <- read.csv(text = "
@@ -281,15 +282,8 @@ oo,            -oo,             1, FALSE
 listmdd,       -listmdd,        0, FALSE
 mdd,           -mdd,            1, FALSE
 sd,            -sd,             1, FALSE",
-## version,       --version,       0, FALSE
-## formats,       --formats,       0, FALSE
-## format,        --format,        1, FALSE
-## optfile,       --optfile,       1, FALSE
-## config,        --config,        1, FALSE
-## debug,         --debug,         1, FALSE",
-stringsAsFactors=FALSE, strip.white = TRUE,
-colClasses=c("character", "character", "numeric", "logical"))
-
+stringsAsFactors = FALSE, strip.white = TRUE,
+colClasses = c("character", "character", "numeric", "logical"))
 
 
 args_nearblack <- read.csv(text = "
@@ -327,6 +321,32 @@ colClasses=c("character", "character", "numeric", "logical"))
 
 
 
+args_gdalbuildvrt <- read.csv(text = "
+output.vrt,                   ,                             1,  FALSE
+gdalfile,                     ,                           Inf,  FALSE
+tileindex,                    -tileindex,                   0,  FALSE
+resolution,                   -resolution,                  1,  FALSE
+te,                           -te,                          4,  FALSE
+tr,                           -tr,                          2,  FALSE
+tap,                          -tap,                         0,  FALSE
+separate,                     -separate,                    0,  FALSE
+b,                            -b,                           1,  FALSE
+sd,                           -sd,                          1,  FALSE
+allow_projection_difference,  -allow_projection_difference, 0,  FALSE
+q,                            -q,                           0,  FALSE
+addalpha,                     -addalpha,                    0,  FALSE
+hidenodata,                   -hidenodata,                  0,  FALSE
+srcnodata,                    -srcnodata,                   1,  FALSE
+vrtnodata,                    -vrtnodata,                   1,  FALSE
+a_srs,                        -a_srs,                       1,  FALSE
+r,                            -r,                           1,  FALSE
+input_file_list,              -input_file_list,             1,  FALSE
+overwrite,                    -overwrite,                   0,  FALSE",
+stringsAsFactors = FALSE, strip.white = TRUE,
+colClasses = c("character", "character", "numeric", "logical"))
+
+
+
 
 .gdUtilsEnv <- new.env()
 assign("args_gdal_rasterize", args_gdal_rasterize, envir = .gdUtilsEnv)
@@ -337,7 +357,8 @@ assign("args_gdal_contour",   args_gdal_contour,   envir = .gdUtilsEnv)
 assign("args_gdaltindex",     args_gdaltindex,     envir = .gdUtilsEnv)
 assign("args_ogr2ogr",        args_ogr2ogr,        envir = .gdUtilsEnv)
 assign("args_gdalinfo",       args_gdalinfo,       envir = .gdUtilsEnv)
-assign("args_nearblack",      args_nearblack,       envir = .gdUtilsEnv)
+assign("args_nearblack",      args_nearblack,      envir = .gdUtilsEnv)
+assign("args_gdalbuildvrt",   args_gdalbuildvrt,   envir = .gdUtilsEnv)
 
 
 

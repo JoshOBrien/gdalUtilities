@@ -22,7 +22,7 @@ gdaldem <-
     args <-  mget(names(match.call())[-1])
     args[c("mode", "input_dem", "output_map", "color_text_file")] <- NULL
     formalsTable <- getFormalsTable("gdaldem")
-    opts <- c(character(0), process_args(args, formalsTable))
+    opts <- process_args(args, formalsTable)
     ## (My name for "mode" and "output_map")
     gdal_utils("demprocessing", input_dem, output_map, opts,
                processing = mode, colorfile = color_text_file)

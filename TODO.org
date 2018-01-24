@@ -5,14 +5,11 @@
 - [X] ~gdalwarp~ (using switch ~warp~)
 - [X] ~gdal_rasterize~ (using switch ~rasterize~)
 - [X] ~gdal_translate~ (using switch ~translate~)
-- [X]  ~ogr2ogr~ a.k.a. ~gdalvectortranslate~ ([[http://www.gdal.org/gdal__utils_8h.html#aa176ae667bc857ab9c6016dbe62166eb][here]] and [[https://github.com/OSGeo/gdal/blob/a1df7cb9df2fe3cbcfac974b434b01ac6a1946e5/gdal/apps/ogr2ogr_lib.cpp][here]]) (via
+- [X] ~ogr2ogr~ a.k.a. ~gdalvectortranslate~ ([[http://www.gdal.org/gdal__utils_8h.html#aa176ae667bc857ab9c6016dbe62166eb][here]] and [[https://github.com/OSGeo/gdal/blob/a1df7cb9df2fe3cbcfac974b434b01ac6a1946e5/gdal/apps/ogr2ogr_lib.cpp][here]]) (via
   ~vectortranslate~)
 - [ ] ~gdalbuildvrt~ (using switch ~buildvrt~)
-- [X] ~gdaldemprocessing~ (using switch ~demprocessing~)
-- [ ] ~gdalnearblack~ (using switch ~nearblack~) (*NOTE:* May need to
-  contact Edzer to have him remove the ~destination~ argument in
-  ~gdal_utils()~' call to ~CPL_nearblack~, since it's not actually
-  a required argument.)
+- [X] ~gdaldem~ (using switch ~demprocessing~)
+- [X] ~nearblack~ (using switch ~nearblack~)
 - [ ] ~gdal_grid~ (using switch ~grid~)
 
 * Utilities taking more than one list of options

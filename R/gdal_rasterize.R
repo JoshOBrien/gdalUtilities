@@ -14,9 +14,9 @@
 ##' plot(raster("rasterize_eg/SPDF.tif"))
 ##' }
 gdal_rasterize <-
-    function(src_datasource, dst_filename, b, i, at, burn, a, threeD,
-             l, where, sql, dialect, of, a_srs, co, a_nodata, init,
-             te, tr, tap, ts, ot, q) {
+    function(src_datasource, dst_filename, ..., b, i, at, burn, a,
+             threeD, l, where, sql, dialect, of, a_srs, co, a_nodata,
+             init, te, tr, tap, ts, ot, q) {
     ## Unlike `as.list(match.call())`, forces eval of arguments
     args <-  mget(names(match.call())[-1])
     args[c("src_datasource", "dst_filename")] <- NULL

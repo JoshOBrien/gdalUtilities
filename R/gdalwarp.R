@@ -23,7 +23,7 @@
 ##' ## gdalUtils::gdalinfo("tahoe_warped.tif")
 ##' }
 gdalwarp <-
-    function(srcfile, dstfile, s_srs, t_srs, to, order, tps, rpc,
+    function(srcfile, dstfile, ..., s_srs, t_srs, to, order, tps, rpc,
              geoloc, et, refine_gcps, te, te_srs, tr, tap, ts, ovr,
              wo, ot, wt, r, srcnodata, dstnodata, dstalpha, wm, multi,
              q, of, co, cutline, cl, cwhere, csql, cblend,

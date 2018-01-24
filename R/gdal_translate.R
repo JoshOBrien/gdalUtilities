@@ -12,7 +12,7 @@
 ##' gdal_translate("europe.tif", "europe_small.tif", outsize=c("50%","50%"))
 ##' }
 gdal_translate <-
-    function(src_dataset, dst_dataset, ot, strict, of, b, mask,
+    function(src_dataset, dst_dataset, ..., ot, strict, of, b, mask,
              expand, outsize, tr, r, scale, exponent, unscale, srcwin,
              projwin, projwin_srs, srs, epo, eco, a_srs, a_ullr,
              a_nodata, mo, co, gcp, q, sds, stats, norat, oo,

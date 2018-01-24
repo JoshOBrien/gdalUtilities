@@ -18,18 +18,18 @@
 ##' plot(shapefile(dst_datasource_name), add=TRUE, border="red")
 ##' }
 ogr2ogr <-
-    function(src_datasource_name, dst_datasource_name, layer, f, append,
-             overwrite, update, select, progress, sql, dialect, where,
-             skipfailures, spat, spat_srs, geomfield, dsco, lco, nln,
-             nlt, dim, a_srs, t_srs, s_srs, preserve_fid, fid, oo,
-             doo, gt, ds_transaction, clipsrc, clipsrcsql,
-             clipsrclayer, clipsrcwhere, clipdst, clipdstsql,
-             clipdstlayer, clipdstwhere, wrapdateline, datelineoffset,
-             simplify, segmentize, fieldTypeToString, mapFieldType,
-             unsetFieldWidth, splitlistfields, maxsubfields,
-             explodecollections, zfield, gcp, order, tps, fieldmap,
-             addfields, relaxedFieldNameMatch, forceNullable,
-             unsetDefault, unsetFid, nomd, mo)
+    function(src_datasource_name, dst_datasource_name, ..., layer, f,
+             append, overwrite, update, select, progress, sql,
+             dialect, where, skipfailures, spat, spat_srs, geomfield,
+             dsco, lco, nln, nlt, dim, a_srs, t_srs, s_srs,
+             preserve_fid, fid, oo, doo, gt, ds_transaction, clipsrc,
+             clipsrcsql, clipsrclayer, clipsrcwhere, clipdst,
+             clipdstsql, clipdstlayer, clipdstwhere, wrapdateline,
+             datelineoffset, simplify, segmentize, fieldTypeToString,
+             mapFieldType, unsetFieldWidth, splitlistfields,
+             maxsubfields, explodecollections, zfield, gcp, order,
+             tps, fieldmap, addfields, relaxedFieldNameMatch,
+             forceNullable, unsetDefault, unsetFid, nomd, mo)
 {
     ## Unlike `as.list(match.call())`, forces eval of arguments
     args <-  mget(names(match.call())[-1])

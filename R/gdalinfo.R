@@ -12,9 +12,9 @@
 ##' gdalinfo(ff)
 ##' }
 gdalinfo <-
-    function(datasetname, json, mm, stats, approx_stats, hist, nogcp,
-             nomd, norat, noct, checksum, listmdd, mdd, nofl, sd,
-             proj4, oo, config)
+    function(datasetname, ..., json, mm, stats, approx_stats, hist,
+             nogcp, nomd, norat, noct, checksum, listmdd, mdd, nofl,
+             sd, proj4, oo, config)
 {
     ## Unlike `as.list(match.call())`, forces eval of arguments
     args <-  mget(names(match.call())[-1])

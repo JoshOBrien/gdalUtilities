@@ -12,7 +12,7 @@
 ##' gdaldem("shade", "maunga.tif", "shade.tif")
 ##' }
 gdaldem <-
-    function(mode, input_dem, output_map = input_dem, ..., of,
+    function(mode, input_dem, output_map, ..., of,
              compute_edges, alg, b, co, q, z, s, az, alt, combined,
              multidirectional, p, trigonometric, zero_for_flat,
              color_text_file = character(0), alpha, exact_color_entry,

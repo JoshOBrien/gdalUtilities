@@ -36,6 +36,6 @@ gdalwarp <-
     formalsTable <- getFormalsTable("gdalwarp")
     opts <- process_args(args, formalsTable)
     ## Neither mandatory argument is prepended with a flag
-    st_gdal_utils("warp", srcfile, dstfile, opts)
+    gdal_utils("warp", srcfile, dstfile, opts)
     invisible(dstfile)
 }

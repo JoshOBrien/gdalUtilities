@@ -23,6 +23,6 @@ gdal_rasterize <-
     formalsTable <- getFormalsTable("gdal_rasterize")
     opts <- process_args(args, formalsTable)
     ## Neither mandatory argument is prepended with a flag
-    st_gdal_utils("rasterize", src_datasource, dst_filename, opts)
+    gdal_utils("rasterize", src_datasource, dst_filename, opts)
     invisible(dst_filename)
 }

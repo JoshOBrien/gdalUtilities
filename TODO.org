@@ -1,21 +1,39 @@
 
-* Utilities provided by stars::st_gdal_utils()
+* Utilities provided by stars::gdal_utils()
 
-- [ ] ~gdalinfo~ (using switch ~info~)
+- [X] ~gdalinfo~ (using switch ~info~)
 - [X] ~gdalwarp~ (using switch ~warp~)
 - [X] ~gdal_rasterize~ (using switch ~rasterize~)
 - [X] ~gdal_translate~ (using switch ~translate~)
 - [X]  ~ogr2ogr~ a.k.a. ~gdalvectortranslate~ ([[http://www.gdal.org/gdal__utils_8h.html#aa176ae667bc857ab9c6016dbe62166eb][here]] and [[https://github.com/OSGeo/gdal/blob/a1df7cb9df2fe3cbcfac974b434b01ac6a1946e5/gdal/apps/ogr2ogr_lib.cpp][here]]) (via
   ~vectortranslate~)
 - [ ] ~gdalbuildvrt~ (using switch ~buildvrt~)
-- [ ] ~gdaldemprocessing~ (using switch ~demprocessing~)
-- [ ] ~gdalnearblack~ (using switch ~nearblack~)
+- [X] ~gdaldemprocessing~ (using switch ~demprocessing~)
+- [ ] ~gdalnearblack~ (using switch ~nearblack~) (*NOTE:* May need to
+  contact Edzer to have him remove the ~destination~ argument in
+  ~gdal_utils()~' call to ~CPL_nearblack~, since it's not actually
+  a required argument.)
 - [ ] ~gdal_grid~ (using switch ~grid~)
 
 * Utilities taking more than one list of options
+It's looking (?) like this only applies to gdaldemprocessing. For it,
+the two additional arguments are ~pszProcessing~ and (one of
+"hillshade", "slope", "aspect", "color-relief", "TRI", "TPI", and
+"Roughness") and ~pszColorFilename~ (mandatory for "color-relief"
+processing, should be NULL otherwise, with Edzer's code already
+handling the NULL case).
+
+Here, for comparison's sake, is the way it and ~nearblack~ are called
+in ~stars::gdal_utils()~:
+
+#+BEGIN_SRC R
+demprocessing = CPL_gdaldemprocessing(source, destination, options, processing, colorfilename)
+nearblack = CPL_gdalnearblack(source, destination, options)
+#+END_SRC
+
+*stars* package Rcpp code [[file:c:/gitRepos/stars/src/utils.cpp::Rcpp::LogicalVector%20CPL_gdaldemprocessing(Rcpp::CharacterVector%20src,%20Rcpp::CharacterVector%20dst,][here]], signature [[http://www.gdal.org/gdal__utils_8h.html#a5d8486d2fd4a7a39bc954eb7f4410053][here]], C++ code [[https://github.com/OSGeo/gdal/blob/a1df7cb9df2fe3cbcfac974b434b01ac6a1946e5/gdal/apps/gdaldem_lib.cpp#L3228][here]].
 
 * Command-line examples of each underlying utility
-
 ** ogr2ogr()
 
 #+BEGIN_SRC R 
@@ -34,11 +52,23 @@ gdUtils::r_ogr2ogr(src_datasource_name, dst_datasource_name,
                    layer = "tahoe_highrez_training", f="KML")
 #+END_SRC 
 
-
-
-
+** nearblack()
+- [[http://www.gdal.org/rgb2pct.html][Here]] is a tangentially related utility that may show how to specify
+  non-white/black colors via the ~-colors~ argument of ~nearblack()~
+- Need to test, from the command line, what is the effect of using it
+  with and without an ~-o~ (outfile) argument. *ANSWER:* It works both
+  ways, because the command-line binary is processed by code that
+  checks whether the outfile argument is left ~null~, and if so,
+  "fills it in" with the value of the infile. (See [[https://github.com/OSGeo/gdal/blob/trunk/gdal/apps/nearblack_bin.cpp#L132-L134][here]] and [[https://github.com/OSGeo/gdal/blob/trunk/gdal/apps/nearblack_bin.cpp#L142-L146][here]].)
 
 * Argument-processing complications
+** Take better care to avoid partial argument matching
+To do so, we should almost certainly place all of our optional
+arguments after a ~...~ argument. That would also avoid the
+undesirable possibility of unwanted positional matching of one or more
+of the optional arguments. (Somewhat related, in my mind, to [[https://www.fromthebottomoftheheap.net/2011/07/23/passing-non-graphical-parameters-to-graphical-functions-using/][this post]]
+on Gavin Simpson's blog.)
+
 ** Formals taking variable number of arguments
 - In [[http://www.gdal.org/ogr2ogr.html][~ogr2ogr~]], for example, the ~-clipsrc~ formal has this signature:
   ~-clipsrc [xmin ymin xmax ymax]|WKT|datasource|spat_extent~

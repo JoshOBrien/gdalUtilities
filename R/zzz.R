@@ -9,7 +9,8 @@ getFormalsTable <- function(fun) {
            gdal_contour   = get("args_gdal_contour", envir=.gdUtilsEnv),
            gdalinfo       = get("args_gdalinfo", envir=.gdUtilsEnv),
            gdaltindex     = get("args_gdaltindex", envir=.gdUtilsEnv),
-           ogr2ogr        = get("args_ogr2ogr", envir=.gdUtilsEnv))
+           ogr2ogr        = get("args_ogr2ogr", envir=.gdUtilsEnv),
+           nearblack      = get("args_nearblack", envir=.gdUtilsEnv))
 }
 
 
@@ -144,6 +145,7 @@ s,                   -s,                   1,    FALSE
 az,                  -az,                  1,    FALSE
 alt,                 -alt,                 1,    FALSE
 combined,            -combined,            1,    FALSE
+multidirectional,    -multidirectional,    0,    FALSE
 p,                   -p,                   0,    FALSE
 trigonometric,       -trigonometric,       0,    FALSE
 zero_for_flat,       -zero_for_flat,       0,    FALSE
@@ -290,6 +292,42 @@ colClasses=c("character", "character", "numeric", "logical"))
 
 
 
+args_nearblack <- read.csv(text = "
+arg,           flag,         narg, repeatable
+infile,        ,                1,   FALSE
+o,             -o,              0,   FALSE
+of,            -of,             0,   FALSE
+co,            -co,             0,   FALSE
+white,         -white,          0,   FALSE
+color,         -color,          1,   TRUE
+near,          -near,           1,   FALSE
+nb,            -nb,             1,   FALSE
+setalpha,      -setalpha,       0,   FALSE
+setmask,       -setmask,        0,   FALSE
+q,             -q,              0,   FALSE
+datasetname,   ,                1, FALSE
+json,          -json,           0, FALSE
+mm,            -mm,             0, FALSE
+stats,         -stats,          0, FALSE
+approx_stats,  -approx_stats,   0, FALSE
+hist,          -hist,           0, FALSE
+nogcp,         -nogcp,          0, FALSE
+nomd,          -nomd,           0, FALSE
+norat,         -norat,           0, FALSE
+noct,          -noct,           0, FALSE
+nofl,          -nofl,           0, FALSE
+checksum,      -checksum,       0, FALSE
+proj4,         -proj4,          0, FALSE
+oo,            -oo,             1, FALSE
+listmdd,       -listmdd,        0, FALSE
+mdd,           -mdd,            1, FALSE
+sd,            -sd,             1, FALSE",
+stringsAsFactors=FALSE, strip.white = TRUE,
+colClasses=c("character", "character", "numeric", "logical"))
+
+
+
+
 .gdUtilsEnv <- new.env()
 assign("args_gdal_rasterize", args_gdal_rasterize, envir = .gdUtilsEnv)
 assign("args_gdal_translate", args_gdal_translate, envir = .gdUtilsEnv)
@@ -299,6 +337,7 @@ assign("args_gdal_contour",   args_gdal_contour,   envir = .gdUtilsEnv)
 assign("args_gdaltindex",     args_gdaltindex,     envir = .gdUtilsEnv)
 assign("args_ogr2ogr",        args_ogr2ogr,        envir = .gdUtilsEnv)
 assign("args_gdalinfo",       args_gdalinfo,       envir = .gdUtilsEnv)
+assign("args_nearblack",      args_nearblack,       envir = .gdUtilsEnv)
 
 
 

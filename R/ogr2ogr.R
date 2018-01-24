@@ -37,7 +37,7 @@ ogr2ogr <-
     formalsTable <- getFormalsTable("ogr2ogr")
     opts <- process_args(args, formalsTable)
     ## Neither mandatory argument is prepended with a flag
-    st_gdal_utils("vectortranslate", src_datasource_name,
-                  dst_datasource_name, opts)
+    gdal_utils("vectortranslate", src_datasource_name,
+               dst_datasource_name, opts)
     invisible(dst_datasource_name)
 }

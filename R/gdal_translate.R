@@ -24,6 +24,6 @@ gdal_translate <-
     formalsTable <- getFormalsTable("gdal_translate")
     opts <- process_args(args, formalsTable)
     ## Neither mandatory argument is prepended with a flag
-    st_gdal_utils("translate", src_dataset, dst_dataset, opts)
+    gdal_utils("translate", src_dataset, dst_dataset, opts)
     invisible(dst_dataset)
 }

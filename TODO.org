@@ -7,7 +7,7 @@
 - [X] ~gdal_translate~
 - [X] ~ogr2ogr~ a.k.a. ~gdalvectortranslate~ ([[http://www.gdal.org/gdal__utils_8h.html#aa176ae667bc857ab9c6016dbe62166eb][here]] and [[https://github.com/OSGeo/gdal/blob/a1df7cb9df2fe3cbcfac974b434b01ac6a1946e5/gdal/apps/ogr2ogr_lib.cpp][here]]) (via
   ~vectortranslate~)
-- [ ] ~gdalbuildvrt~ (using switch ~buildvrt~)
+- [X] ~gdalbuildvrt~
 - [X] ~gdaldem~
 - [X] ~nearblack~
 - [X] ~gdal_grid~

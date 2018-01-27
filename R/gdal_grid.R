@@ -15,7 +15,6 @@
 ##' write.csv(pts, file="dem.csv", row.names=FALSE)
 ##'
 ##' ## Now make a matching VRT file
-##' tempfname_vrt <- paste(tempfname_base,".vrt",sep="")
 ##' vrt_header <- c(
 ##' '<OGRVRTDataSource>',
 ##' '  <OGRVRTLayer name="dem">',
@@ -25,7 +24,7 @@
 ##' '  </OGRVRTLayer>',
 ##' '</OGRVRTDataSource>'
 ##' )
-##' cat(vrt_header, file="tmp.vrt")
+##' cat(vrt_header, file="tmp.vrt", sep="\n")
 ##'
 ##' ## Test it out
 ##' gdal_grid(src_datasource="tmp.vrt", dst_filename="tmp.tiff",

@@ -1,4 +1,8 @@
 
+## Make an out of the way place to store data objects
+.gdUtilsEnv <- new.env()
+
+
 ## Accessor function for grabbing formals tables from hidden environment
 getFormalsTable <- function(fun) {
     switch(fun,
@@ -16,7 +20,8 @@ getFormalsTable <- function(fun) {
 }
 
 
-args_gdal_rasterize <- read.csv(text = "
+## Tables of formal arguments to GDAL utilities functions.
+.gdUtilsEnv[["args_gdal_rasterize"]] <- read.csv(text = "
 arg,            flag,            narg, repeatable
 src_datasource, -src_datasource, 1,    FALSE
 dst_filename,   -dst_filename,   1,    FALSE
@@ -44,7 +49,8 @@ q,              -q,              0,    FALSE",
 stringsAsFactors = FALSE, strip.white = TRUE,
 colClasses = c("character", "character", "numeric", "logical"))
 
-args_gdal_translate <- read.csv(text = "
+
+.gdUtilsEnv[["args_gdal_translate"]] <- read.csv(text = "
 arg,         flag,         narg, repeatable
 src_dataset, ,             1,    FALSE
 dst_dataset, ,             1,    FALSE
@@ -83,7 +89,7 @@ stringsAsFactors = FALSE, strip.white = TRUE,
 colClasses = c("character", "character", "numeric", "logical"))
 
 
-args_gdalwarp <- read.csv(text = "
+.gdUtilsEnv[["args_gdalwarp"]] <- read.csv(text = "
 arg,             flag,             narg, repeatable
 srcfile,         ,                 1,    TRUE
 dstfile,         ,                 1,    FALSE
@@ -131,7 +137,7 @@ stringsAsFactors = FALSE, strip.white = TRUE,
 colClasses = c("character", "character", "numeric", "logical"))
 
 
-args_gdaldem <- read.csv(text = "
+.gdUtilsEnv[["args_gdaldem"]] <- read.csv(text = "
 arg,                 flag,                 narg, repeatable
 mode,                ,                     1,    TRUE
 input_dem,           ,                     1,    FALSE
@@ -159,7 +165,7 @@ stringsAsFactors = FALSE, strip.white = TRUE,
 colClasses = c("character", "character", "numeric", "logical"))
 
 
-args_gdal_contour <- read.csv(text = "
+.gdUtilsEnv[["args_gdal_contour"]] <- read.csv(text = "
 arg,          flag,     narg, repeatable
 src_filename, ,         1,    FALSE
 dst_filename, ,         1,    FALSE
@@ -180,7 +186,7 @@ stringsAsFactors = FALSE, strip.white = TRUE,
 colClasses = c("character", "character", "numeric", "logical"))
 
 
-args_gdaltindex <- read.csv(text = "
+.gdUtilsEnv[["args_gdaltindex"]] <- read.csv(text = "
 arg,                       flag,                       narg, repeatable
 datasetname,               ,                           1,    FALSE
 index_file,                -index_file,                1,    FALSE
@@ -264,7 +270,7 @@ stringsAsFactors = FALSE, strip.white = TRUE,
 colClasses = c("character", "character", "numeric", "logical"))
 
 
-args_gdalinfo <- read.csv(text = "
+.gdUtilsEnv[["args_gdalinfo"]] <- read.csv(text = "
 arg,           flag,         narg, repeatable
 datasetname,   ,                1, FALSE
 json,          -json,           0, FALSE
@@ -287,7 +293,7 @@ stringsAsFactors = FALSE, strip.white = TRUE,
 colClasses = c("character", "character", "numeric", "logical"))
 
 
-args_nearblack <- read.csv(text = "
+.gdUtilsEnv[["args_nearblack"]] <- read.csv(text = "
 arg,           flag,         narg, repeatable
 infile,        ,                1,   FALSE
 o,             -o,              0,   FALSE
@@ -321,7 +327,7 @@ stringsAsFactors=FALSE, strip.white = TRUE,
 colClasses=c("character", "character", "numeric", "logical"))
 
 
-args_gdal_grid <- read.csv(text = "
+.gdUtilsEnv[["args_gdal_grid"]] <- read.csv(text = "
 arg,             flag,           narg,   repeatable
 src_datasource,  ,                  1,        FALSE
 dst_filename,    ,                  1,        FALSE
@@ -350,7 +356,7 @@ stringsAsFactors=FALSE, strip.white = TRUE,
 colClasses=c("character", "character", "numeric", "logical"))
 
 
-args_gdalbuildvrt <- read.csv(text = "
+.gdUtilsEnv[["args_gdalbuildvrt"]] <- read.csv(text = "
 output.vrt,                   ,                             1,  FALSE
 gdalfile,                     ,                           Inf,  FALSE
 tileindex,                    -tileindex,                   0,  FALSE
@@ -373,26 +379,6 @@ input_file_list,              -input_file_list,             1,  FALSE
 overwrite,                    -overwrite,                   0,  FALSE",
 stringsAsFactors = FALSE, strip.white = TRUE,
 colClasses = c("character", "character", "numeric", "logical"))
-
-
-
-
-.gdUtilsEnv <- new.env()
-assign("args_gdal_rasterize", args_gdal_rasterize, envir = .gdUtilsEnv)
-assign("args_gdal_translate", args_gdal_translate, envir = .gdUtilsEnv)
-assign("args_gdalwarp",       args_gdalwarp,       envir = .gdUtilsEnv)
-assign("args_gdaldem",        args_gdaldem,        envir = .gdUtilsEnv)
-assign("args_gdal_contour",   args_gdal_contour,   envir = .gdUtilsEnv)
-assign("args_gdaltindex",     args_gdaltindex,     envir = .gdUtilsEnv)
-assign("args_ogr2ogr",        args_ogr2ogr,        envir = .gdUtilsEnv)
-assign("args_gdalinfo",       args_gdalinfo,       envir = .gdUtilsEnv)
-assign("args_nearblack",      args_nearblack,      envir = .gdUtilsEnv)
-assign("args_gdalbuildvrt",   args_gdalbuildvrt,   envir = .gdUtilsEnv)
-assign("args_gdal_grid",      args_gdal_grid,      envir = .gdUtilsEnv)
-
-
-
-
 
 
 

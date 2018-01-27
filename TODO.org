@@ -1,16 +1,16 @@
 
 * Utilities provided by stars::gdal_utils()
 
-- [X] ~gdalinfo~ (using switch ~info~)
-- [X] ~gdalwarp~ (using switch ~warp~)
-- [X] ~gdal_rasterize~ (using switch ~rasterize~)
-- [X] ~gdal_translate~ (using switch ~translate~)
+- [X] ~gdalinfo~
+- [X] ~gdalwarp~
+- [X] ~gdal_rasterize~
+- [X] ~gdal_translate~
 - [X] ~ogr2ogr~ a.k.a. ~gdalvectortranslate~ ([[http://www.gdal.org/gdal__utils_8h.html#aa176ae667bc857ab9c6016dbe62166eb][here]] and [[https://github.com/OSGeo/gdal/blob/a1df7cb9df2fe3cbcfac974b434b01ac6a1946e5/gdal/apps/ogr2ogr_lib.cpp][here]]) (via
   ~vectortranslate~)
 - [ ] ~gdalbuildvrt~ (using switch ~buildvrt~)
-- [X] ~gdaldem~ (using switch ~demprocessing~)
-- [X] ~nearblack~ (using switch ~nearblack~)
-- [ ] ~gdal_grid~ (using switch ~grid~)
+- [X] ~gdaldem~
+- [X] ~nearblack~
+- [X] ~gdal_grid~
 
 * Utilities taking more than one list of options
 It's looking (?) like this only applies to gdaldemprocessing. For it,
@@ -59,13 +59,6 @@ gdUtils::r_ogr2ogr(src_datasource_name, dst_datasource_name,
   "fills it in" with the value of the infile. (See [[https://github.com/OSGeo/gdal/blob/trunk/gdal/apps/nearblack_bin.cpp#L132-L134][here]] and [[https://github.com/OSGeo/gdal/blob/trunk/gdal/apps/nearblack_bin.cpp#L142-L146][here]].)
 
 * Argument-processing complications
-** Take better care to avoid partial argument matching
-To do so, we should almost certainly place all of our optional
-arguments after a ~...~ argument. That would also avoid the
-undesirable possibility of unwanted positional matching of one or more
-of the optional arguments. (Somewhat related, in my mind, to [[https://www.fromthebottomoftheheap.net/2011/07/23/passing-non-graphical-parameters-to-graphical-functions-using/][this post]]
-on Gavin Simpson's blog.)
-
 ** Formals taking variable number of arguments
 - In [[http://www.gdal.org/ogr2ogr.html][~ogr2ogr~]], for example, the ~-clipsrc~ formal has this signature:
   ~-clipsrc [xmin ymin xmax ymax]|WKT|datasource|spat_extent~
@@ -73,18 +66,3 @@ on Gavin Simpson's blog.)
 ** Repeatable formals with variable numbers of arguments.
 - In [[http://www.gdal.org/gdal_translate.html][~gdal_translate~]], the ~-gcp~ formal has the following signature:
   ~[-gcp pixel line easting northing [elevation]]*~
-** Modify starsUtils:::process_args to never pass on NULL?
-At present, ~gdalinfo()~ uses a bit of a kludge to avoid errors in the
-case when it's called with just a file path (i.e. with no additional
-options). That's because otherwise, we (understandably) get an error
-warning that:
-
-#+BEGIN_SRC 
-Error in CPL_gdalinfo(source, options) : 
-  Not compatible with STRSXP: [type=NULL].
-#+END_SRC
-
-The likely better solution is to make the fix in ~process_args()~,
-with a concluding test for whether it's ~NULL~ and, if so, replacement
-with ~""~. But first, I want to check whether any others of the
-functions in the package emit similar warnings.

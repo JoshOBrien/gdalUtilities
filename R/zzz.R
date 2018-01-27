@@ -11,6 +11,7 @@ getFormalsTable <- function(fun) {
            gdaltindex     = get("args_gdaltindex", envir=.gdUtilsEnv),
            ogr2ogr        = get("args_ogr2ogr", envir=.gdUtilsEnv),
            nearblack      = get("args_nearblack", envir=.gdUtilsEnv),
+           gdal_grid      = get("args_gdal_grid", envir=.gdUtilsEnv),
            gdalbuildvrt   = get("args_gdalbuildvrt", envir=.gdUtilsEnv))
 }
 
@@ -320,6 +321,34 @@ stringsAsFactors=FALSE, strip.white = TRUE,
 colClasses=c("character", "character", "numeric", "logical"))
 
 
+args_gdal_grid <- read.csv(text = "
+arg,             flag,           narg,   repeatable
+src_datasource,  ,                  1,        FALSE
+dst_filename,    ,                  1,        FALSE
+ot,              -ot,               1,        FALSE
+of,              -of,               1,        FALSE
+txe,             -txe,              1,        FALSE
+tye,             -tye,              1,        FALSE
+outsize,         -outsize,          1,        FALSE
+a_srs,           -a_srs,            1,        FALSE
+zfield,          -zfield,           1,        FALSE
+z_increase,      -z_increase,       1,        FALSE
+z_multiply,      -z_multiply,       1,        FALSE
+a,               -a,                1,        FALSE
+spat,            -spat,             1,        FALSE
+clipsrc,         -clipsrc,          1,        FALSE
+clipsrcsql,      -clipsrcsql,       1,        FALSE
+clipsrclayer,    -clipsrclayer,     1,        FALSE
+clipsrcwhere,    -clipsrcwhere,     1,        FALSE
+l,               -l,                1,        FALSE
+where,           -where,            1,        FALSE
+sql,             -sql,              1,        FALSE
+co,              -co,               1,        FALSE
+q,               -q,                0,        FALSE
+config,          --config,          1,        TRUE",
+stringsAsFactors=FALSE, strip.white = TRUE,
+colClasses=c("character", "character", "numeric", "logical"))
+
 
 args_gdalbuildvrt <- read.csv(text = "
 output.vrt,                   ,                             1,  FALSE
@@ -359,6 +388,7 @@ assign("args_ogr2ogr",        args_ogr2ogr,        envir = .gdUtilsEnv)
 assign("args_gdalinfo",       args_gdalinfo,       envir = .gdUtilsEnv)
 assign("args_nearblack",      args_nearblack,      envir = .gdUtilsEnv)
 assign("args_gdalbuildvrt",   args_gdalbuildvrt,   envir = .gdUtilsEnv)
+assign("args_gdal_grid",      args_gdal_grid,      envir = .gdUtilsEnv)
 
 
 

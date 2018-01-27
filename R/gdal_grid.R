@@ -1,0 +1,50 @@
+##' This function provides an interface mirroring that of the GDAL
+##' command-line app \code{gdal_grid}.
+##'
+##' @title R interface to GDAL gdal_grid utility
+##' @return None. Called instead for its side effect.
+##' @export
+##' @author Josh O'Brien
+##' @examples
+##' \dontrun{
+##' library(raster)
+##'
+##' pts <- data.frame(Easting=c(86943.4,87124.3,86962.4,87077.6),
+##'                   Northing=c(891957,892075,892321,891995),
+##'                   Elevation=c(139.13,135.01,182.04,135.01))
+##' write.csv(pts, file="dem.csv", row.names=FALSE)
+##'
+##' ## Now make a matching VRT file
+##' tempfname_vrt <- paste(tempfname_base,".vrt",sep="")
+##' vrt_header <- c(
+##' '<OGRVRTDataSource>',
+##' '  <OGRVRTLayer name="dem">',
+##' '    <SrcDataSource>dem.csv</SrcDataSource>',
+##' '    <GeometryType>wkbPoint</GeometryType>',
+##' '    <GeometryField encoding="PointFromColumns" x="Easting" y="Northing" z="Elevation"/>',
+##' '  </OGRVRTLayer>',
+##' '</OGRVRTDataSource>'
+##' )
+##' cat(vrt_header, file="tmp.vrt")
+##'
+##' ## Test it out
+##' gdal_grid(src_datasource="tmp.vrt", dst_filename="tmp.tiff",
+##'           a="invdist:power=2.0:smoothing=1.0",
+##'           txe=c(85000,89000),tye=c(894000,890000),outsize=c(400,400),
+##'           of="GTiff",ot="Float64",l="dem")
+##' plot(raster("tmp.tiff"))
+##' }
+gdal_grid <-
+    function(src_datasource, dst_filename, ..., ot, of, txe, tye,
+             outsize, a_srs, zfield, z_increase, z_multiply, a, spat,
+             clipsrc, clipsrcsql, clipsrclayer, clipsrcwhere, l,
+             where, sql, co, q, config) {
+    ## Unlike `as.list(match.call())`, forces eval of arguments
+    args <-  mget(names(match.call())[-1])
+    args[c("src_datasource", "dst_filename")] <- NULL
+    formalsTable <- getFormalsTable("gdal_grid")
+    opts <- process_args(args, formalsTable)
+    ## Neither mandatory argument is prepended with a flag
+    gdal_utils("grid", src_datasource, dst_filename, opts)
+    invisible(dst_filename)
+}

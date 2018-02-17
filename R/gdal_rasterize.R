@@ -7,11 +7,18 @@
 ##' @author Josh O'Brien
 ##' @examples
 ##' \dontrun{
-##' library(raster)
+##' ## Prepare example shapefile and template raster file
+##' td <- tempdir()
+##' rast_file <- file.path(td, "rasterize_eg/SPDF.tif")
+##' vect_file <- file.path(td, "rasterize_eg/SPDF.shp")
 ##' file.copy(system.file("extdata/rasterize_eg", package="starsUtils"),
-##'           ".", recursive=TRUE)
-##' gdal_rasterize("rasterize_eg/SPDF.shp", "rasterize_eg/SPDF.tif", a="ID_2")
-##' plot(raster("rasterize_eg/SPDF.tif"))
+##'           td, recursive=TRUE)
+##'
+##' ## Check that it works
+##' gdal_rasterize(vect_file, rast_file, a="ID_2")
+##' if(require(raster)) {
+##'     plot(raster(rast_file))
+##' }
 ##' }
 gdal_rasterize <-
     function(src_datasource, dst_filename, ..., b, i, at, burn, a,

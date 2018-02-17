@@ -6,15 +6,19 @@
 ##' @export
 ##' @author Josh O'Brien
 ##' @examples
-##' \dontrun{
+##' ## Prepare file paths
+##' td <- tempdir()
+##' out_vrt <- file.path(td, "out.vrt")
 ##' layer1 <-
-##'     system.file("external/tahoe_lidar_bareearth.tif", package="gdalUtils")
+##'     system.file("external/tahoe_lidar_bareearth.tif",
+##'                 package = "gdalUtils")
 ##' layer2 <-
-##'     system.file("external/tahoe_lidar_highesthit.tif", package="gdalUtils")
-##' output.vrt <- "boo.vrt"
-##' gdalbuildvrt(gdalfile=c(layer1,layer2),output.vrt=output.vrt)
-##' gdalinfo(output.vrt)
-##' }
+##'     system.file("external/tahoe_lidar_highesthit.tif",
+##'                 package = "gdalUtils")
+##'
+##' ## Check that it works
+##' gdalbuildvrt(gdalfile = c(layer1, layer2), output.vrt = out_vrt)
+##' gdalinfo(out_vrt)
 gdalbuildvrt <-
     function(gdalfile, output.vrt, tileindex, resolution, te, tr,
              tap, separate, b, sd, allow_projection_difference, q,

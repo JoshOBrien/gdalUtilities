@@ -16,25 +16,25 @@
 ##'
 ##' ## Check that it worked
 ##' if(require(gridExtra) & require(raster) & require(rasterVis)) {
-##' r1 <- raster(in_raster)
-##' r1[is.na(r1)] <- 0
-##' r1 <- as.factor(r1)
-##' rat <- levels(r1)[[1]]
-##' rat[["landcover"]] <- c("water", "land")
-##' levels(r1) <- rat
-##' p1 <- levelplot(r1, margin=FALSE, colorkey=FALSE,
-##'                 col.regions = c("lightblue", "brown"))
+##'     r1 <- raster(in_raster)
+##'     r1[is.na(r1)] <- 0
+##'     r1 <- as.factor(r1)
+##'     rat <- levels(r1)[[1]]
+##'     rat[["landcover"]] <- c("water", "land")
+##'     levels(r1) <- rat
+##'     p1 <- levelplot(r1, margin=FALSE, colorkey=FALSE,
+##'                     col.regions = c("lightblue", "brown"))
 ##'
-##' r2 <- raster(out_raster)
-##' r2[is.na(r2)] <- 0
-##' r2 <- as.factor(r2)
-##' rat <- levels(r2)[[1]]
-##' rat[["landcover"]] <- c("water", "land")
-##' levels(r2) <- rat
-##' p2 <- levelplot(r2, margin=FALSE, colorkey=FALSE,
-##'                 col.regions = c("lightblue", "brown"))
+##'     r2 <- raster(out_raster)
+##'     r2[is.na(r2)] <- 0
+##'     r2 <- as.factor(r2)
+##'     rat <- levels(r2)[[1]]
+##'     rat[["landcover"]] <- c("water", "land")
+##'     levels(r2) <- rat
+##'     p2 <- levelplot(r2, margin=FALSE, colorkey=FALSE,
+##'                     col.regions = c("lightblue", "brown"))
 ##'
-##' grid.arrange(p1, p2, ncol=2)
+##'     grid.arrange(p1, p2, ncol=2)
 ##' }
 ##' }
 gdal_translate <-

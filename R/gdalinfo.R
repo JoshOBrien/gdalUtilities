@@ -7,10 +7,8 @@
 ##' @export
 ##' @author Josh O'Brien
 ##' @examples
-##' \dontrun{
 ##' ff <- system.file("extdata/maunga.tif", package="starsUtils")
 ##' gdalinfo(ff)
-##' }
 gdalinfo <-
     function(datasetname, ..., json, mm, stats, approx_stats, hist,
              nogcp, nomd, norat, noct, checksum, listmdd, mdd, nofl,

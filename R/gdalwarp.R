@@ -7,8 +7,15 @@
 ##' @author Josh O'Brien
 ##' @examples
 ##' \dontrun{
+##' ## Prepare file paths
+##' td <- tempdir()
+##' in_tif <- file.path(td, "tahoe.tif")
+##' gcp_tif <- file.path(td, "tahoe_gcp.tif")
+##' out_tif <- file.path(td, "tahoe_warped.tif")
+##'
 ##' ## Set up some ground control points, then warp
-##' file.copy(system.file("extdata/tahoe.tif", package = "starsUtils"), ".")
+##' file.copy(system.file("extdata/tahoe.tif", package = "starsUtils"),
+##'           in_tif)
 ##' gcp <- matrix(c(100, 300, -119.93226, 39.28977, ## A
 ##'                 0, 300, -119.93281, 39.28977,   ## B
 ##'                 100, 400, -119.93226, 39.28922, ## C
@@ -17,10 +24,19 @@
 ##'                 400, 400, -119.93062, 39.28922, ## lr
 ##'                 0, 0,-119.93281, 39.29141),     ## ul
 ##'               ncol=4, byrow=TRUE)
-##' gdal_translate("tahoe.tif", "tahoe_gcp.tif", gcp = gcp)
-##' gdalwarp("tahoe_gcp.tif", "tahoe_warped.tif", r="bilinear")
+##' ## Add ground control points. (For some reason, this drops CRS, so
+##' ## it needs to be explicitly given via `a_srs` argument.)
+##' gdal_translate(in_tif, gcp_tif, gcp = gcp, a_srs="EPSG:4326")
+##' gdalwarp(gcp_tif, out_tif, r="bilinear")
 ##'
-##' ## gdalUtils::gdalinfo("tahoe_warped.tif")
+##' ## Check that it worked
+##' if(require(gridExtra) & require(raster) & require(rasterVis)) {
+##'     r1 <- raster(in_tif)
+##'     p1 <- levelplot(r1, margin=FALSE, colorkey=FALSE)
+##'     r2 <- raster(out_tif)
+##'     p2 <- levelplot(r2, margin=FALSE, colorkey=FALSE)
+##'     grid.arrange(p1, p2, ncol=2)
+##' }
 ##' }
 gdalwarp <-
     function(srcfile, dstfile, ..., s_srs, t_srs, to, order, tps, rpc,

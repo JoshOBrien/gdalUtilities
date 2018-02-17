@@ -7,9 +7,27 @@
 ##' @author Josh O'Brien
 ##' @examples
 ##' \dontrun{
-##' file.copy(system.file("extdata/maunga.tif", package="starsUtils"), ".")
-##' gdaldem("slope", "maunga.tif", "slope.tif")
-##' gdaldem("shade", "maunga.tif", "shade.tif")
+##' td <- tempdir()
+##' in_dem <- file.path(td, "maunga.tif")
+##' out_slope <- file.path(td, "slope.tif")
+##' out_shade <- file.path(td, "shade.tif")
+##' out_aspect <- file.path(td, "aspect.tif")
+##' file.copy(system.file("extdata/maunga.tif", package="starsUtils"),
+##'           to = in_dem)
+##' gdaldem("slope", in_dem, out_slope)
+##' gdaldem("shade", in_dem, out_shade)
+##' gdaldem("aspect", in_dem, out_aspect)
+##'
+##' ## Plot to view results
+##' if(require(gridExtra) & require(rasterVis)) {
+##'     lp <- function(f) {
+##'         levelplot(raster(f), main = substitute(f),
+##'                   margin = FALSE, colorkey = FALSE)
+##'     }
+##'     grid.arrange(lp(in_dem), lp(out_slope),
+##'                  lp(out_shade), lp(out_aspect),
+##'                  ncol = 2)
+##' }
 ##' }
 gdaldem <-
     function(mode, input_dem, output_map, ..., of,

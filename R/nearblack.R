@@ -8,12 +8,15 @@
 ##' @author Josh O'Brien
 ##' @examples
 ##' \dontrun{
+##' td <- tempdir()
+##' a_rast <- file.path(td, "a.tif")
+##' b_rast <- file.path(td, "b.tif")
 ##' file.copy(system.file("extdata/tahoe.tif", package = "starsUtils"),
-##'           "./a.tif")
+##'           a_rast)
 ##' file.copy(system.file("extdata/tahoe.tif", package = "starsUtils"),
-##'           "./b.tif")
-##' nearblack("a.tif", "b.tif")
-##' nearblack("a.tif", near=100)
+##'           b_rast)
+##' nearblack(a_rast, b_rast)
+##' nearblack(a_rast, near = 100)
 ##' }
 nearblack <-
     function(infile, o = infile, ..., of, co, white, color, near, nb,

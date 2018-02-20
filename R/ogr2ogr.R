@@ -8,14 +8,26 @@
 ##' @author Josh O'Brien
 ##' @examples
 ##' \dontrun{
-##' library(raster)
-##' src_datasource_name <-
-##'     system.file("extdata/tahoe_highrez_training.shp", package="starsUtils")
-##' dst_datasource_name <- paste(tempfile(), ".shp", sep="")
-##'  # reproject the input to mercator
-##' ogr2ogr(src_datasource_name, dst_datasource_name, t_srs="EPSG:3395")
-##' plot(shapefile(src_datasource_name))
-##' plot(shapefile(dst_datasource_name), add=TRUE, border="red")
+##' td <- tempdir()
+##' in_shp <- system.file("extdata/rasterize_eg/SPDF.shp",
+##'                       package = "starsUtils")
+##' out_merc <- file.path(td, "mercator.shp")
+##' out_utm <- file.path(td, "utm.shp")
+##'
+##' ## Reproject to 'WGS 84/World Mercator'
+##' ## https://en.wikipedia.org/wiki/Mercator_projection
+##' ogr2ogr(in_shp, out_merc, t_srs="EPSG:3395")
+##' ## Reproject to 'Lambert conformal conic projection'
+##' ## https://en.wikipedia.org/wiki/Lambert_conformal_conic_projection
+##' ogr2ogr(in_shp, out_utm, t_srs="EPSG:42304")
+##'
+##' if(require(raster)) {
+##'     par(mfcol=c(1,2))
+##'     plot(shapefile(out_merc), main = "WGS 84",
+##'          border = "darkgrey", col = gray.colors(12))
+##'     plot(shapefile(out_utm), main = "LCC",
+##'          border = "darkgrey", col = gray.colors(12))
+##' }
 ##' }
 ogr2ogr <-
     function(src_datasource_name, dst_datasource_name, ..., layer, f,

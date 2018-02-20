@@ -1,10 +1,10 @@
-Package: starsUtils
+Package: gdalUtilities
 Type: Package
 Title: R interface to GDAL Utils
-Version: 1.0
-Date: 2018-01-23
-Author: Josh O'Brien
-Maintainer: Josh O'Brien <joshmobrien@gmail.com>
+Version: 0.5
+Date: 2018-02-20
+Author: Joshua O'Brien
+Maintainer: Joshua O'Brien <joshmobrien@gmail.com>
 Description: 
 License: GPL (>= 2)
 Depends:

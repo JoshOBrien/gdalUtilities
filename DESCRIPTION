@@ -8,5 +8,5 @@ Maintainer: Josh O'Brien <joshmobrien@gmail.com>
 Description: 
 License: GPL (>= 2)
 Depends:
-    stars
+    sf
 RoxygenNote: 6.0.1

@@ -11,9 +11,9 @@
 ##' td <- tempdir()
 ##' a_rast <- file.path(td, "a.tif")
 ##' b_rast <- file.path(td, "b.tif")
-##' file.copy(system.file("extdata/tahoe.tif", package = "starsUtils"),
+##' file.copy(system.file("extdata/tahoe.tif", package = "gdalUtilities"),
 ##'           a_rast)
-##' file.copy(system.file("extdata/tahoe.tif", package = "starsUtils"),
+##' file.copy(system.file("extdata/tahoe.tif", package = "gdalUtilities"),
 ##'           b_rast)
 ##' nearblack(a_rast, b_rast)
 ##' nearblack(a_rast, near = 100)

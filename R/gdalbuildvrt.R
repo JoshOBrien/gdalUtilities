@@ -16,7 +16,7 @@
 ##'     system.file("external/tahoe_lidar_highesthit.tif",
 ##'                 package = "gdalUtils")
 ##'
-##' ## Check that it works
+##' ## Build VRT and check that it works
 ##' gdalbuildvrt(gdalfile = c(layer1, layer2), output.vrt = out_vrt)
 ##' gdalinfo(out_vrt)
 gdalbuildvrt <-

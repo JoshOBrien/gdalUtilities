@@ -9,4 +9,6 @@ Description:
 License: GPL (>= 2)
 Depends:
     sf
+Suggests:
+    rasterVis
 RoxygenNote: 6.0.1

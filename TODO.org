@@ -1,4 +1,35 @@
 
+* Current TODO list
+Before uploading this to GitHub, I should
+ - Double-check the initial [[https://github.com/r-spatial/sf/issues/329][conversation with Edzer]] about what he
+   hoped for.
+ - Get a better example of using gdalwarp (??)
+ - Create a test suite showing that the results produced by
+   gdalUtilities (with GDAL inside) and gdalUtils (making system calls
+   to external GDAL) are checksum identical.
+ - In help pages, link to related GDAL documentation pages (as, for
+   example, here: http://www.gdal.org/ogr2ogr.html).
+ - Check implementation of variable length and repeatable arguments.
+ - Document  usage of variable length and repeatable arguments.
+ - Add an option (to each function?) for just returning the command
+   line equivalent of the current call.
+
+
+* From where does/should data come?
+
+ - My ~"maunga.tif"~ is derived from the dataset shipped with
+   *gdistance*, got by doing:
+   #+BEGIN_SRC R
+   raster(system.file("external/maungawhau.grd", package="gdistance"))
+   #+END_SRC
+
+ -  Similarly, my ~"europe.tif"~ is also gotten from *gdistance*, by
+   doing:
+   #+BEGIN_SRC R
+   raster(system.file("external/Europe.grd", package="gdistance"))
+   #+END_SRC
+
+
 * Utilities provided by stars::gdal_utils()
 
 - [X] ~gdalinfo~
@@ -66,3 +97,5 @@ gdUtils::r_ogr2ogr(src_datasource_name, dst_datasource_name,
 ** Repeatable formals with variable numbers of arguments.
 - In [[http://www.gdal.org/gdal_translate.html][~gdal_translate~]], the ~-gcp~ formal has the following signature:
   ~[-gcp pixel line easting northing [elevation]]*~
+
+

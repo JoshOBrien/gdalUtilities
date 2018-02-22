@@ -2,27 +2,30 @@
 ##' This function provides an interface mirroring that of the GDAL
 ##' command-line app \code{ogr2ogr}.
 ##'
+##' @name ogr2ogr
+##' @rdname ogr2ogr
 ##' @title R interface to ogr2ogr utility
 ##' @return None. Called instead for its side effect.
 ##' @export
 ##' @author Josh O'Brien
 ##' @examples
 ##' \dontrun{
+##' ## Prepare file paths
 ##' td <- tempdir()
-##' in_shp <- system.file("extdata/rasterize_eg/SPDF.shp",
-##'                       package = "starsUtils")
+##' in_shp <- system.file("external/lux.shp",
+##'                       package = "raster")
 ##' out_merc <- file.path(td, "mercator.shp")
 ##' out_utm <- file.path(td, "utm.shp")
 ##'
 ##' ## Reproject to 'WGS 84/World Mercator'
 ##' ## https://en.wikipedia.org/wiki/Mercator_projection
-##' ogr2ogr(in_shp, out_merc, t_srs="EPSG:3395")
+##' ogr2ogr(in_shp, out_merc, t_srs = "EPSG:3395")
 ##' ## Reproject to 'Lambert conformal conic projection'
 ##' ## https://en.wikipedia.org/wiki/Lambert_conformal_conic_projection
-##' ogr2ogr(in_shp, out_utm, t_srs="EPSG:42304")
+##' ogr2ogr(in_shp, out_utm, t_srs = "EPSG:42304")
 ##'
 ##' if(require(raster)) {
-##'     par(mfcol=c(1,2))
+##'     par(mfcol = c(1,2))
 ##'     plot(shapefile(out_merc), main = "WGS 84",
 ##'          border = "darkgrey", col = gray.colors(12))
 ##'     plot(shapefile(out_utm), main = "LCC",
@@ -53,3 +56,7 @@ ogr2ogr <-
                dst_datasource_name, opts)
     invisible(dst_datasource_name)
 }
+
+##' @rdname ogr2ogr
+##' @export
+gdalvectortranslate <- function(...) {ogr2ogr(...)}

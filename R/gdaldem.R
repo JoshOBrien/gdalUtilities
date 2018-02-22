@@ -7,26 +7,28 @@
 ##' @author Josh O'Brien
 ##' @examples
 ##' \dontrun{
+##' ## Prepare file paths
 ##' td <- tempdir()
-##' in_dem <- file.path(td, "maunga.tif")
-##' out_slope <- file.path(td, "slope.tif")
-##' out_shade <- file.path(td, "shade.tif")
+##' in_dem <- system.file("extdata/maunga.tif", package = "gdalUtilities")
+##' out_slope  <- file.path(td, "slope.tif")
+##' out_shade  <- file.path(td, "shade.tif")
 ##' out_aspect <- file.path(td, "aspect.tif")
-##' file.copy(system.file("extdata/maunga.tif", package="starsUtils"),
-##'           to = in_dem)
+##'
+##' ## Apply DEM processing
 ##' gdaldem("slope", in_dem, out_slope)
 ##' gdaldem("shade", in_dem, out_shade)
 ##' gdaldem("aspect", in_dem, out_aspect)
 ##'
-##' ## Plot to view results
-##' if(require(gridExtra) & require(rasterVis)) {
+##' ## View results
+##' if(require(rasterVis)) {
 ##'     lp <- function(f) {
 ##'         levelplot(raster(f), main = substitute(f),
 ##'                   margin = FALSE, colorkey = FALSE)
 ##'     }
-##'     grid.arrange(lp(in_dem), lp(out_slope),
-##'                  lp(out_shade), lp(out_aspect),
-##'                  ncol = 2)
+##'     plot(lp(in_dem),     split = c(1,1,2,2))
+##'     plot(lp(out_slope),  split = c(2,1,2,2), newpage = FALSE)
+##'     plot(lp(out_shade),  split = c(1,2,2,2), newpage = FALSE)
+##'     plot(lp(out_aspect), split = c(2,2,2,2), newpage = FALSE)
 ##' }
 ##' }
 gdaldem <-

@@ -11,11 +11,11 @@
 ##' td <- tempdir()
 ##' rast_file <- file.path(td, "rasterize_eg/SPDF.tif")
 ##' vect_file <- file.path(td, "rasterize_eg/SPDF.shp")
-##' file.copy(system.file("extdata/rasterize_eg", package="starsUtils"),
-##'           td, recursive=TRUE)
+##' file.copy(system.file("extdata/rasterize_eg", package="gdalUtilities"),
+##'           td, recursive = TRUE)
 ##'
-##' ## Check that it works
-##' gdal_rasterize(vect_file, rast_file, a="ID_2")
+##' ## Rasterize polygon and check that it worked
+##' gdal_rasterize(vect_file, rast_file, a = "ID_2")
 ##' if(require(raster)) {
 ##'     plot(raster(rast_file))
 ##' }

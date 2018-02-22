@@ -7,7 +7,7 @@
 ##' @export
 ##' @author Josh O'Brien
 ##' @examples
-##' ff <- system.file("extdata/maunga.tif", package="starsUtils")
+##' ff <- system.file("extdata/maunga.tif", package = "gdalUtilities")
 ##' gdalinfo(ff)
 gdalinfo <-
     function(datasetname, ..., json, mm, stats, approx_stats, hist,

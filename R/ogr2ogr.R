@@ -57,6 +57,3 @@ ogr2ogr <-
     invisible(dst_datasource_name)
 }
 
-##' @rdname ogr2ogr
-##' @export
-gdalvectortranslate <- function(...) {ogr2ogr(...)}

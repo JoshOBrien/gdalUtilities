@@ -51,13 +51,20 @@ gdal_grid <-
     function(src_datasource, dst_filename, ..., ot, of, txe, tye,
              outsize, a_srs, zfield, z_increase, z_multiply, a, spat,
              clipsrc, clipsrcsql, clipsrclayer, clipsrcwhere, l,
-             where, sql, co, q, config) {
+             where, sql, co, q, config,
+             dryrun = FALSE)
+{
     ## Unlike `as.list(match.call())`, forces eval of arguments
     args <-  mget(names(match.call())[-1])
-    args[c("src_datasource", "dst_filename")] <- NULL
+    args[c("src_datasource", "dst_filename", "dryrun")] <- NULL
     formalsTable <- getFormalsTable("gdal_grid")
     opts <- process_args(args, formalsTable)
-    ## Neither mandatory argument is prepended with a flag
+
+    if(dryrun) {
+        x <- CLI_call("gdal_grid", src_datasource, dst_filename, opts=opts)
+        return(x)
+    }
+
     gdal_utils("grid", src_datasource, dst_filename, opts)
     invisible(dst_filename)
 }

@@ -44,14 +44,22 @@ ogr2ogr <-
              mapFieldType, unsetFieldWidth, splitlistfields,
              maxsubfields, explodecollections, zfield, gcp, order,
              tps, fieldmap, addfields, relaxedFieldNameMatch,
-             forceNullable, unsetDefault, unsetFid, nomd, mo)
+             forceNullable, unsetDefault, unsetFid, nomd, mo,
+             dryrun = FALSE)
 {
     ## Unlike `as.list(match.call())`, forces eval of arguments
     args <-  mget(names(match.call())[-1])
-    args[c("src_datasource_name", "dst_datasource_name")] <- NULL
+    args[c("src_datasource_name",
+           "dst_datasource_name", "dryrun")] <- NULL
     formalsTable <- getFormalsTable("ogr2ogr")
     opts <- process_args(args, formalsTable)
-    ## Neither mandatory argument is prepended with a flag
+
+    if(dryrun) {
+        x <- CLI_call("ogr2ogr", src_datasource_name,
+                      dst_datasource_name, opts=opts)
+        return(x)
+    }
+
     gdal_utils("vectortranslate", src_datasource_name,
                dst_datasource_name, opts)
     invisible(dst_datasource_name)

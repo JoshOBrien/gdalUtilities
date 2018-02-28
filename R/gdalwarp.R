@@ -47,14 +47,20 @@ gdalwarp <-
              wo, ot, wt, r, srcnodata, dstnodata, dstalpha, wm, multi,
              q, of, co, cutline, cl, cwhere, csql, cblend,
              crop_to_cutline, overwrite, nomd, cvmd, setci, oo, doo,
-             config)
+             config,
+             dryrun = FALSE)
 {
     ## Unlike `as.list(match.call())`, forces eval of arguments
     args <-  mget(names(match.call())[-1])
-    args[c("srcfile", "dstfile")] <- NULL
+    args[c("srcfile", "dstfile", "dryrun")] <- NULL
     formalsTable <- getFormalsTable("gdalwarp")
     opts <- process_args(args, formalsTable)
-    ## Neither mandatory argument is prepended with a flag
+
+    if(dryrun) {
+        x <- CLI_call("gdalwarp", srcfile, dstfile, opts=opts)
+        return(x)
+    }
+
     gdal_utils("warp", srcfile, dstfile, opts)
     invisible(dstfile)
 }

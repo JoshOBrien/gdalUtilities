@@ -23,14 +23,20 @@ gdalbuildvrt <-
     function(gdalfile, output.vrt, tileindex, resolution, te, tr,
              tap, separate, b, sd, allow_projection_difference, q,
              addalpha, hidenodata, srcnodata, vrtnodata, a_srs, r,
-             input_file_list, overwrite)
+             input_file_list, overwrite,
+             dryrun = FALSE)
 {
     ## Unlike `as.list(match.call())`, forces eval of arguments
     args <-  mget(names(match.call())[-1])
-    args[c("gdalfile", "output.vrt")] <- NULL
+    args[c("gdalfile", "output.vrt", "dryrun")] <- NULL
     formalsTable <- getFormalsTable("gdalbuildvrt")
     opts <- process_args(args, formalsTable)
-    ## Neither mandatory argument is prepended with a flag
+
+    if(dryrun) {
+        x <- CLI_call("gdalbuildvrt", gdalfile, output.vrt, opts=opts)
+        return(x)
+    }
+
     gdal_utils("buildvrt", gdalfile, output.vrt, opts)
     invisible(output.vrt)
 }

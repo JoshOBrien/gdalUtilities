@@ -12,15 +12,21 @@
 gdalinfo <-
     function(datasetname, ..., json, mm, stats, approx_stats, hist,
              nogcp, nomd, norat, noct, checksum, listmdd, mdd, nofl,
-             sd, proj4, oo, config)
+             sd, proj4, oo, config,
+             dryrun = FALSE)
 {
     ## Unlike `as.list(match.call())`, forces eval of arguments
     args <-  mget(names(match.call())[-1])
-    args[c("datasetname")] <- NULL
+    args[c("datasetname", "dryrun")] <- NULL
     formalsTable <- getFormalsTable("gdalinfo")
     opts <- process_args(args, formalsTable)
     opts <- c("", opts) ## To ensure we never pass in a NULL
-    ## Mandatory argument is not prepended with a flag
+
+    if(dryrun) {
+        x <- CLI_call("gdalinfo", datasetname, opts=opts)
+        return(x)
+    }
+
     gdal_utils("info", datasetname, options=opts)
     invisible(datasetname)
 }

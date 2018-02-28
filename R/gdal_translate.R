@@ -47,14 +47,20 @@ gdal_translate <-
              expand, outsize, tr, r, scale, exponent, unscale, srcwin,
              projwin, projwin_srs, srs, epo, eco, a_srs, a_ullr,
              a_nodata, mo, co, gcp, q, sds, stats, norat, oo,
-             sd_index, config)
+             sd_index, config,
+             dryrun = FALSE)
 {
     ## Unlike `as.list(match.call())`, forces eval of arguments
     args <-  mget(names(match.call())[-1])
-    args[c("src_dataset", "dst_dataset")] <- NULL
+    args[c("src_dataset", "dst_dataset", "dryrun")] <- NULL
     formalsTable <- getFormalsTable("gdal_translate")
     opts <- process_args(args, formalsTable)
-    ## Neither mandatory argument is prepended with a flag
+
+    if(dryrun) {
+        x <- CLI_call("gdal_translate", src_dataset, dst_dataset, opts=opts)
+        return(x)
+    }
+
     gdal_utils("translate", src_dataset, dst_dataset, opts)
     invisible(dst_dataset)
 }

@@ -204,7 +204,7 @@ stringsAsFactors=FALSE, strip.white = TRUE,
 colClasses=c("character", "character", "numeric", "logical"))
 
 
-args_ogr2ogr <- read.csv(text = "
+.gdUtilsEnv[["args_ogr2ogr"]] <- read.csv(text = "
 arg,                   flag,                       narg, repeatable
 src_datasource_name,   ,                              1,    FALSE
 dst_datasource_name,   ,                              1,    FALSE
@@ -398,3 +398,14 @@ tokenizer <- function(x) {
 ## tokenizer(s1)
 ## tokenizer(s2)
 ## tokenizer(s3)
+
+
+## if(CLI_equivalent) {
+##     CLIcall("gdal_translate", src_dataset, dst_dataset, opts=opts)
+## }
+CLI_call <- function(util, ..., opts) {
+    dots <- unlist(list(...))
+    x <- paste(c(util, dots, opts), collapse=" ")
+    x <- gsub("\\\\|/", .Platform$file.sep, x)
+    x
+}

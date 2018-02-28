@@ -20,14 +20,20 @@
 ##' }
 nearblack <-
     function(infile, o = infile, ..., of, co, white, color, near, nb,
-             setalpha, setmask, q)
+             setalpha, setmask, q,
+             dryrun = FALSE)
 {
     ## Unlike `as.list(match.call())`, forces eval of arguments
     args <-  mget(names(match.call())[-1])
-    args[c("infile", "o")] <- NULL
+    args[c("infile", "o", "dryrun")] <- NULL
     formalsTable <- getFormalsTable("nearblack")
     opts <- process_args(args, formalsTable)
-    ## Mandatory argument is not prepended with a flag
+
+    if(dryrun) {
+        x <- CLI_call("nearblack", infile, o, opts=opts)
+        return(x)
+    }
+
     gdal_utils("nearblack", infile, o, options=opts)
     invisible(o)
 }

@@ -55,8 +55,8 @@ ogr2ogr <-
     opts <- process_args(args, formalsTable)
 
     if(dryrun) {
-        x <- CLI_call("ogr2ogr", src_datasource_name,
-                      dst_datasource_name, opts=opts)
+        x <- CLI_call("ogr2ogr", dst_datasource_name,
+                      src_datasource_name, opts=opts)
         return(x)
     }
 

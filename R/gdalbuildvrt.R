@@ -33,7 +33,9 @@ gdalbuildvrt <-
     opts <- process_args(args, formalsTable)
 
     if(dryrun) {
-        x <- CLI_call("gdalbuildvrt", gdalfile, output.vrt, opts=opts)
+        ## Pass everything through opts to enforce order expected by
+        ## command-line utility
+        x <- CLI_call("gdalbuildvrt", opts = c(opts, output.vrt, gdalfile))
         return(x)
     }
 

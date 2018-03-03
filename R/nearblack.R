@@ -15,8 +15,8 @@
 ##'           a_rast)
 ##' file.copy(system.file("extdata/tahoe.tif", package = "gdalUtilities"),
 ##'           b_rast)
-##' nearblack(a_rast, b_rast)
-##' nearblack(a_rast, near = 100)
+##' nearblack(a_rast, b_rast, of = "GTiff")
+##' nearblack(a_rast, of = "GTiff", near = 100)
 ##' }
 nearblack <-
     function(infile, o = infile, ..., of, co, white, color, near, nb,
@@ -25,12 +25,14 @@ nearblack <-
 {
     ## Unlike `as.list(match.call())`, forces eval of arguments
     args <-  mget(names(match.call())[-1])
-    args[c("infile", "o", "dryrun")] <- NULL
+    args[c("infile", "dryrun")] <- NULL
     formalsTable <- getFormalsTable("nearblack")
     opts <- process_args(args, formalsTable)
 
     if(dryrun) {
-        x <- CLI_call("nearblack", infile, o, opts=opts)
+        ## Pass everything through opts to enforce order expected by
+        ## command-line utility
+        x <- CLI_call("nearblack", opts = c(opts, infile))
         return(x)
     }
 

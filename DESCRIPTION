@@ -1,11 +1,22 @@
 Package: gdalUtilities
 Type: Package
-Title: R interface to GDAL Utils
+Title: R wrappers for the GDAL Utilities executables shipped with sf
 Version: 0.5
-Date: 2018-02-20
+Date: 2018-03-04
 Author: Joshua O'Brien
 Maintainer: Joshua O'Brien <joshmobrien@gmail.com>
-Description: 
+Description: R's sf package ships with self-contained GDAL
+    executables, including a bare bones interface to several of the
+    GDAL-related utility programs collectively known as the GDAL
+    utilities. For each of those utilities, this package provides an R
+    wrapper whose formal arguments closely mirror those of the GDAL
+    command line interface. All of the utilities operate on data
+    stored in files and typically write their output to other
+    files. As a result, processing data stored in any of R's more
+    common spatial formats (i.e. those supported by the sp, sf, and
+    raster packages) will require first writing to disk, then
+    processing with the package's wrapper functions before reading
+    back into R.
 License: GPL (>= 2)
 Depends:
     sf

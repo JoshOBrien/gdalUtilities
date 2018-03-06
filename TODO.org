@@ -14,9 +14,7 @@ Before uploading this to GitHub, I should
  - Add an option (to each function?) for just returning the command
    line equivalent of the current call.
 
-
 * From where does/should data come?
-
  - My ~"maunga.tif"~ is derived from the dataset shipped with
    *gdistance*, got by doing:
    #+BEGIN_SRC R
@@ -28,7 +26,6 @@ Before uploading this to GitHub, I should
    #+BEGIN_SRC R
    raster(system.file("external/Europe.grd", package="gdistance"))
    #+END_SRC
-
 
 * Utilities provided by stars::gdal_utils()
 

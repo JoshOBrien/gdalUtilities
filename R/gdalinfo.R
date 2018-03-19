@@ -1,8 +1,9 @@
-
 ##' This function provides an interface mirroring that of the GDAL
-##' command-line app \code{gdalinfo}.
+##' command-line app \code{gdalinfo}. For a description of the
+##' utility and the arguments that it takes, see the documentation at
+##' \url{http://www.gdal.org/gdalinfo.html}.
 ##'
-##' @title Bare interface to gdal_contour command-line app
+##' @title R interface to GDAL's gdalinfo utility
 ##' @return Silently returns path to \code{datasetname}.
 ##' @export
 ##' @author Josh O'Brien

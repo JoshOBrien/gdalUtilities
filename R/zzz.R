@@ -4,13 +4,17 @@
 
 
 ## Accessor function for grabbing formals tables from hidden environment
+##
+## .gdUtilsEnv is stored in the package's namespace. To directly
+## inspect it, try, for example:
+##     ls(asNamespace("gdalUtilities")[[".gdUtilsEnv"]]))
 getFormalsTable <- function(fun) {
     switch(fun,
            gdal_rasterize = get("args_gdal_rasterize", envir=.gdUtilsEnv),
            gdal_translate = get("args_gdal_translate", envir=.gdUtilsEnv),
            gdalwarp       = get("args_gdalwarp", envir=.gdUtilsEnv),
            gdaldem        = get("args_gdaldem", envir=.gdUtilsEnv),
-           gdal_contour   = get("args_gdal_contour", envir=.gdUtilsEnv),
+           ## gdal_contour   = get("args_gdal_contour", envir=.gdUtilsEnv),
            gdalinfo       = get("args_gdalinfo", envir=.gdUtilsEnv),
            gdaltindex     = get("args_gdaltindex", envir=.gdUtilsEnv),
            ogr2ogr        = get("args_ogr2ogr", envir=.gdUtilsEnv),
@@ -165,25 +169,25 @@ stringsAsFactors = FALSE, strip.white = TRUE,
 colClasses = c("character", "character", "numeric", "logical"))
 
 
-.gdUtilsEnv[["args_gdal_contour"]] <- read.csv(text = "
-arg,          flag,     narg, repeatable
-src_filename, ,         1,    FALSE
-dst_filename, ,         1,    FALSE
-b,            -b,       1,    FALSE
-a,            -a,       1,    FALSE
-threeD,       -3d,      0,    FALSE
-inodata,      -inodata, 0,    FALSE
-snodata,      -snodata, 1,    FALSE
-i,            -i,       1,    FALSE
-f,            -f,       1,    FALSE
-dsco,         -dsco,    1,    TRUE
-lco,          -lco,     1,    TRUE
-off,          -off,     1,    FALSE
-fl,           -fl,      1,    FALSE
-nln,          -nln,     1,    FALSE
-config,       --config, 1,    TRUE",
-stringsAsFactors = FALSE, strip.white = TRUE,
-colClasses = c("character", "character", "numeric", "logical"))
+## .gdUtilsEnv[["args_gdal_contour"]] <- read.csv(text = "
+## arg,          flag,     narg, repeatable
+## src_filename, ,         1,    FALSE
+## dst_filename, ,         1,    FALSE
+## b,            -b,       1,    FALSE
+## a,            -a,       1,    FALSE
+## threeD,       -3d,      0,    FALSE
+## inodata,      -inodata, 0,    FALSE
+## snodata,      -snodata, 1,    FALSE
+## i,            -i,       1,    FALSE
+## f,            -f,       1,    FALSE
+## dsco,         -dsco,    1,    TRUE
+## lco,          -lco,     1,    TRUE
+## off,          -off,     1,    FALSE
+## fl,           -fl,      1,    FALSE
+## nln,          -nln,     1,    FALSE
+## config,       --config, 1,    TRUE",
+## stringsAsFactors = FALSE, strip.white = TRUE,
+## colClasses = c("character", "character", "numeric", "logical"))
 
 
 .gdUtilsEnv[["args_gdaltindex"]] <- read.csv(text = "

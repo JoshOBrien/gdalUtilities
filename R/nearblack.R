@@ -1,8 +1,9 @@
-
 ##' This function provides an interface mirroring that of the GDAL
-##' command-line app \code{nearblack}.
+##' command-line app \code{nearblack}. For a description of the
+##' utility and the arguments that it takes, see the documentation at
+##' \url{http://www.gdal.org/nearblack.html}.
 ##'
-##' @title Bare interface to gdal_contour command-line app
+##' @title R interface to GDAL's nearblack utility
 ##' @return Silently returns path to \code{datasetname}.
 ##' @export
 ##' @author Josh O'Brien
@@ -25,7 +26,7 @@ nearblack <-
 {
     ## Unlike `as.list(match.call())`, forces eval of arguments
     args <-  mget(names(match.call())[-1])
-    args[c("infile", "dryrun")] <- NULL
+    args[c("infile", "dryrun", "o")] <- NULL
     formalsTable <- getFormalsTable("nearblack")
     opts <- process_args(args, formalsTable)
 

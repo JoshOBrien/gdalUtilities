@@ -1,7 +1,9 @@
 ##' This function provides an interface mirroring that of the GDAL
-##' command-line app \code{gdalbuildvrt}.
+##' command-line app \code{gdalbuildvrt}. For a description of the
+##' utility and the arguments that it takes, see the documentation at
+##' \url{http://www.gdal.org/gdalbuildvrt.html}.
 ##'
-##' @title R interface to GDAL gdalbuildvrt utility
+##' @title R interface to GDAL's gdalbuildvrt utility
 ##' @return None. Called instead for its side effect.
 ##' @export
 ##' @author Josh O'Brien

@@ -1,7 +1,9 @@
 ##' This function provides an interface mirroring that of the GDAL
-##' command-line app \code{gdaldem}.
+##' command-line app \code{gdaldem}. For a description of the
+##' utility and the arguments that it takes, see the documentation at
+##' \url{http://www.gdal.org/gdaldem.html}.
 ##'
-##' @title Bare interface to gdaldem command-line app
+##' @title R interface to GDAL's gdaldem utility
 ##' @return None. Called instead for its side effect.
 ##' @export
 ##' @author Josh O'Brien

@@ -1,6 +1,6 @@
 # GDAL Utility Functions for R
 
-R's [**sf** package]((https://cran.r-project.org/package=sf)) ships
+The R package [**sf**](https://cran.r-project.org/package=sf) ships
 with self-contained GDAL executables, including a bare bones interface
 to several of the GDAL-related utility programs collectively known as
 the GDAL utilities (the full set of which are documented
@@ -8,7 +8,6 @@ the GDAL utilities (the full set of which are documented
 [here](http://www.gdal.org/ogr_utilities.html)). For each of those
 utilities, this package provides an R wrapper whose formal arguments
 closely mirror those of the GDAL command line interface.
-
 
 The R functions in this package mirror, as closely possible, the
 utilities to which they provide interfaces. Each function has the same
@@ -126,7 +125,7 @@ supported, are given below:
 
 ### GDAL utilities provided by this package
 ```r
-## 'GDAL Utility Programs'
+## Supported 'GDAL Utility Programs'
 gdal_grid
 gdal_rasterize
 gdal_translate
@@ -136,13 +135,13 @@ gdalinfo
 gdalwarp
 nearblack
 
-## 'OGR Utility Programs'
+## Supported 'OGR Utility Programs'
 ogr2ogr
 ```
 
 ### GDAL utilities *not* provided by this package
 ```r
-## 'GDAL Utility Programs'
+## Unsupported 'GDAL Utility Programs'
 gdal_contour
 gdaladdo
 gdallocationinfo
@@ -150,7 +149,7 @@ gdalmanage
 gdaltindex
 gdaltransform
 
-## 'OGR Utility Programs' 
+## Unsupported 'OGR Utility Programs' 
 ogrinfo
 ogrlineref
 ogrtindex

@@ -5,6 +5,7 @@
 ##'
 ##' @title R interface to GDAL's gdal_grid utility
 ##' @return None. Called instead for its side effect.
+##' @importFrom sf gdal_utils
 ##' @export
 ##' @author Josh O'Brien
 ##' @examples

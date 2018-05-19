@@ -6,6 +6,7 @@
 ##' @title R interface to GDAL's gdal_rasterize utility
 ##' @return None. Called instead for its side effect.
 ##' @export
+##' @importFrom sf gdal_utils
 ##' @author Josh O'Brien
 ##' @examples
 ##' \dontrun{

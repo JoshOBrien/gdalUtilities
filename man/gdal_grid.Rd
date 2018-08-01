@@ -4,9 +4,10 @@
 \alias{gdal_grid}
 \title{R interface to GDAL's gdal_grid utility}
 \usage{
-gdal_grid(src_datasource, dst_filename, ..., ot, of, txe, tye, outsize, a_srs,
-  zfield, z_increase, z_multiply, a, spat, clipsrc, clipsrcsql, clipsrclayer,
-  clipsrcwhere, l, where, sql, co, q, config, dryrun = FALSE)
+gdal_grid(src_datasource, dst_filename, ..., ot, of, txe, tye, outsize,
+  a_srs, zfield, z_increase, z_multiply, a, spat, clipsrc, clipsrcsql,
+  clipsrclayer, clipsrcwhere, l, where, sql, co, q, config,
+  dryrun = FALSE)
 }
 \value{
 None. Called instead for its side effect.

@@ -4,8 +4,8 @@
 \alias{nearblack}
 \title{R interface to GDAL's nearblack utility}
 \usage{
-nearblack(infile, o = infile, ..., of, co, white, color, near, nb, setalpha,
-  setmask, q, dryrun = FALSE)
+nearblack(infile, o = infile, ..., of, co, white, color, near, nb,
+  setalpha, setmask, q, dryrun = FALSE)
 }
 \value{
 Silently returns path to \code{datasetname}.

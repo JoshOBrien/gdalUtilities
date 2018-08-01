@@ -4,8 +4,8 @@
 \alias{gdalinfo}
 \title{R interface to GDAL's gdalinfo utility}
 \usage{
-gdalinfo(datasetname, ..., json, mm, stats, approx_stats, hist, nogcp, nomd,
-  norat, noct, checksum, listmdd, mdd, nofl, sd, proj4, oo, config,
+gdalinfo(datasetname, ..., json, mm, stats, approx_stats, hist, nogcp,
+  nomd, norat, noct, checksum, listmdd, mdd, nofl, sd, proj4, oo, config,
   dryrun = FALSE)
 }
 \value{

@@ -5,15 +5,15 @@
 \title{R interface to GDAL's ogr2ogr utility}
 \usage{
 ogr2ogr(src_datasource_name, dst_datasource_name, ..., layer, f, append,
-  overwrite, update, select, progress, sql, dialect, where, skipfailures, spat,
-  spat_srs, geomfield, dsco, lco, nln, nlt, dim, a_srs, t_srs, s_srs,
+  overwrite, update, select, progress, sql, dialect, where, skipfailures,
+  spat, spat_srs, geomfield, dsco, lco, nln, nlt, dim, a_srs, t_srs, s_srs,
   preserve_fid, fid, oo, doo, gt, ds_transaction, clipsrc, clipsrcsql,
-  clipsrclayer, clipsrcwhere, clipdst, clipdstsql, clipdstlayer, clipdstwhere,
-  wrapdateline, datelineoffset, simplify, segmentize, fieldTypeToString,
-  mapFieldType, unsetFieldWidth, splitlistfields, maxsubfields,
-  explodecollections, zfield, gcp, order, tps, fieldmap, addfields,
-  relaxedFieldNameMatch, forceNullable, unsetDefault, unsetFid, nomd, mo,
-  dryrun = FALSE)
+  clipsrclayer, clipsrcwhere, clipdst, clipdstsql, clipdstlayer,
+  clipdstwhere, wrapdateline, datelineoffset, simplify, segmentize,
+  fieldTypeToString, mapFieldType, unsetFieldWidth, splitlistfields,
+  maxsubfields, explodecollections, zfield, gcp, order, tps, fieldmap,
+  addfields, relaxedFieldNameMatch, forceNullable, unsetDefault, unsetFid,
+  nomd, mo, dryrun = FALSE)
 }
 \value{
 None. Called instead for its side effect.

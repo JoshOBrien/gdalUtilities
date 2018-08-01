@@ -18,9 +18,11 @@ Description: R's sf package ships with self-contained GDAL
     processing with the package's wrapper functions before reading
     back into R.
 License: GPL (>= 2)
+Depends:
+    raster
 Imports:
     sf
 Suggests:
     rasterVis
-RoxygenNote: 6.0.1.9000
+RoxygenNote: 6.1.0
 Encoding: UTF-8

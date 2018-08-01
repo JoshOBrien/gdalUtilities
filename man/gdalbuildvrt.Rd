@@ -4,9 +4,10 @@
 \alias{gdalbuildvrt}
 \title{R interface to GDAL's gdalbuildvrt utility}
 \usage{
-gdalbuildvrt(gdalfile, output.vrt, tileindex, resolution, te, tr, tap, separate,
-  b, sd, allow_projection_difference, q, addalpha, hidenodata, srcnodata,
-  vrtnodata, a_srs, r, input_file_list, overwrite, dryrun = FALSE)
+gdalbuildvrt(gdalfile, output.vrt, tileindex, resolution, te, tr, tap,
+  separate, b, sd, allow_projection_difference, q, addalpha, hidenodata,
+  srcnodata, vrtnodata, a_srs, r, input_file_list, overwrite,
+  dryrun = FALSE)
 }
 \value{
 None. Called instead for its side effect.

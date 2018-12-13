@@ -32,8 +32,8 @@
 ##'     \code{canProcessInMemory(y, 3)}
 ##' @return A \code{RasterLayer} object containing a rasterized
 ##'     version of \code{SPDF}.
-##' @importFrom gdalUtils gdal_rasterize
-##' @importFrom raster levels
+##' @importFrom raster levels canProcessInMemory init raster
+##'     rasterTmpFile ratify readAll shapefile
 ##' @export
 ##' @author Joshua O'Brien
 ##' @examples
@@ -46,8 +46,8 @@
 ##'
 ##' ## An example using an integer-valued field
 ##' rInt <- gRasterize(SPDF, rr, field = "ID_2")
-##' plot(rInt, col=RColorBrewer::brewer.pal(name = "Paired", 12))
-##' plot(SPDF, lwd=3, border="grey30", add=TRUE)
+##' plot(rInt, col = RColorBrewer::brewer.pal(name = "Paired", 12))
+##' plot(SPDF, lwd = 3, border = "grey30", add = TRUE)
 ##'
 ##' ## An example using a character-valued field
 ##' rFac <- gRasterize(SPDF, rr, field = "NAME_2")

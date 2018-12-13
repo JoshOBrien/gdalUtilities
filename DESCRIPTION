@@ -1,6 +1,6 @@
 Package: gdalUtilities
 Type: Package
-Title: R wrappers for the GDAL Utilities executables shipped with sf
+Title: R Wrappers for GDAL Utilities Executables
 Version: 0.6
 Date: 2018-12-13
 Author: Joshua O'Brien
@@ -23,6 +23,9 @@ Depends:
 Imports:
     sf
 Suggests:
-    rasterVis
+    rasterVis,
+    RColorBrewer,
+    testthat,
+    gdalUtils
 RoxygenNote: 6.1.1
 Encoding: UTF-8

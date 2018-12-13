@@ -58,8 +58,8 @@ rr <- raster(extent(SPDF),
 
 ## An example using an integer-valued field
 rInt <- gRasterize(SPDF, rr, field = "ID_2")
-plot(rInt, col=RColorBrewer::brewer.pal(name = "Paired", 12))
-plot(SPDF, lwd=3, border="grey30", add=TRUE)
+plot(rInt, col = RColorBrewer::brewer.pal(name = "Paired", 12))
+plot(SPDF, lwd = 3, border = "grey30", add = TRUE)
 
 ## An example using a character-valued field
 rFac <- gRasterize(SPDF, rr, field = "NAME_2")

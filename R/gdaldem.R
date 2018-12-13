@@ -57,7 +57,7 @@ gdaldem <-
 
     ## (My name for "mode" and "output_map")
     gdal_utils("demprocessing", input_dem, output_map, opts,
-               processing = mode, colorfile = color_text_file)
+               processing = mode, colorfilename = color_text_file)
     invisible(output_map)
 }
 

@@ -1,10 +1,10 @@
 
 ##' Rasterize \code{Spatial*} objects using gdal_rasterize.
 ##'
-##' For a 1000-by-1000 raster, this function \code{gRasterize} is more
-##' than 6 times faster than \code{raster::rasterize}. For a
-##' 2000-by-2000 raster, it is almost 12 times faster (6 seconds
-##' vs. 70 seconds on my Windows laptop).
+##' For a 1000-by-1000 raster, \code{gRasterize} is more than 6 times
+##' faster than \code{raster::rasterize}. For a 2000-by-2000 raster,
+##' it is almost 12 times faster (6 seconds vs. 70 seconds on my
+##' Windows laptop).
 ##'
 ##' I've modeled \code{gRasterize} arguments and behavior on that of
 ##' \code{\link[raster]{rasterize}}. Like\code{rasterize},it takes a
@@ -14,22 +14,24 @@
 ##' \code{'inMemory'}. Otherwise, if the raster is too large or if a
 ##' filename is supplied, it's returned \code{fromDisk}.
 ##'
-##' Internally, \code{\link[gdalUtils]{gdal_rasterize}} by default
-##' writes to a file, and only optionally returns an R \code{Raster}
-##' object (when its \code{output_Raster = TRUE}); to get the raster
-##' \code{'inMemory'}, I use \code{\link[raster]{readAll}}
-##' (after a check that it's really OK, memory-wise to do so.)
+##' Internally, \code{\link{gdal_rasterize}} by default writes to a
+##' file, and only optionally returns an R \code{Raster} object (when
+##' its \code{output_Raster = TRUE}); to get the raster
+##' \code{'inMemory'}, I use \code{\link[raster]{readAll}} (after a
+##' check that it's really OK, memory-wise to do so).
 ##' @title Fast rasterize for Spatial objects
 ##' @param SPDF A \code{Spatial*} object to be rasterized.
-##' @param r A \code{Raster*} object to be used as the rasterization template.
+##' @param r A \code{Raster*} object to be used as the rasterization
+##'     template.
 ##' @param field Character. The name of the numeric column in
-##' \code{data.frame()} that will be written to the output Raster* object.
+##'     \code{data.frame()} that will be written to the output Raster*
+##'     object.
 ##' @param filename Character. Output filename (optional). If none is
-##' supplied, the resulting raster will be stored \code{inMemory}
-##' (unless it is too large, as determined by a call to
-##' \code{canProcessInMemory(y, 3)}
+##'     supplied, the resulting raster will be stored \code{inMemory}
+##'     (unless it is too large, as determined by a call to
+##'     \code{canProcessInMemory(y, 3)}
 ##' @return A \code{RasterLayer} object containing a rasterized
-##' version of \code{SPDF}.
+##'     version of \code{SPDF}.
 ##' @importFrom gdalUtils gdal_rasterize
 ##' @importFrom raster levels
 ##' @export

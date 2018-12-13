@@ -27,7 +27,7 @@ Before uploading this to GitHub, I should
    raster(system.file("external/Europe.grd", package="gdistance"))
    #+END_SRC
 
-* Utilities provided by stars::gdal_utils()
+* Utilities provided by sf::gdal_utils()
 
 - [X] ~gdalinfo~
 - [X] ~gdalwarp~

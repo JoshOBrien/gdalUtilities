@@ -1,13 +1,13 @@
 ##' This function provides an interface mirroring that of the GDAL
 ##' command-line app \code{gdal_rasterize}. For a description of the
 ##' utility and the arguments that it takes, see the documentation at
-##' \url{http://www.gdal.org/gdal_rasterize.html}.
+##' \url{https://gdal.org/programs/gdal_rasterize.html}.
 ##'
 ##' @title R interface to GDAL's gdal_rasterize utility
 ##' @return None. Called instead for its side effect.
 ##' @export
 ##' @importFrom sf gdal_utils
-##' @author Josh O'Brien
+##' @author Joshua O'Brien
 ##' @examples
 ##' \dontrun{
 ##' if(require(raster)) {

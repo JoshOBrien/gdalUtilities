@@ -16,7 +16,7 @@ None. Called instead for its side effect.
 This function provides an interface mirroring that of the GDAL
 command-line app \code{gdal_grid}. For a description of the
 utility and the arguments that it takes, see the documentation at
-\url{http://www.gdal.org/gdal_grid.html}.
+\url{https://gdal.org/programs/gdal_grid.html}.
 }
 \examples{
 \dontrun{
@@ -62,5 +62,5 @@ if(require(raster)) {
 }
 }
 \author{
-Josh O'Brien
+Joshua O'Brien
 }

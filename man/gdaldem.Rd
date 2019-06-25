@@ -16,7 +16,7 @@ None. Called instead for its side effect.
 This function provides an interface mirroring that of the GDAL
 command-line app \code{gdaldem}. For a description of the
 utility and the arguments that it takes, see the documentation at
-\url{http://www.gdal.org/gdaldem.html}.
+\url{https://gdal.org/programs/gdaldem.html}.
 }
 \examples{
 \dontrun{
@@ -46,5 +46,5 @@ if(require(rasterVis)) {
 }
 }
 \author{
-Josh O'Brien
+Joshua O'Brien
 }

@@ -14,7 +14,7 @@ Silently returns path to \code{datasetname}.
 This function provides an interface mirroring that of the GDAL
 command-line app \code{nearblack}. For a description of the
 utility and the arguments that it takes, see the documentation at
-\url{http://www.gdal.org/nearblack.html}.
+\url{https://gdal.org/programs/nearblack.html}.
 }
 \examples{
 \dontrun{
@@ -30,5 +30,5 @@ nearblack(a_rast, of = "GTiff", near = 100)
 }
 }
 \author{
-Josh O'Brien
+Joshua O'Brien
 }

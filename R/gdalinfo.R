@@ -1,12 +1,12 @@
 ##' This function provides an interface mirroring that of the GDAL
 ##' command-line app \code{gdalinfo}. For a description of the
 ##' utility and the arguments that it takes, see the documentation at
-##' \url{http://www.gdal.org/gdalinfo.html}.
+##' \url{https://gdal.org/programs/gdalinfo.html}.
 ##'
 ##' @title R interface to GDAL's gdalinfo utility
 ##' @return Silently returns path to \code{datasetname}.
 ##' @export
-##' @author Josh O'Brien
+##' @author Joshua O'Brien
 ##' @examples
 ##' ff <- system.file("extdata/maunga.tif", package = "gdalUtilities")
 ##' gdalinfo(ff)

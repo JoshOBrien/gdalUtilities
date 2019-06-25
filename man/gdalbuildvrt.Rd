@@ -16,7 +16,7 @@ None. Called instead for its side effect.
 This function provides an interface mirroring that of the GDAL
 command-line app \code{gdalbuildvrt}. For a description of the
 utility and the arguments that it takes, see the documentation at
-\url{http://www.gdal.org/gdalbuildvrt.html}.
+\url{https://gdal.org/programs/gdalbuildvrt.html}.
 }
 \examples{
 ## Prepare file paths
@@ -34,5 +34,5 @@ gdalbuildvrt(gdalfile = c(layer1, layer2), output.vrt = out_vrt)
 gdalinfo(out_vrt)
 }
 \author{
-Josh O'Brien
+Joshua O'Brien
 }

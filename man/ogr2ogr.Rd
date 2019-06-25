@@ -22,7 +22,7 @@ None. Called instead for its side effect.
 This function provides an interface mirroring that of the GDAL
 command-line app \code{ogr2ogr}.  For a description of the
 utility and the arguments that it takes, see the documentation at
-\url{http://www.gdal.org/ogr2ogr.html}.
+\url{https://gdal.org/programs/ogr2ogr.html}.
 }
 \examples{
 \dontrun{
@@ -50,5 +50,5 @@ if(require(raster)) {
 }
 }
 \author{
-Josh O'Brien
+Joshua O'Brien
 }

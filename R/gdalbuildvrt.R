@@ -1,12 +1,12 @@
 ##' This function provides an interface mirroring that of the GDAL
 ##' command-line app \code{gdalbuildvrt}. For a description of the
 ##' utility and the arguments that it takes, see the documentation at
-##' \url{http://www.gdal.org/gdalbuildvrt.html}.
+##' \url{https://gdal.org/programs/gdalbuildvrt.html}.
 ##'
 ##' @title R interface to GDAL's gdalbuildvrt utility
 ##' @return None. Called instead for its side effect.
 ##' @export
-##' @author Josh O'Brien
+##' @author Joshua O'Brien
 ##' @examples
 ##' ## Prepare file paths
 ##' td <- tempdir()

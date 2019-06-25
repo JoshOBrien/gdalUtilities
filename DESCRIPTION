@@ -1,8 +1,8 @@
 Package: gdalUtilities
 Type: Package
 Title: R Wrappers for GDAL Utilities Executables
-Version: 0.6
-Date: 2018-12-13
+Version: 0.6.1
+Date: 2019-06-24
 Author: Joshua O'Brien
 Maintainer: Joshua O'Brien <joshmobrien@gmail.com>
 Description: R's sf package ships with self-contained GDAL

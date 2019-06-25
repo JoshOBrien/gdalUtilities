@@ -17,7 +17,7 @@ None. Called instead for its side effect.
 This function provides an interface mirroring that of the GDAL
 command-line app \code{gdalwarp}. For a description of the
 utility and the arguments that it takes, see the documentation at
-\url{http://www.gdal.org/gdalwarp.html}.
+\url{https://gdal.org/programs/gdalwarp.html}.
 }
 \examples{
 \dontrun{
@@ -57,5 +57,5 @@ if(require(rasterVis)) {
 }
 }
 \author{
-Josh O'Brien
+Joshua O'Brien
 }

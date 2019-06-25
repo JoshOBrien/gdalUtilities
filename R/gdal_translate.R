@@ -4,6 +4,31 @@
 ##' \url{https://gdal.org/programs/gdal_translate.html}.
 ##'
 ##' @title R interface to GDAL's gdal_translate utility
+##' @param src_dataset Character. Path to a GDAL-supported readable
+##'     datasource.
+##' @param dst_dataset Character. Path to a GDAL-supported output
+##'     file.
+##' @param ... Here, a placeholder argument that forces users to
+##'     supply exact names of all subsequent formal arguments.
+##' @param ot,strict,of,b,mask,expand,outsize,tr,r,scale,exponent See
+##'     the GDAL project's
+##'     \href{https://gdal.org/programs/gdal_translate.html}{gdal_translate
+##'     documentation} for details.
+##' @param unscale,srcwin,projwin,projwin_srs,srs,epo,eco See the GDAL
+##'     project's
+##'     \href{https://gdal.org/programs/gdal_translate.html}{gdal_translate
+##'     documentation} for details.
+##' @param a_srs,a_ullr,a_nodata,mo,co,gcp,q,sds,stats,norat See the
+##'     GDAL project's
+##'     \href{https://gdal.org/programs/gdal_translate.html}{gdal_translate
+##'     documentation} for details.
+##' @param oo,sd_index,config See the GDAL project's
+##'     \href{https://gdal.org/programs/gdal_translate.html}{gdal_translate
+##'     documentation} for details.
+##' @param dryrun Logical (default \code{FALSE}). If \code{TRUE},
+##'     instead of executing the requested call to GDAL, the function
+##'     will print the command-line call that would produce the
+##'     equivalent output.
 ##' @return None. Called instead for its side effect.
 ##' @export
 ##' @author Joshua O'Brien

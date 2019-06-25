@@ -8,6 +8,31 @@ gdal_rasterize(src_datasource, dst_filename, ..., b, i, at, burn, a,
   threeD, l, where, sql, dialect, of, a_srs, co, a_nodata, init, te, tr,
   tap, ts, ot, q, dryrun = FALSE)
 }
+\arguments{
+\item{src_datasource}{Character. Path to a GDAL-supported readable
+datasource.}
+
+\item{dst_filename}{Character. Path to a GDAL-supported output
+file.}
+
+\item{...}{Here, a placeholder argument that forces users to
+supply exact names of all subsequent formal arguments.}
+
+\item{b, i, at, burn, a, threeD, l, where, sql, dialect, of}{See the GDAL
+project's
+\href{https://gdal.org/programs/gdal_rasterize.html}{gdal_rasterize
+documentation} for details.}
+
+\item{a_srs, co, a_nodata, init, te, tr, tap, ts, ot, q}{See the GDAL
+project's
+\href{https://gdal.org/programs/gdal_rasterize.html}{gdal_rasterize
+documentation} for details.}
+
+\item{dryrun}{Logical (default \code{FALSE}). If \code{TRUE},
+instead of executing the requested call to GDAL, the function
+will print the command-line call that would produce the
+equivalent output.}
+}
 \value{
 None. Called instead for its side effect.
 }

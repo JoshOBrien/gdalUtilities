@@ -8,6 +8,26 @@ gdalinfo(datasetname, ..., json, mm, stats, approx_stats, hist, nogcp,
   nomd, norat, noct, checksum, listmdd, mdd, nofl, sd, proj4, oo, config,
   dryrun = FALSE)
 }
+\arguments{
+\item{datasetname}{Path to a GDAL-supported readable
+datasource.}
+
+\item{...}{Here, a placeholder argument that forces users to
+supply exact names of all subsequent formal arguments.}
+
+\item{json, mm, stats, approx_stats, hist, nogcp, nomd, norat, noct}{See the GDAL project's
+\href{https://gdal.org/programs/gdalinfo.html}{gdalinfo
+documentation} for details.}
+
+\item{checksum, listmdd, mdd, nofl, sd, proj4, oo, config}{See the GDAL project's
+\href{https://gdal.org/programs/gdalinfo.html}{gdalinfo
+documentation} for details.}
+
+\item{dryrun}{Logical (default \code{FALSE}). If \code{TRUE},
+instead of executing the requested call to GDAL, the function
+will print the command-line call that would produce the
+equivalent output.}
+}
 \value{
 Silently returns path to \code{datasetname}.
 }

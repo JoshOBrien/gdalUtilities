@@ -4,6 +4,27 @@
 ##' \url{https://gdal.org/programs/gdal_grid.html}.
 ##'
 ##' @title R interface to GDAL's gdal_grid utility
+##' @param src_datasource Character. Path to a GDAL-supported readable
+##'     datasource.
+##' @param dst_filename Character. Path to a GDAL-supported output
+##'     file.
+##' @param ... Here, a placeholder argument that forces users to
+##'     supply exact names of all subsequent formal arguments.
+##' @param ot,of,txe,tye,outsize,a_srs,zfield,z_increase,z_multiply
+##'     See the GDAL project's
+##'     \href{https://gdal.org/programs/gdal_grid.html}{gdal_grid
+##'     documentation} for details.
+##' @param a,spat,clipsrc,clipsrcsql,clipsrclayer,clipsrcwhere See the
+##'     GDAL project's
+##'     \href{https://gdal.org/programs/gdal_grid.html}{gdal_grid
+##'     documentation} for details.
+##' @param l,where,sql,co,q,config See the GDAL project's
+##'     \href{https://gdal.org/programs/gdal_grid.html}{gdal_grid
+##'     documentation} for details.
+##' @param dryrun Logical (default \code{FALSE}). If \code{TRUE},
+##'     instead of executing the requested call to GDAL, the function
+##'     will print the command-line call that would produce the
+##'     equivalent output.
 ##' @return None. Called instead for its side effect.
 ##' @importFrom sf gdal_utils
 ##' @export

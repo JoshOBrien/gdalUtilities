@@ -4,6 +4,31 @@
 ##' \url{https://gdal.org/programs/gdalwarp.html}.
 ##'
 ##' @title R interface to GDAL's gdalwarp utility
+##' @param srcfile Character. Path to a GDAL-supported readable
+##'     datasource.
+##' @param dstfile Character. Path to a GDAL-supported output file.
+##' @param ... Here, a placeholder argument that forces users to
+##'     supply exact names of all subsequent formal arguments.
+##' @param s_srs,t_srs,to,order,tps,rpc,geoloc,et,refine_gcps See the
+##'     GDAL project's
+##'     \href{https://gdal.org/programs/gdalwarp.html}{gdalwarp
+##'     documentation} for details.
+##' @param te,te_srs,tr,tap,ts,ovr,wo,ot,wt,r,srcnodata,dstnodata See
+##'     the GDAL project's
+##'     \href{https://gdal.org/programs/gdalwarp.html}{gdalwarp
+##'     documentation} for details.
+##' @param dstalpha,wm,multi,q,of,co,cutline,cl,cwhere,csql,cblend See
+##'     the GDAL project's
+##'     \href{https://gdal.org/programs/gdalwarp.html}{gdalwarp
+##'     documentation} for details.
+##' @param crop_to_cutline,overwrite,nomd,cvmd,setci,oo,doo,config See
+##'     the GDAL project's
+##'     \href{https://gdal.org/programs/gdalwarp.html}{gdalwarp
+##'     documentation} for details.
+##' @param dryrun Logical (default \code{FALSE}). If \code{TRUE},
+##'     instead of executing the requested call to GDAL, the function
+##'     will print the command-line call that would produce the
+##'     equivalent output.
 ##' @return None. Called instead for its side effect.
 ##' @export
 ##' @author Joshua O'Brien

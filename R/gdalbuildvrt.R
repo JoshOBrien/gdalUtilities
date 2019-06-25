@@ -4,6 +4,28 @@
 ##' \url{https://gdal.org/programs/gdalbuildvrt.html}.
 ##'
 ##' @title R interface to GDAL's gdalbuildvrt utility
+##' @param gdalfile Character vector supplying file paths to one or more
+##'     input datasets.
+##' @param output.vrt Character. Path to output VRT file. Typically,
+##'     output file will have suffix \code{".vrt"}.
+##' @param ... Here, a placeholder argument that forces users to
+##'     supply exact names of all subsequent formal arguments.
+##' @param tileindex,resolution,te,tr,tap,separate,b,sd See the GDAL
+##'     project's
+##'     \href{https://gdal.org/programs/gdalbuildvrt.html}{gdalbuildvrt
+##'     documentation} for details.
+##' @param allow_projection_difference,q,addalpha,hidenodata See the
+##'     GDAL project's
+##'     \href{https://gdal.org/programs/gdalbuildvrt.html}{gdalbuildvrt
+##'     documentation} for details.
+##' @param srcnodata,vrtnodata,a_srs,r,input_file_list,overwrite See
+##'     the GDAL project's
+##'     \href{https://gdal.org/programs/gdalbuildvrt.html}{gdalbuildvrt
+##'     documentation} for details.
+##' @param dryrun Logical (default \code{FALSE}). If \code{TRUE},
+##'     instead of executing the requested call to GDAL, the function
+##'     will print the command-line call that would produce the
+##'     equivalent output.
 ##' @return None. Called instead for its side effect.
 ##' @export
 ##' @author Joshua O'Brien
@@ -22,11 +44,10 @@
 ##' gdalbuildvrt(gdalfile = c(layer1, layer2), output.vrt = out_vrt)
 ##' gdalinfo(out_vrt)
 gdalbuildvrt <-
-    function(gdalfile, output.vrt, tileindex, resolution, te, tr,
+    function(gdalfile, output.vrt, ..., tileindex, resolution, te, tr,
              tap, separate, b, sd, allow_projection_difference, q,
              addalpha, hidenodata, srcnodata, vrtnodata, a_srs, r,
-             input_file_list, overwrite,
-             dryrun = FALSE)
+             input_file_list, overwrite, dryrun = FALSE)
 {
     ## Unlike `as.list(match.call())`, forces eval of arguments
     args <-  mget(names(match.call())[-1])

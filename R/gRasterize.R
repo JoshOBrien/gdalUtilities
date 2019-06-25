@@ -37,6 +37,7 @@
 ##' @export
 ##' @author Joshua O'Brien
 ##' @examples
+##' \dontrun{
 ##' SPDF <- shapefile(system.file("external/lux.shp", package="raster"))
 ##' ## rr <- raster(extent(SPDF), ncol=100, nrow=100, crs=proj4string(SPDF))
 ##' llratio <- 1/cos(pi*mean(coordinates(SPDF)[,2])/180)
@@ -52,6 +53,7 @@
 ##' ## An example using a character-valued field
 ##' rFac <- gRasterize(SPDF, rr, field = "NAME_2")
 ##' rasterVis::levelplot(rFac)
+##' }
 gRasterize <- function (SPDF, r, field, filename = "") {
     INMEM <- canProcessInMemory(r, 3) && filename == ""
     ## character/factor field preparations

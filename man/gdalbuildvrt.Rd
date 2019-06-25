@@ -4,10 +4,40 @@
 \alias{gdalbuildvrt}
 \title{R interface to GDAL's gdalbuildvrt utility}
 \usage{
-gdalbuildvrt(gdalfile, output.vrt, tileindex, resolution, te, tr, tap,
+gdalbuildvrt(gdalfile, output.vrt, ..., tileindex, resolution, te, tr, tap,
   separate, b, sd, allow_projection_difference, q, addalpha, hidenodata,
   srcnodata, vrtnodata, a_srs, r, input_file_list, overwrite,
   dryrun = FALSE)
+}
+\arguments{
+\item{gdalfile}{Character vector supplying file paths to one or more
+input datasets.}
+
+\item{output.vrt}{Character. Path to output VRT file. Typically,
+output file will have suffix \code{".vrt"}.}
+
+\item{...}{Here, a placeholder argument that forces users to
+supply exact names of all subsequent formal arguments.}
+
+\item{tileindex, resolution, te, tr, tap, separate, b, sd}{See the GDAL
+project's
+\href{https://gdal.org/programs/gdalbuildvrt.html}{gdalbuildvrt
+documentation} for details.}
+
+\item{allow_projection_difference, q, addalpha, hidenodata}{See the
+GDAL project's
+\href{https://gdal.org/programs/gdalbuildvrt.html}{gdalbuildvrt
+documentation} for details.}
+
+\item{srcnodata, vrtnodata, a_srs, r, input_file_list, overwrite}{See
+the GDAL project's
+\href{https://gdal.org/programs/gdalbuildvrt.html}{gdalbuildvrt
+documentation} for details.}
+
+\item{dryrun}{Logical (default \code{FALSE}). If \code{TRUE},
+instead of executing the requested call to GDAL, the function
+will print the command-line call that would produce the
+equivalent output.}
 }
 \value{
 None. Called instead for its side effect.

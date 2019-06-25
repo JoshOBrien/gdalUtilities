@@ -7,6 +7,28 @@
 nearblack(infile, o = infile, ..., of, co, white, color, near, nb,
   setalpha, setmask, q, dryrun = FALSE)
 }
+\arguments{
+\item{infile}{Character. Path to a GDAL-supported readable
+datasource.}
+
+\item{o}{Optionally, a character string giving the path to a
+GDAL-supported output file. If not supplied, defaults to
+code{infile=}, indicating that the input file should be
+modified in place.}
+
+\item{...}{Here, a placeholder argument that forces users to
+supply exact names of all subsequent formal arguments.}
+
+\item{of, co, white, color, near, nb, setalpha, setmask, q}{See the GDAL
+project's
+\href{https://gdal.org/programs/nearblack.html}{nearblack
+documentation} for details.}
+
+\item{dryrun}{Logical (default \code{FALSE}). If \code{TRUE},
+instead of executing the requested call to GDAL, the function
+will print the command-line call that would produce the
+equivalent output.}
+}
 \value{
 Silently returns path to \code{datasetname}.
 }

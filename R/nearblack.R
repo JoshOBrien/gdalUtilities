@@ -4,6 +4,22 @@
 ##' \url{https://gdal.org/programs/nearblack.html}.
 ##'
 ##' @title R interface to GDAL's nearblack utility
+##' @param infile Character. Path to a GDAL-supported readable
+##'     datasource.
+##' @param o Optionally, a character string giving the path to a
+##'     GDAL-supported output file. If not supplied, defaults to
+##'     code{infile=}, indicating that the input file should be
+##'     modified in place.
+##' @param ... Here, a placeholder argument that forces users to
+##'     supply exact names of all subsequent formal arguments.
+##' @param of,co,white,color,near,nb,setalpha,setmask,q See the GDAL
+##'     project's
+##'     \href{https://gdal.org/programs/nearblack.html}{nearblack
+##'     documentation} for details.
+##' @param dryrun Logical (default \code{FALSE}). If \code{TRUE},
+##'     instead of executing the requested call to GDAL, the function
+##'     will print the command-line call that would produce the
+##'     equivalent output.
 ##' @return Silently returns path to \code{datasetname}.
 ##' @export
 ##' @author Joshua O'Brien

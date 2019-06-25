@@ -10,6 +10,40 @@ gdalwarp(srcfile, dstfile, ..., s_srs, t_srs, to, order, tps, rpc, geoloc,
   cblend, crop_to_cutline, overwrite, nomd, cvmd, setci, oo, doo, config,
   dryrun = FALSE)
 }
+\arguments{
+\item{srcfile}{Character. Path to a GDAL-supported readable
+datasource.}
+
+\item{dstfile}{Character. Path to a GDAL-supported output file.}
+
+\item{...}{Here, a placeholder argument that forces users to
+supply exact names of all subsequent formal arguments.}
+
+\item{s_srs, t_srs, to, order, tps, rpc, geoloc, et, refine_gcps}{See the
+GDAL project's
+\href{https://gdal.org/programs/gdalwarp.html}{gdalwarp
+documentation} for details.}
+
+\item{te, te_srs, tr, tap, ts, ovr, wo, ot, wt, r, srcnodata, dstnodata}{See
+the GDAL project's
+\href{https://gdal.org/programs/gdalwarp.html}{gdalwarp
+documentation} for details.}
+
+\item{dstalpha, wm, multi, q, of, co, cutline, cl, cwhere, csql, cblend}{See
+the GDAL project's
+\href{https://gdal.org/programs/gdalwarp.html}{gdalwarp
+documentation} for details.}
+
+\item{crop_to_cutline, overwrite, nomd, cvmd, setci, oo, doo, config}{See
+the GDAL project's
+\href{https://gdal.org/programs/gdalwarp.html}{gdalwarp
+documentation} for details.}
+
+\item{dryrun}{Logical (default \code{FALSE}). If \code{TRUE},
+instead of executing the requested call to GDAL, the function
+will print the command-line call that would produce the
+equivalent output.}
+}
 \value{
 None. Called instead for its side effect.
 }

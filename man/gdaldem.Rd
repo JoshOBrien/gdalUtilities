@@ -9,6 +9,38 @@ gdaldem(mode, input_dem, output_map, ..., of, compute_edges, alg, b, co, q,
   zero_for_flat, color_text_file = character(0), alpha,
   exact_color_entry, nearest_color_entry, dryrun = FALSE)
 }
+\arguments{
+\item{mode}{Character, one of \code{"hillshade"}, \code{"slope"},
+\code{"color-relief"}, \code{"TRI"}, \code{"TPI"},
+\code{"roughness"}, indicating which of the available
+processing modes is to be used.}
+
+\item{input_dem}{Path to a GDAL-supported readable DEM datasource.}
+
+\item{output_map}{Character. Path to a GDAL-supported output file.}
+
+\item{...}{Here, a placeholder argument that forces users to
+supply exact names of all subsequent formal arguments.}
+
+\item{of, compute_edges, alg, b, co, q, z, s, az, alt, combined}{See the
+GDAL project's
+\href{https://gdal.org/programs/gdaldem.html}{gdaldem
+documentation} for details.}
+
+\item{multidirectional, p, trigonometric, zero_for_flat}{See the GDAL
+project's
+\href{https://gdal.org/programs/gdaldem.html}{gdaldem
+documentation} for details.}
+
+\item{color_text_file, alpha, exact_color_entry, nearest_color_entry}{See the GDAL project's
+\href{https://gdal.org/programs/gdaldem.html}{gdaldem
+documentation} for details.}
+
+\item{dryrun}{Logical (default \code{FALSE}). If \code{TRUE},
+instead of executing the requested call to GDAL, the function
+will print the command-line call that would produce the
+equivalent output.}
+}
 \value{
 None. Called instead for its side effect.
 }

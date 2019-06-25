@@ -15,6 +15,55 @@ ogr2ogr(src_datasource_name, dst_datasource_name, ..., layer, f, append,
   addfields, relaxedFieldNameMatch, forceNullable, unsetDefault, unsetFid,
   nomd, mo, dryrun = FALSE)
 }
+\arguments{
+\item{src_datasource_name}{Character. Path to a GDAL-supported
+readable datasource.}
+
+\item{dst_datasource_name}{Character. Path to a GDAL-supported
+output file.}
+
+\item{...}{Here, a placeholder argument that forces users to
+supply exact names of all subsequent formal arguments.}
+
+\item{layer, f, append, overwrite, update, select, progress, sql, dialect}{See the GDAL project's
+\href{https://gdal.org/programs/ogr2ogr.html}{ogr2ogr
+documentation} for details.}
+
+\item{where, skipfailures, spat, spat_srs, geomfield, dsco, lco, nln, nlt}{See \href{https://gdal.org/programs/ogr2ogr.html}{ogr2ogr
+documentation}.}
+
+\item{dim, a_srs, t_srs, s_srs, preserve_fid, fid, oo, doo, gt}{See the
+See \href{https://gdal.org/programs/ogr2ogr.html}{ogr2ogr
+documentation}.}
+
+\item{ds_transaction, clipsrc, clipsrcsql, clipsrclayer, clipsrcwhere}{See \href{https://gdal.org/programs/ogr2ogr.html}{ogr2ogr
+documentation}.}
+
+\item{clipdst, clipdstsql, clipdstlayer, clipdstwhere, wrapdateline}{See \href{https://gdal.org/programs/ogr2ogr.html}{ogr2ogr
+documentation}.}
+
+\item{datelineoffset, simplify, segmentize, fieldTypeToString}{See
+See \href{https://gdal.org/programs/ogr2ogr.html}{ogr2ogr
+documentation}.}
+
+\item{mapFieldType, unsetFieldWidth, splitlistfields, maxsubfields}{See \href{https://gdal.org/programs/ogr2ogr.html}{ogr2ogr
+documentation}.}
+
+\item{explodecollections, zfield, gcp, order, tps, fieldmap, addfields}{See \href{https://gdal.org/programs/ogr2ogr.html}{ogr2ogr
+documentation}.}
+
+\item{relaxedFieldNameMatch, forceNullable, unsetDefault, unsetFid}{See \href{https://gdal.org/programs/ogr2ogr.html}{ogr2ogr
+documentation}.}
+
+\item{nomd, mo}{See
+\href{https://gdal.org/programs/ogr2ogr.html}{ogr2ogr
+documentation}.}
+
+\item{dryrun}{Logical (default \code{FALSE}). If \code{TRUE},
+instead of executing the requested call to GDAL, the function
+will print the command-line call that would produce the
+equivalent output.}
+}
 \value{
 None. Called instead for its side effect.
 }

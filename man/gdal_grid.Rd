@@ -9,6 +9,34 @@ gdal_grid(src_datasource, dst_filename, ..., ot, of, txe, tye, outsize,
   clipsrclayer, clipsrcwhere, l, where, sql, co, q, config,
   dryrun = FALSE)
 }
+\arguments{
+\item{src_datasource}{Character. Path to a GDAL-supported readable
+datasource.}
+
+\item{dst_filename}{Character. Path to a GDAL-supported output
+file.}
+
+\item{...}{Here, a placeholder argument that forces users to
+supply exact names of all subsequent formal arguments.}
+
+\item{ot, of, txe, tye, outsize, a_srs, zfield, z_increase, z_multiply}{See the GDAL project's
+\href{https://gdal.org/programs/gdal_grid.html}{gdal_grid
+documentation} for details.}
+
+\item{a, spat, clipsrc, clipsrcsql, clipsrclayer, clipsrcwhere}{See the
+GDAL project's
+\href{https://gdal.org/programs/gdal_grid.html}{gdal_grid
+documentation} for details.}
+
+\item{l, where, sql, co, q, config}{See the GDAL project's
+\href{https://gdal.org/programs/gdal_grid.html}{gdal_grid
+documentation} for details.}
+
+\item{dryrun}{Logical (default \code{FALSE}). If \code{TRUE},
+instead of executing the requested call to GDAL, the function
+will print the command-line call that would produce the
+equivalent output.}
+}
 \value{
 None. Called instead for its side effect.
 }

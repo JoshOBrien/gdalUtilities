@@ -49,6 +49,7 @@ its \code{output_Raster = TRUE}); to get the raster
 check that it's really OK, memory-wise to do so).
 }
 \examples{
+\dontrun{
 SPDF <- shapefile(system.file("external/lux.shp", package="raster"))
 ## rr <- raster(extent(SPDF), ncol=100, nrow=100, crs=proj4string(SPDF))
 llratio <- 1/cos(pi*mean(coordinates(SPDF)[,2])/180)
@@ -64,6 +65,7 @@ plot(SPDF, lwd = 3, border = "grey30", add = TRUE)
 ## An example using a character-valued field
 rFac <- gRasterize(SPDF, rr, field = "NAME_2")
 rasterVis::levelplot(rFac)
+}
 }
 \author{
 Joshua O'Brien

@@ -4,8 +4,7 @@ The R package [**sf**](https://cran.r-project.org/package=sf) ships
 with self-contained GDAL executables, including a bare bones interface
 to several of the GDAL-related utility programs collectively known as
 the GDAL utilities (the full set of which are documented
-[here](http://www.gdal.org/gdal_utilities.html) and
-[here](http://www.gdal.org/ogr_utilities.html)). For each of those
+[here](https://gdal.org/programs/index.html)). For each of those
 utilities, this package provides an R wrapper whose formal arguments
 closely mirror those of the GDAL command line interface.
 

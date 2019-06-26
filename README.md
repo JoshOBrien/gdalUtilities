@@ -78,7 +78,7 @@ basic rules:
    gcps <- matrix(c(0,  100, 174.761, -36.880,  ## lower-left
                     73,   0, 174.769, -36.871,  ## upper-right
                     73, 100, 174.769, -36.880,  ## lower-right
-                     0,   0, 174.761,  -36.871), ## upper-left
+                     0,   0, 174.761, -36.871), ## upper-left
                   ncol = 4, byrow = TRUE)
    in_tif <- "maunga.tif"
    gcp_tif <- "maunga_gcp.tif"

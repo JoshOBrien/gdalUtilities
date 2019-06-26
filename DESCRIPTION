@@ -1,7 +1,7 @@
 Package: gdalUtilities
 Type: Package
 Title: R Wrappers for GDAL Utilities Executables
-Version: 0.6.2
+Version: 1.0
 Date: 2019-06-25
 Author: Joshua O'Brien
 Maintainer: Joshua O'Brien <joshmobrien@gmail.com>

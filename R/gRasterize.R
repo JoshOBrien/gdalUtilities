@@ -1,4 +1,3 @@
-
 ##' Rasterize \code{Spatial*} objects using gdal_rasterize.
 ##'
 ##' For a 1000-by-1000 raster, \code{gRasterize} is more than 6 times
@@ -106,4 +105,3 @@ gRasterize <- function (SPDF, r, field, filename = "") {
     }
     r
 }
-

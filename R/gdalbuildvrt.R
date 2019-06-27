@@ -65,4 +65,3 @@ gdalbuildvrt <-
     gdal_utils("buildvrt", gdalfile, output.vrt, opts)
     invisible(output.vrt)
 }
-

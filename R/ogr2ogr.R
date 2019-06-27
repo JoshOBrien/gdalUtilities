@@ -106,4 +106,3 @@ ogr2ogr <-
                dst_datasource_name, opts)
     invisible(dst_datasource_name)
 }
-

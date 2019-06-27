@@ -56,5 +56,3 @@ nearblack <-
     gdal_utils("nearblack", infile, o, options=opts)
     invisible(o)
 }
-
-

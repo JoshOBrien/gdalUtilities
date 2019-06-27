@@ -47,5 +47,3 @@ gdalinfo <-
     gdal_utils("info", datasetname, options=opts)
     invisible(datasetname)
 }
-
-

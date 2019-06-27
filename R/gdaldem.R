@@ -84,4 +84,3 @@ gdaldem <-
                processing = mode, colorfilename = color_text_file)
     invisible(output_map)
 }
-

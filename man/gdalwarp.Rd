@@ -2,7 +2,7 @@
 % Please edit documentation in R/gdalwarp.R
 \name{gdalwarp}
 \alias{gdalwarp}
-\title{R interface to GDAL's gdalwarp utility}
+\title{Interface to GDAL's gdalwarp utility}
 \usage{
 gdalwarp(srcfile, dstfile, ..., s_srs, t_srs, to, order, tps, rpc, geoloc,
   et, refine_gcps, te, te_srs, tr, tap, ts, ovr, wo, ot, wt, r, srcnodata,
@@ -54,7 +54,7 @@ utility and the arguments that it takes, see the documentation at
 \url{https://gdal.org/programs/gdalwarp.html}.
 }
 \examples{
-\dontrun{
+\donttest{
 ## Prepare file paths
 td <- tempdir()
 in_tif <- file.path(td, "tahoe.tif")

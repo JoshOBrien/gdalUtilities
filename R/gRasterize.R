@@ -36,7 +36,7 @@
 ##' @export
 ##' @author Joshua O'Brien
 ##' @examples
-##' \dontrun{
+##' \donttest{
 ##' SPDF <- shapefile(system.file("external/lux.shp", package="raster"))
 ##' ## rr <- raster(extent(SPDF), ncol=100, nrow=100, crs=proj4string(SPDF))
 ##' llratio <- 1/cos(pi*mean(coordinates(SPDF)[,2])/180)

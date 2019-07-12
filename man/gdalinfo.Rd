@@ -2,7 +2,7 @@
 % Please edit documentation in R/gdalinfo.R
 \name{gdalinfo}
 \alias{gdalinfo}
-\title{R interface to GDAL's gdalinfo utility}
+\title{Interface to GDAL's gdalinfo utility}
 \usage{
 gdalinfo(datasetname, ..., json, mm, stats, approx_stats, hist, nogcp,
   nomd, norat, noct, checksum, listmdd, mdd, nofl, sd, proj4, oo, config,

@@ -3,7 +3,7 @@
 ##' utility and the arguments that it takes, see the documentation at
 ##' \url{https://gdal.org/programs/gdalbuildvrt.html}.
 ##'
-##' @title R interface to GDAL's gdalbuildvrt utility
+##' @title Interface to GDAL's gdalbuildvrt utility
 ##' @param gdalfile Character vector supplying file paths to one or more
 ##'     input datasets.
 ##' @param output.vrt Character. Path to output VRT file. Typically,

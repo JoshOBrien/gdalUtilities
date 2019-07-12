@@ -2,7 +2,7 @@
 % Please edit documentation in R/gdal_grid.R
 \name{gdal_grid}
 \alias{gdal_grid}
-\title{R interface to GDAL's gdal_grid utility}
+\title{Interface to GDAL's gdal_grid utility}
 \usage{
 gdal_grid(src_datasource, dst_filename, ..., ot, of, txe, tye, outsize,
   a_srs, zfield, z_increase, z_multiply, a, spat, clipsrc, clipsrcsql,
@@ -47,7 +47,7 @@ utility and the arguments that it takes, see the documentation at
 \url{https://gdal.org/programs/gdal_grid.html}.
 }
 \examples{
-\dontrun{
+\donttest{
 ## Set up file paths
 td <- tempdir()
 dem_file <- file.path(td, "dem.csv")

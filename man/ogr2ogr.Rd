@@ -2,7 +2,7 @@
 % Please edit documentation in R/ogr2ogr.R
 \name{ogr2ogr}
 \alias{ogr2ogr}
-\title{R interface to GDAL's ogr2ogr utility}
+\title{Interface to GDAL's ogr2ogr utility}
 \usage{
 ogr2ogr(src_datasource_name, dst_datasource_name, ..., layer, f, append,
   overwrite, update, select, progress, sql, dialect, where, skipfailures,
@@ -74,7 +74,7 @@ utility and the arguments that it takes, see the documentation at
 \url{https://gdal.org/programs/ogr2ogr.html}.
 }
 \examples{
-\dontrun{
+\donttest{
 ## Prepare file paths
 td <- tempdir()
 in_shp <- system.file("external/lux.shp",
@@ -90,11 +90,12 @@ ogr2ogr(in_shp, out_merc, t_srs = "EPSG:3395")
 ogr2ogr(in_shp, out_utm, t_srs = "EPSG:42304")
 
 if(require(raster)) {
-    par(mfcol = c(1,2))
+    op <- par(mfcol = c(1,2))
     plot(shapefile(out_merc), main = "WGS 84",
          border = "darkgrey", col = gray.colors(12))
     plot(shapefile(out_utm), main = "LCC",
          border = "darkgrey", col = gray.colors(12))
+    par(op)
 }
 }
 }

@@ -3,7 +3,7 @@
 ##' utility and the arguments that it takes, see the documentation at
 ##' \url{https://gdal.org/programs/nearblack.html}.
 ##'
-##' @title R interface to GDAL's nearblack utility
+##' @title Interface to GDAL's nearblack utility
 ##' @param infile Character. Path to a GDAL-supported readable
 ##'     datasource.
 ##' @param o Optionally, a character string giving the path to a
@@ -24,7 +24,7 @@
 ##' @export
 ##' @author Joshua O'Brien
 ##' @examples
-##' \dontrun{
+##' \donttest{
 ##' td <- tempdir()
 ##' a_rast <- file.path(td, "a.tif")
 ##' b_rast <- file.path(td, "b.tif")

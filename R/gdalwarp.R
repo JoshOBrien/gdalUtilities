@@ -3,7 +3,7 @@
 ##' utility and the arguments that it takes, see the documentation at
 ##' \url{https://gdal.org/programs/gdalwarp.html}.
 ##'
-##' @title R interface to GDAL's gdalwarp utility
+##' @title Interface to GDAL's gdalwarp utility
 ##' @param srcfile Character. Path to a GDAL-supported readable
 ##'     datasource.
 ##' @param dstfile Character. Path to a GDAL-supported output file.
@@ -33,7 +33,7 @@
 ##' @export
 ##' @author Joshua O'Brien
 ##' @examples
-##' \dontrun{
+##' \donttest{
 ##' ## Prepare file paths
 ##' td <- tempdir()
 ##' in_tif <- file.path(td, "tahoe.tif")

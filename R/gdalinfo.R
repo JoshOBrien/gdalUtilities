@@ -3,7 +3,7 @@
 ##' utility and the arguments that it takes, see the documentation at
 ##' \url{https://gdal.org/programs/gdalinfo.html}.
 ##'
-##' @title R interface to GDAL's gdalinfo utility
+##' @title Interface to GDAL's gdalinfo utility
 ##' @param datasetname Path to a GDAL-supported readable
 ##'     datasource.
 ##' @param ... Here, a placeholder argument that forces users to

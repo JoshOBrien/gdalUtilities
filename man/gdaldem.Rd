@@ -2,7 +2,7 @@
 % Please edit documentation in R/gdaldem.R
 \name{gdaldem}
 \alias{gdaldem}
-\title{R interface to GDAL's gdaldem utility}
+\title{Interface to GDAL's gdaldem utility}
 \usage{
 gdaldem(mode, input_dem, output_map, ..., of, compute_edges, alg, b, co, q,
   z, s, az, alt, combined, multidirectional, p, trigonometric,
@@ -51,7 +51,7 @@ utility and the arguments that it takes, see the documentation at
 \url{https://gdal.org/programs/gdaldem.html}.
 }
 \examples{
-\dontrun{
+\donttest{
 ## Prepare file paths
 td <- tempdir()
 in_dem <- system.file("extdata/maunga.tif", package = "gdalUtilities")

@@ -3,7 +3,7 @@
 ##' utility and the arguments that it takes, see the documentation at
 ##' \url{https://gdal.org/programs/gdal_rasterize.html}.
 ##'
-##' @title R interface to GDAL's gdal_rasterize utility
+##' @title Interface to GDAL's gdal_rasterize utility
 ##' @param src_datasource Character. Path to a GDAL-supported readable
 ##'     datasource.
 ##' @param dst_filename Character. Path to a GDAL-supported output
@@ -27,7 +27,7 @@
 ##' @importFrom sf gdal_utils
 ##' @author Joshua O'Brien
 ##' @examples
-##' \dontrun{
+##' \donttest{
 ##' if(require(raster)) {
 ##'     ## Prepare file paths of example shapefile and template raster file
 ##'     vect_file <- system.file("external/lux.shp", package = "raster")

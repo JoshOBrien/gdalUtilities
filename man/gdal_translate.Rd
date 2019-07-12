@@ -2,7 +2,7 @@
 % Please edit documentation in R/gdal_translate.R
 \name{gdal_translate}
 \alias{gdal_translate}
-\title{R interface to GDAL's gdal_translate utility}
+\title{Interface to GDAL's gdal_translate utility}
 \usage{
 gdal_translate(src_dataset, dst_dataset, ..., ot, strict, of, b, mask,
   expand, outsize, tr, r, scale, exponent, unscale, srcwin, projwin,
@@ -53,7 +53,7 @@ utility and the arguments that it takes, see the documentation at
 \url{https://gdal.org/programs/gdal_translate.html}.
 }
 \examples{
-\dontrun{
+\donttest{
 ## Prepare file paths
 td <- tempdir()
 in_raster <- file.path(td, "europe.tif")

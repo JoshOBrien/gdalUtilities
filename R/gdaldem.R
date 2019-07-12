@@ -3,7 +3,7 @@
 ##' utility and the arguments that it takes, see the documentation at
 ##' \url{https://gdal.org/programs/gdaldem.html}.
 ##'
-##' @title R interface to GDAL's gdaldem utility
+##' @title Interface to GDAL's gdaldem utility
 ##' @param input_dem Path to a GDAL-supported readable DEM datasource.
 ##' @param output_map Character. Path to a GDAL-supported output file.
 ##' @param mode Character, one of \code{"hillshade"}, \code{"slope"},
@@ -32,7 +32,7 @@
 ##' @export
 ##' @author Joshua O'Brien
 ##' @examples
-##' \dontrun{
+##' \donttest{
 ##' ## Prepare file paths
 ##' td <- tempdir()
 ##' in_dem <- system.file("extdata/maunga.tif", package = "gdalUtilities")

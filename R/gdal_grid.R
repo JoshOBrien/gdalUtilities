@@ -3,7 +3,7 @@
 ##' utility and the arguments that it takes, see the documentation at
 ##' \url{https://gdal.org/programs/gdal_grid.html}.
 ##'
-##' @title R interface to GDAL's gdal_grid utility
+##' @title Interface to GDAL's gdal_grid utility
 ##' @param src_datasource Character. Path to a GDAL-supported readable
 ##'     datasource.
 ##' @param dst_filename Character. Path to a GDAL-supported output
@@ -30,7 +30,7 @@
 ##' @export
 ##' @author Joshua O'Brien
 ##' @examples
-##' \dontrun{
+##' \donttest{
 ##' ## Set up file paths
 ##' td <- tempdir()
 ##' dem_file <- file.path(td, "dem.csv")

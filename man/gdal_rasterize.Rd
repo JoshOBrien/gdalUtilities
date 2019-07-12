@@ -2,7 +2,7 @@
 % Please edit documentation in R/gdal_rasterize.R
 \name{gdal_rasterize}
 \alias{gdal_rasterize}
-\title{R interface to GDAL's gdal_rasterize utility}
+\title{Interface to GDAL's gdal_rasterize utility}
 \usage{
 gdal_rasterize(src_datasource, dst_filename, ..., b, i, at, burn, a,
   threeD, l, where, sql, dialect, of, a_srs, co, a_nodata, init, te, tr,
@@ -43,7 +43,7 @@ utility and the arguments that it takes, see the documentation at
 \url{https://gdal.org/programs/gdal_rasterize.html}.
 }
 \examples{
-\dontrun{
+\donttest{
 if(require(raster)) {
     ## Prepare file paths of example shapefile and template raster file
     vect_file <- system.file("external/lux.shp", package = "raster")

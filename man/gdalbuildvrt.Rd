@@ -2,7 +2,7 @@
 % Please edit documentation in R/gdalbuildvrt.R
 \name{gdalbuildvrt}
 \alias{gdalbuildvrt}
-\title{R interface to GDAL's gdalbuildvrt utility}
+\title{Interface to GDAL's gdalbuildvrt utility}
 \usage{
 gdalbuildvrt(gdalfile, output.vrt, ..., tileindex, resolution, te, tr, tap,
   separate, b, sd, allow_projection_difference, q, addalpha, hidenodata,

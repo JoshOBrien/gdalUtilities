@@ -2,7 +2,7 @@
 % Please edit documentation in R/nearblack.R
 \name{nearblack}
 \alias{nearblack}
-\title{R interface to GDAL's nearblack utility}
+\title{Interface to GDAL's nearblack utility}
 \usage{
 nearblack(infile, o = infile, ..., of, co, white, color, near, nb,
   setalpha, setmask, q, dryrun = FALSE)
@@ -39,7 +39,7 @@ utility and the arguments that it takes, see the documentation at
 \url{https://gdal.org/programs/nearblack.html}.
 }
 \examples{
-\dontrun{
+\donttest{
 td <- tempdir()
 a_rast <- file.path(td, "a.tif")
 b_rast <- file.path(td, "b.tif")

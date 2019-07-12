@@ -3,7 +3,7 @@
 ##' utility and the arguments that it takes, see the documentation at
 ##' \url{https://gdal.org/programs/ogr2ogr.html}.
 ##'
-##' @title R interface to GDAL's ogr2ogr utility
+##' @title Interface to GDAL's ogr2ogr utility
 ##' @param src_datasource_name Character. Path to a GDAL-supported
 ##'     readable datasource.
 ##' @param dst_datasource_name Character. Path to a GDAL-supported
@@ -51,7 +51,7 @@
 ##' @export
 ##' @author Joshua O'Brien
 ##' @examples
-##' \dontrun{
+##' \donttest{
 ##' ## Prepare file paths
 ##' td <- tempdir()
 ##' in_shp <- system.file("external/lux.shp",
@@ -67,11 +67,12 @@
 ##' ogr2ogr(in_shp, out_utm, t_srs = "EPSG:42304")
 ##'
 ##' if(require(raster)) {
-##'     par(mfcol = c(1,2))
+##'     op <- par(mfcol = c(1,2))
 ##'     plot(shapefile(out_merc), main = "WGS 84",
 ##'          border = "darkgrey", col = gray.colors(12))
 ##'     plot(shapefile(out_utm), main = "LCC",
 ##'          border = "darkgrey", col = gray.colors(12))
+##'     par(op)
 ##' }
 ##' }
 ogr2ogr <-

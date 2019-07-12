@@ -3,7 +3,7 @@
 ##' utility and the arguments that it takes, see the documentation at
 ##' \url{https://gdal.org/programs/gdal_translate.html}.
 ##'
-##' @title R interface to GDAL's gdal_translate utility
+##' @title Interface to GDAL's gdal_translate utility
 ##' @param src_dataset Character. Path to a GDAL-supported readable
 ##'     datasource.
 ##' @param dst_dataset Character. Path to a GDAL-supported output
@@ -33,7 +33,7 @@
 ##' @export
 ##' @author Joshua O'Brien
 ##' @examples
-##' \dontrun{
+##' \donttest{
 ##' ## Prepare file paths
 ##' td <- tempdir()
 ##' in_raster <- file.path(td, "europe.tif")

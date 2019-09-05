@@ -67,7 +67,7 @@ expand,      -expand,      1,    FALSE
 outsize,     -outsize,     2,    FALSE
 tr,          -tr,          2,    FALSE
 r,           -r,           1,    FALSE
-scale,       -scale,       4,    FALSE
+scale,       -scale,       4,    TRUE
 exponent,    -exponent,    1,    TRUE
 unscale,     -unscale,     0,    FALSE
 srcwin,      -srcwin,      4,    FALSE

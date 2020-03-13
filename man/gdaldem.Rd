@@ -4,10 +4,32 @@
 \alias{gdaldem}
 \title{Interface to GDAL's gdaldem utility}
 \usage{
-gdaldem(mode, input_dem, output_map, ..., of, compute_edges, alg, b, co, q,
-  z, s, az, alt, combined, multidirectional, p, trigonometric,
-  zero_for_flat, color_text_file = character(0), alpha,
-  exact_color_entry, nearest_color_entry, dryrun = FALSE)
+gdaldem(
+  mode,
+  input_dem,
+  output_map,
+  ...,
+  of,
+  compute_edges,
+  alg,
+  b,
+  co,
+  q,
+  z,
+  s,
+  az,
+  alt,
+  combined,
+  multidirectional,
+  p,
+  trigonometric,
+  zero_for_flat,
+  color_text_file = character(0),
+  alpha,
+  exact_color_entry,
+  nearest_color_entry,
+  dryrun = FALSE
+)
 }
 \arguments{
 \item{mode}{Character, one of \code{"hillshade"}, \code{"slope"},

@@ -4,8 +4,21 @@
 \alias{nearblack}
 \title{Interface to GDAL's nearblack utility}
 \usage{
-nearblack(infile, o = infile, ..., of, co, white, color, near, nb,
-  setalpha, setmask, q, dryrun = FALSE)
+nearblack(
+  infile,
+  o = infile,
+  ...,
+  of,
+  co,
+  white,
+  color,
+  near,
+  nb,
+  setalpha,
+  setmask,
+  q,
+  dryrun = FALSE
+)
 }
 \arguments{
 \item{infile}{Character. Path to a GDAL-supported readable

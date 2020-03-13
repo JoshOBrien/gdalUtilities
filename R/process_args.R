@@ -44,5 +44,8 @@ process_args <- function(args, formalsTable) {
             }
         }
     })
-    c(character(0), unlist(opts))
+    opts <- c(character(0), unlist(opts))
+    ## Remove any "" from opts vector
+    opts <- Filter(nchar, opts)
+    opts
 }

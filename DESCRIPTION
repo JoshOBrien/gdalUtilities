@@ -1,8 +1,8 @@
 Package: gdalUtilities
 Type: Package
 Title: Wrappers for 'GDAL' Utilities Executables
-Version: 1.0.1
-Date: 2019-09-04
+Version: 1.0.2
+Date: 2020-03-13
 Author: Joshua O'Brien
 Maintainer: Joshua O'Brien <joshmobrien@gmail.com>
 Description: R's 'sf' package ships with self-contained 'GDAL'
@@ -29,5 +29,5 @@ Suggests:
     RColorBrewer,
     testthat,
     gdalUtils
-RoxygenNote: 6.1.1
+RoxygenNote: 7.0.2
 Encoding: UTF-8

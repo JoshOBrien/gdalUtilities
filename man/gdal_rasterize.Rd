@@ -4,9 +4,33 @@
 \alias{gdal_rasterize}
 \title{Interface to GDAL's gdal_rasterize utility}
 \usage{
-gdal_rasterize(src_datasource, dst_filename, ..., b, i, at, burn, a,
-  threeD, l, where, sql, dialect, of, a_srs, co, a_nodata, init, te, tr,
-  tap, ts, ot, q, dryrun = FALSE)
+gdal_rasterize(
+  src_datasource,
+  dst_filename,
+  ...,
+  b,
+  i,
+  at,
+  burn,
+  a,
+  threeD,
+  l,
+  where,
+  sql,
+  dialect,
+  of,
+  a_srs,
+  co,
+  a_nodata,
+  init,
+  te,
+  tr,
+  tap,
+  ts,
+  ot,
+  q,
+  dryrun = FALSE
+)
 }
 \arguments{
 \item{src_datasource}{Character. Path to a GDAL-supported readable

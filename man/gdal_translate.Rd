@@ -4,10 +4,43 @@
 \alias{gdal_translate}
 \title{Interface to GDAL's gdal_translate utility}
 \usage{
-gdal_translate(src_dataset, dst_dataset, ..., ot, strict, of, b, mask,
-  expand, outsize, tr, r, scale, exponent, unscale, srcwin, projwin,
-  projwin_srs, srs, epo, eco, a_srs, a_ullr, a_nodata, mo, co, gcp, q, sds,
-  stats, norat, oo, sd_index, config, dryrun = FALSE)
+gdal_translate(
+  src_dataset,
+  dst_dataset,
+  ...,
+  ot,
+  strict,
+  of,
+  b,
+  mask,
+  expand,
+  outsize,
+  tr,
+  r,
+  scale,
+  exponent,
+  unscale,
+  srcwin,
+  projwin,
+  projwin_srs,
+  srs,
+  epo,
+  eco,
+  a_srs,
+  a_ullr,
+  a_nodata,
+  mo,
+  co,
+  gcp,
+  q,
+  sds,
+  stats,
+  norat,
+  oo,
+  sd_index,
+  config,
+  dryrun = FALSE
+)
 }
 \arguments{
 \item{src_dataset}{Character. Path to a GDAL-supported readable

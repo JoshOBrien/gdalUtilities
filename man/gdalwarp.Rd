@@ -4,11 +4,52 @@
 \alias{gdalwarp}
 \title{Interface to GDAL's gdalwarp utility}
 \usage{
-gdalwarp(srcfile, dstfile, ..., s_srs, t_srs, to, order, tps, rpc, geoloc,
-  et, refine_gcps, te, te_srs, tr, tap, ts, ovr, wo, ot, wt, r, srcnodata,
-  dstnodata, dstalpha, wm, multi, q, of, co, cutline, cl, cwhere, csql,
-  cblend, crop_to_cutline, overwrite, nomd, cvmd, setci, oo, doo, config,
-  dryrun = FALSE)
+gdalwarp(
+  srcfile,
+  dstfile,
+  ...,
+  s_srs,
+  t_srs,
+  to,
+  order,
+  tps,
+  rpc,
+  geoloc,
+  et,
+  refine_gcps,
+  te,
+  te_srs,
+  tr,
+  tap,
+  ts,
+  ovr,
+  wo,
+  ot,
+  wt,
+  r,
+  srcnodata,
+  dstnodata,
+  dstalpha,
+  wm,
+  multi,
+  q,
+  of,
+  co,
+  cutline,
+  cl,
+  cwhere,
+  csql,
+  cblend,
+  crop_to_cutline,
+  overwrite,
+  nomd,
+  cvmd,
+  setci,
+  oo,
+  doo,
+  config,
+  dryrun = FALSE
+)
 }
 \arguments{
 \item{srcfile}{Character. Path to a GDAL-supported readable

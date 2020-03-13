@@ -4,9 +4,28 @@
 \alias{gdalinfo}
 \title{Interface to GDAL's gdalinfo utility}
 \usage{
-gdalinfo(datasetname, ..., json, mm, stats, approx_stats, hist, nogcp,
-  nomd, norat, noct, checksum, listmdd, mdd, nofl, sd, proj4, oo, config,
-  dryrun = FALSE)
+gdalinfo(
+  datasetname,
+  ...,
+  json,
+  mm,
+  stats,
+  approx_stats,
+  hist,
+  nogcp,
+  nomd,
+  norat,
+  noct,
+  checksum,
+  listmdd,
+  mdd,
+  nofl,
+  sd,
+  proj4,
+  oo,
+  config,
+  dryrun = FALSE
+)
 }
 \arguments{
 \item{datasetname}{Path to a GDAL-supported readable

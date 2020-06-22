@@ -1,5 +1,10 @@
 # GDAL Utility Functions for R
 
+[![Project Status: Active - The project has reached a stable, usable state and is being actively developed.](http://www.repostatus.org/badges/latest/active.svg)](http://www.repostatus.org/#active)
+[![License](https://JoshOBrien.github.io/badges/GPL2+.svg)](http://www.gnu.org/licenses/gpl-2.0.html)
+[![](http://www.r-pkg.org/badges/version/gdalUtilities)](http://www.r-pkg.org/pkg/gdalUtilities)
+[![CRAN RStudio mirror downloads](http://cranlogs.r-pkg.org/badges/gdalUtilities)](http://www.r-pkg.org/pkg/gdalUtilities)
+
 The R package [**sf**](https://cran.r-project.org/package=sf) ships
 with self-contained GDAL executables, including a bare bones interface
 to several of the GDAL-related utility programs collectively known as

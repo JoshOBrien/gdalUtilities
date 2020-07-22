@@ -79,8 +79,9 @@ if(require(raster)) {
     lonlatratio <- 1 / cospi(mean(coordinates(SPDF)[,2]) / 180)
     rr <- raster(extent(SPDF),
                  resolution = c(lonlatratio * 0.01, 0.01),
-                 crs = proj4string(SPDF))
-    writeRaster(rr, filename = rast_file) ## Warns that raster is empty
+                 crs = crs(SPDF))
+    ## Note: this next line warns that raster is empty
+    writeRaster(rr, filename = rast_file, overwrite = TRUE)
 
     ## Rasterize polygon using empty raster and check that it worked
     gdal_rasterize(vect_file, rast_file, a = "ID_2")

@@ -60,8 +60,17 @@ file.copy(system.file("extdata/tahoe.tif", package = "gdalUtilities"),
           a_rast)
 file.copy(system.file("extdata/tahoe.tif", package = "gdalUtilities"),
           b_rast)
-nearblack(a_rast, b_rast, of = "GTiff")
-nearblack(a_rast, of = "GTiff", near = 100)
+nearblack(a_rast, b_rast, of = "GTiff", near = 150)
+
+## Check that it worked
+if(require(rasterVis)) {
+    r1 <- raster(a_rast)
+    p1 <- levelplot(r1, margin = FALSE, colorkey = FALSE)
+    r2 <- raster(b_rast)
+    p2 <- levelplot(r2, margin = FALSE, colorkey = FALSE)
+    plot(p1, split = c(1, 1, 2, 1))
+    plot(p2, split = c(2, 1, 2, 1), newpage = FALSE)
+}
 }
 }
 \author{

@@ -131,23 +131,22 @@ utility and the arguments that it takes, see the documentation at
 \donttest{
 ## Prepare file paths
 td <- tempdir()
-in_shp <- system.file("external/lux.shp",
-                      package = "raster")
-out_merc <- file.path(td, "mercator.shp")
-out_utm <- file.path(td, "utm.shp")
+lux <- system.file("external/lux.shp", package = "raster")
+lux_merc <- file.path(td, "mercator.shp")
+lux_lcc <- file.path(td, "lcc.shp")
 
 ## Reproject to 'WGS 84/World Mercator'
 ## https://en.wikipedia.org/wiki/Mercator_projection
-ogr2ogr(in_shp, out_merc, t_srs = "EPSG:3395")
-## Reproject to 'Lambert conformal conic projection'
+ogr2ogr(lux, lux_merc, t_srs = "EPSG:3395", overwrite = TRUE)
+## Reproject to a Canadian 'Lambert conformal conic projection'
 ## https://en.wikipedia.org/wiki/Lambert_conformal_conic_projection
-ogr2ogr(in_shp, out_utm, t_srs = "EPSG:42304")
+ogr2ogr(lux, lux_lcc, t_srs = "EPSG:3347", overwrite = TRUE)
 
 if(require(raster)) {
     op <- par(mfcol = c(1,2))
-    plot(shapefile(out_merc), main = "WGS 84",
+    plot(shapefile(lux_merc), main = "WGS 84",
          border = "darkgrey", col = gray.colors(12))
-    plot(shapefile(out_utm), main = "LCC",
+    plot(shapefile(lux_lcc), main = "LCC",
          border = "darkgrey", col = gray.colors(12))
     par(op)
 }

@@ -9,8 +9,8 @@
 ##' @param dstfile Character. Path to a GDAL-supported output file.
 ##' @param ... Here, a placeholder argument that forces users to
 ##'     supply exact names of all subsequent formal arguments.
-##' @param s_srs,t_srs,to,order,tps,rpc,geoloc,et,refine_gcps See the
-##'     GDAL project's
+##' @param s_srs,t_srs,ct,to,order,tps,rpc,geoloc,et,refine_gcps See
+##'     the GDAL project's
 ##'     \href{https://gdal.org/programs/gdalwarp.html}{gdalwarp
 ##'     documentation} for details.
 ##' @param te,te_srs,tr,tap,ts,ovr,wo,ot,wt,r,srcnodata,dstnodata See
@@ -69,13 +69,12 @@
 ##' }
 ##' }
 gdalwarp <-
-    function(srcfile, dstfile, ..., s_srs, t_srs, to, order, tps, rpc,
-             geoloc, et, refine_gcps, te, te_srs, tr, tap, ts, ovr,
-             wo, ot, wt, r, srcnodata, dstnodata, dstalpha, wm, multi,
-             q, of, co, cutline, cl, cwhere, csql, cblend,
+    function(srcfile, dstfile, ..., s_srs, t_srs, ct, to, order, tps,
+             rpc, geoloc, et, refine_gcps, te, te_srs, tr, tap, ts,
+             ovr, wo, ot, wt, r, srcnodata, dstnodata, dstalpha, wm,
+             multi, q, of, co, cutline, cl, cwhere, csql, cblend,
              crop_to_cutline, overwrite, nomd, cvmd, setci, oo, doo,
-             config,
-             dryrun = FALSE)
+             config, dryrun = FALSE)
 {
     ## Unlike `as.list(match.call())`, forces eval of arguments
     args <-  mget(names(match.call())[-1])

@@ -99,6 +99,7 @@ srcfile,         ,                 1,    TRUE
 dstfile,         ,                 1,    FALSE
 s_srs,           -s_srs,           1,    FALSE
 t_srs,           -t_srs,           1,    FALSE
+ct,              -ct,              1,    FALSE
 to,              -to,              1,    FALSE
 order,           -order,           1,    FALSE
 tps,             -tps,             0,    FALSE

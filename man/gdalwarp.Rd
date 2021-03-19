@@ -10,6 +10,7 @@ gdalwarp(
   ...,
   s_srs,
   t_srs,
+  ct,
   to,
   order,
   tps,
@@ -60,8 +61,8 @@ datasource.}
 \item{...}{Here, a placeholder argument that forces users to
 supply exact names of all subsequent formal arguments.}
 
-\item{s_srs, t_srs, to, order, tps, rpc, geoloc, et, refine_gcps}{See the
-GDAL project's
+\item{s_srs, t_srs, ct, to, order, tps, rpc, geoloc, et, refine_gcps}{See
+the GDAL project's
 \href{https://gdal.org/programs/gdalwarp.html}{gdalwarp
 documentation} for details.}
 

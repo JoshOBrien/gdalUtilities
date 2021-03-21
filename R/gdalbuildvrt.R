@@ -4,8 +4,8 @@
 ##' \url{https://gdal.org/programs/gdalbuildvrt.html}.
 ##'
 ##' @title Interface to GDAL's gdalbuildvrt utility
-##' @param gdalfile Character vector supplying file paths to one or more
-##'     input datasets.
+##' @param gdalfile Character vector supplying file paths to one or
+##'     more input datasets.
 ##' @param output.vrt Character. Path to output VRT file. Typically,
 ##'     output file will have suffix \code{".vrt"}.
 ##' @param ... Here, a placeholder argument that forces users to
@@ -14,12 +14,15 @@
 ##'     project's
 ##'     \href{https://gdal.org/programs/gdalbuildvrt.html}{gdalbuildvrt
 ##'     documentation} for details.
-##' @param allow_projection_difference,q,addalpha,hidenodata See the
+##' @param allow_projection_difference,q,optim,addalpha,hidenodata See
+##'     the GDAL project's
+##'     \href{https://gdal.org/programs/gdalbuildvrt.html}{gdalbuildvrt
+##'     documentation} for details.
+##' @param srcnodata,vrtnodata,ignore_srcmaskband,a_srs,r,oo See the
 ##'     GDAL project's
 ##'     \href{https://gdal.org/programs/gdalbuildvrt.html}{gdalbuildvrt
 ##'     documentation} for details.
-##' @param srcnodata,vrtnodata,a_srs,r,input_file_list,overwrite See
-##'     the GDAL project's
+##' @param input_file_list,overwrite See the GDAL project's
 ##'     \href{https://gdal.org/programs/gdalbuildvrt.html}{gdalbuildvrt
 ##'     documentation} for details.
 ##' @param dryrun Logical (default \code{FALSE}). If \code{TRUE},
@@ -45,9 +48,10 @@
 ##' gdalinfo(out_vrt)
 gdalbuildvrt <-
     function(gdalfile, output.vrt, ..., tileindex, resolution, te, tr,
-             tap, separate, b, sd, allow_projection_difference, q,
-             addalpha, hidenodata, srcnodata, vrtnodata, a_srs, r,
-             input_file_list, overwrite, dryrun = FALSE)
+             tap, separate, b, sd, allow_projection_difference, optim,
+             q, addalpha, hidenodata, srcnodata, vrtnodata,
+             ignore_srcmaskband, a_srs, r, oo, input_file_list,
+             overwrite, dryrun = FALSE)
 {
     ## Unlike `as.list(match.call())`, forces eval of arguments
     args <-  mget(names(match.call())[-1])

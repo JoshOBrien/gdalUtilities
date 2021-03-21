@@ -4,15 +4,14 @@
 ##' \url{https://gdal.org/programs/gdalinfo.html}.
 ##'
 ##' @title Interface to GDAL's gdalinfo utility
-##' @param datasetname Path to a GDAL-supported readable
-##'     datasource.
+##' @param datasetname Path to a GDAL-supported readable datasource.
 ##' @param ... Here, a placeholder argument that forces users to
 ##'     supply exact names of all subsequent formal arguments.
-##' @param json,mm,stats,approx_stats,hist,nogcp,nomd,norat,noct
-##'     See the GDAL project's
+##' @param json,mm,stats,approx_stats,hist,nogcp,nomd,norat,noct See
+##'     the GDAL project's
 ##'     \href{https://gdal.org/programs/gdalinfo.html}{gdalinfo
 ##'     documentation} for details.
-##' @param checksum,listmdd,mdd,nofl,sd,proj4,oo,config
+##' @param nofl,checksum,proj4,listmdd,mdd,wkt_format,sd,oo,IF,config
 ##'     See the GDAL project's
 ##'     \href{https://gdal.org/programs/gdalinfo.html}{gdalinfo
 ##'     documentation} for details.
@@ -28,9 +27,8 @@
 ##' gdalinfo(ff)
 gdalinfo <-
     function(datasetname, ..., json, mm, stats, approx_stats, hist,
-             nogcp, nomd, norat, noct, checksum, listmdd, mdd, nofl,
-             sd, proj4, oo, config,
-             dryrun = FALSE)
+             nogcp, nomd, norat, noct, nofl, checksum, proj4, listmdd,
+             mdd, wkt_format, sd, oo, IF, config, dryrun = FALSE)
 {
     ## Unlike `as.list(match.call())`, forces eval of arguments
     args <-  mget(names(match.call())[-1])

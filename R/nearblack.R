@@ -12,7 +12,7 @@
 ##'     modified in place.
 ##' @param ... Here, a placeholder argument that forces users to
 ##'     supply exact names of all subsequent formal arguments.
-##' @param of,co,white,color,near,nb,setalpha,setmask,q See the GDAL
+##' @param of,white,color,near,nb,setalpha,setmask,q,co See the GDAL
 ##'     project's
 ##'     \href{https://gdal.org/programs/nearblack.html}{nearblack
 ##'     documentation} for details.
@@ -46,9 +46,8 @@
 
 ##' }
 nearblack <-
-    function(infile, o = infile, ..., of, co, white, color, near, nb,
-             setalpha, setmask, q,
-             dryrun = FALSE)
+    function(infile, o = infile, ..., of, white, color, near, nb,
+             setalpha, setmask, q, co, dryrun = FALSE)
 {
     ## Unlike `as.list(match.call())`, forces eval of arguments
     args <-  mget(names(match.call())[-1])

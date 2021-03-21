@@ -10,12 +10,12 @@
 ##'     file.
 ##' @param ... Here, a placeholder argument that forces users to
 ##'     supply exact names of all subsequent formal arguments.
-##' @param b,i,at,burn,a,threeD,l,where,sql,dialect,of See the GDAL
-##'     project's
+##' @param b,i,at,burn,a,threeD,add,l,where,sql,dialect,of See the
+##'     GDAL project's
 ##'     \href{https://gdal.org/programs/gdal_rasterize.html}{gdal_rasterize
 ##'     documentation} for details.
-##' @param a_srs,co,a_nodata,init,te,tr,tap,ts,ot,q See the GDAL
-##'     project's
+##' @param a_srs,to,co,a_nodata,init,te,tr,tap,ts,ot,optim,q See the
+##'     GDAL project's
 ##'     \href{https://gdal.org/programs/gdal_rasterize.html}{gdal_rasterize
 ##'     documentation} for details.
 ##' @param dryrun Logical (default \code{FALSE}). If \code{TRUE},
@@ -50,8 +50,8 @@
 ##' }
 gdal_rasterize <-
     function(src_datasource, dst_filename, ..., b, i, at, burn, a,
-             threeD, l, where, sql, dialect, of, a_srs, co, a_nodata,
-             init, te, tr, tap, ts, ot, q,
+             threeD, add, l, where, sql, dialect, of, a_srs, to, co,
+             a_nodata, init, te, tr, tap, ts, ot, optim, q,
              dryrun = FALSE) {
     ## Unlike `as.list(match.call())`, forces eval of arguments
     args <-  mget(names(match.call())[-1])

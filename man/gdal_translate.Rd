@@ -10,6 +10,7 @@ gdal_translate(
   ...,
   ot,
   strict,
+  IF,
   of,
   b,
   mask,
@@ -27,14 +28,19 @@ gdal_translate(
   epo,
   eco,
   a_srs,
+  a_scale,
+  a_offset,
   a_ullr,
   a_nodata,
+  colorinterp,
   mo,
   co,
+  nogcp,
   gcp,
   q,
   sds,
   stats,
+  noxmp,
   norat,
   oo,
   sd_index,
@@ -52,8 +58,7 @@ file.}
 \item{...}{Here, a placeholder argument that forces users to
 supply exact names of all subsequent formal arguments.}
 
-\item{ot, strict, of, b, mask, expand, outsize, tr, r, scale, exponent}{See
-the GDAL project's
+\item{ot, strict, IF, of, b, mask, expand, outsize, tr, r, scale, exponent}{See the GDAL project's
 \href{https://gdal.org/programs/gdal_translate.html}{gdal_translate
 documentation} for details.}
 
@@ -62,12 +67,18 @@ project's
 \href{https://gdal.org/programs/gdal_translate.html}{gdal_translate
 documentation} for details.}
 
-\item{a_srs, a_ullr, a_nodata, mo, co, gcp, q, sds, stats, norat}{See the
-GDAL project's
+\item{a_srs, a_scale, a_offset, a_ullr, a_nodata, }{See the GDAL
+project's
 \href{https://gdal.org/programs/gdal_translate.html}{gdal_translate
 documentation} for details.}
 
-\item{oo, sd_index, config}{See the GDAL project's
+\item{colorinterp}{Along with \code{colorinterp}, arguments named
+\code{colorinterp_bn}, where \code{bn} refers the number of a
+band are also allowed. See the GDAL project's
+\href{https://gdal.org/programs/gdal_translate.html}{gdal_translate
+documentation} for details.}
+
+\item{mo, co, nogcp, gcp, q, sds, stats, norat, noxmp, oo, sd_index, config}{See the GDAL project's
 \href{https://gdal.org/programs/gdal_translate.html}{gdal_translate
 documentation} for details.}
 

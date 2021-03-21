@@ -12,6 +12,7 @@ gdal_grid(
   of,
   txe,
   tye,
+  tr,
   outsize,
   a_srs,
   zfield,
@@ -42,7 +43,7 @@ file.}
 \item{...}{Here, a placeholder argument that forces users to
 supply exact names of all subsequent formal arguments.}
 
-\item{ot, of, txe, tye, outsize, a_srs, zfield, z_increase, z_multiply}{See the GDAL project's
+\item{ot, of, txe, tye, tr, outsize, a_srs, zfield, z_increase, z_multiply}{See the GDAL project's
 \href{https://gdal.org/programs/gdal_grid.html}{gdal_grid
 documentation} for details.}
 

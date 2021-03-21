@@ -21,6 +21,7 @@ gdaldem(
   alt,
   combined,
   multidirectional,
+  igor,
   p,
   trigonometric,
   zero_for_flat,
@@ -49,8 +50,8 @@ GDAL project's
 \href{https://gdal.org/programs/gdaldem.html}{gdaldem
 documentation} for details.}
 
-\item{multidirectional, p, trigonometric, zero_for_flat}{See the GDAL
-project's
+\item{multidirectional, igor, p, trigonometric, zero_for_flat}{See the
+GDAL project's
 \href{https://gdal.org/programs/gdaldem.html}{gdaldem
 documentation} for details.}
 

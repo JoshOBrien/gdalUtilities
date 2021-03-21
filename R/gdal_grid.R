@@ -10,7 +10,7 @@
 ##'     file.
 ##' @param ... Here, a placeholder argument that forces users to
 ##'     supply exact names of all subsequent formal arguments.
-##' @param ot,of,txe,tye,outsize,a_srs,zfield,z_increase,z_multiply
+##' @param ot,of,txe,tye,tr,outsize,a_srs,zfield,z_increase,z_multiply
 ##'     See the GDAL project's
 ##'     \href{https://gdal.org/programs/gdal_grid.html}{gdal_grid
 ##'     documentation} for details.
@@ -72,7 +72,7 @@
 ##' }
 ##' }
 gdal_grid <-
-    function(src_datasource, dst_filename, ..., ot, of, txe, tye,
+    function(src_datasource, dst_filename, ..., ot, of, txe, tye, tr,
              outsize, a_srs, zfield, z_increase, z_multiply, a, spat,
              clipsrc, clipsrcsql, clipsrclayer, clipsrcwhere, l,
              where, sql, co, q, config,

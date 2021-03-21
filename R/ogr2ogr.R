@@ -17,8 +17,9 @@
 ##' @param where,skipfailures,spat,spat_srs,geomfield,dsco,lco,nln,nlt
 ##'     See \href{https://gdal.org/programs/ogr2ogr.html}{ogr2ogr
 ##'     documentation}.
-##' @param dim,a_srs,t_srs,s_srs,preserve_fid,fid,oo,doo,gt See the
-##'     See \href{https://gdal.org/programs/ogr2ogr.html}{ogr2ogr
+##' @param dim,a_srs,t_srs,s_srs,ct,preserve_fid,fid,limit,oo,doo,gt
+##'     See the See
+##'     \href{https://gdal.org/programs/ogr2ogr.html}{ogr2ogr
 ##'     documentation}.
 ##' @param ds_transaction,clipsrc,clipsrcsql,clipsrclayer,clipsrcwhere
 ##'     See \href{https://gdal.org/programs/ogr2ogr.html}{ogr2ogr
@@ -26,19 +27,22 @@
 ##' @param clipdst,clipdstsql,clipdstlayer,clipdstwhere,wrapdateline
 ##'     See \href{https://gdal.org/programs/ogr2ogr.html}{ogr2ogr
 ##'     documentation}.
-##' @param datelineoffset,simplify,segmentize,fieldTypeToString See
+##' @param datelineoffset,simplify,segmentize,makevalid See
 ##'     See \href{https://gdal.org/programs/ogr2ogr.html}{ogr2ogr
 ##'     documentation}.
-##' @param mapFieldType,unsetFieldWidth,splitlistfields,maxsubfields
+##' @param fieldTypeToString,mapFieldType,unsetFieldWidth
 ##'     See \href{https://gdal.org/programs/ogr2ogr.html}{ogr2ogr
 ##'     documentation}.
-##' @param explodecollections,zfield,gcp,order,tps,fieldmap,addfields
+##' @param splitlistfields,maxsubfields,explodecollections,zfield,gcp
 ##'     See \href{https://gdal.org/programs/ogr2ogr.html}{ogr2ogr
 ##'     documentation}.
-##' @param relaxedFieldNameMatch,forceNullable,unsetDefault,unsetFid
+##' @param order,tps,fieldmap,addfields,relaxedFieldNameMatch
 ##'     See \href{https://gdal.org/programs/ogr2ogr.html}{ogr2ogr
 ##'     documentation}.
-##' @param nomd,mo See
+##' @param forceNullable,unsetDefault,unsetFid,emptyStrAsNull,nomd See
+##'     \href{https://gdal.org/programs/ogr2ogr.html}{ogr2ogr
+##'     documentation}.
+##' @param mo,noNativeData See
 ##'     \href{https://gdal.org/programs/ogr2ogr.html}{ogr2ogr
 ##'     documentation}.
 ##' @param dryrun Logical (default \code{FALSE}). If \code{TRUE},
@@ -78,15 +82,16 @@ ogr2ogr <-
     function(src_datasource_name, dst_datasource_name, ..., layer, f,
              append, overwrite, update, select, progress, sql,
              dialect, where, skipfailures, spat, spat_srs, geomfield,
-             dsco, lco, nln, nlt, dim, a_srs, t_srs, s_srs,
-             preserve_fid, fid, oo, doo, gt, ds_transaction, clipsrc,
-             clipsrcsql, clipsrclayer, clipsrcwhere, clipdst,
+             dsco, lco, nln, nlt, dim, a_srs, t_srs, s_srs, ct,
+             preserve_fid, fid, limit, oo, doo, gt, ds_transaction,
+             clipsrc, clipsrcsql, clipsrclayer, clipsrcwhere, clipdst,
              clipdstsql, clipdstlayer, clipdstwhere, wrapdateline,
-             datelineoffset, simplify, segmentize, fieldTypeToString,
-             mapFieldType, unsetFieldWidth, splitlistfields,
-             maxsubfields, explodecollections, zfield, gcp, order,
-             tps, fieldmap, addfields, relaxedFieldNameMatch,
-             forceNullable, unsetDefault, unsetFid, nomd, mo,
+             datelineoffset, simplify, segmentize, makevalid,
+             fieldTypeToString, mapFieldType, unsetFieldWidth,
+             splitlistfields, maxsubfields, explodecollections,
+             zfield, gcp, order, tps, fieldmap, addfields,
+             relaxedFieldNameMatch, forceNullable, unsetDefault,
+             unsetFid, emptyStrAsNull, nomd, mo, noNativeData,
              dryrun = FALSE)
 {
     ## Unlike `as.list(match.call())`, forces eval of arguments

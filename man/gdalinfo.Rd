@@ -16,29 +16,31 @@ gdalinfo(
   nomd,
   norat,
   noct,
+  nofl,
   checksum,
+  proj4,
   listmdd,
   mdd,
-  nofl,
+  wkt_format,
   sd,
-  proj4,
   oo,
+  IF,
   config,
   dryrun = FALSE
 )
 }
 \arguments{
-\item{datasetname}{Path to a GDAL-supported readable
-datasource.}
+\item{datasetname}{Path to a GDAL-supported readable datasource.}
 
 \item{...}{Here, a placeholder argument that forces users to
 supply exact names of all subsequent formal arguments.}
 
-\item{json, mm, stats, approx_stats, hist, nogcp, nomd, norat, noct}{See the GDAL project's
+\item{json, mm, stats, approx_stats, hist, nogcp, nomd, norat, noct}{See
+the GDAL project's
 \href{https://gdal.org/programs/gdalinfo.html}{gdalinfo
 documentation} for details.}
 
-\item{checksum, listmdd, mdd, nofl, sd, proj4, oo, config}{See the GDAL project's
+\item{nofl, checksum, proj4, listmdd, mdd, wkt_format, sd, oo, IF, config}{See the GDAL project's
 \href{https://gdal.org/programs/gdalinfo.html}{gdalinfo
 documentation} for details.}
 

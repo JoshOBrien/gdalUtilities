@@ -14,12 +14,14 @@ gdal_rasterize(
   burn,
   a,
   threeD,
+  add,
   l,
   where,
   sql,
   dialect,
   of,
   a_srs,
+  to,
   co,
   a_nodata,
   init,
@@ -28,6 +30,7 @@ gdal_rasterize(
   tap,
   ts,
   ot,
+  optim,
   q,
   dryrun = FALSE
 )
@@ -42,13 +45,13 @@ file.}
 \item{...}{Here, a placeholder argument that forces users to
 supply exact names of all subsequent formal arguments.}
 
-\item{b, i, at, burn, a, threeD, l, where, sql, dialect, of}{See the GDAL
-project's
+\item{b, i, at, burn, a, threeD, add, l, where, sql, dialect, of}{See the
+GDAL project's
 \href{https://gdal.org/programs/gdal_rasterize.html}{gdal_rasterize
 documentation} for details.}
 
-\item{a_srs, co, a_nodata, init, te, tr, tap, ts, ot, q}{See the GDAL
-project's
+\item{a_srs, to, co, a_nodata, init, te, tr, tap, ts, ot, optim, q}{See the
+GDAL project's
 \href{https://gdal.org/programs/gdal_rasterize.html}{gdal_rasterize
 documentation} for details.}
 

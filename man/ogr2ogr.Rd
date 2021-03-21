@@ -30,8 +30,10 @@ ogr2ogr(
   a_srs,
   t_srs,
   s_srs,
+  ct,
   preserve_fid,
   fid,
+  limit,
   oo,
   doo,
   gt,
@@ -48,6 +50,7 @@ ogr2ogr(
   datelineoffset,
   simplify,
   segmentize,
+  makevalid,
   fieldTypeToString,
   mapFieldType,
   unsetFieldWidth,
@@ -64,8 +67,10 @@ ogr2ogr(
   forceNullable,
   unsetDefault,
   unsetFid,
+  emptyStrAsNull,
   nomd,
   mo,
+  noNativeData,
   dryrun = FALSE
 )
 }
@@ -86,8 +91,8 @@ documentation} for details.}
 \item{where, skipfailures, spat, spat_srs, geomfield, dsco, lco, nln, nlt}{See \href{https://gdal.org/programs/ogr2ogr.html}{ogr2ogr
 documentation}.}
 
-\item{dim, a_srs, t_srs, s_srs, preserve_fid, fid, oo, doo, gt}{See the
-See \href{https://gdal.org/programs/ogr2ogr.html}{ogr2ogr
+\item{dim, a_srs, t_srs, s_srs, ct, preserve_fid, fid, limit, oo, doo, gt}{See the See
+\href{https://gdal.org/programs/ogr2ogr.html}{ogr2ogr
 documentation}.}
 
 \item{ds_transaction, clipsrc, clipsrcsql, clipsrclayer, clipsrcwhere}{See \href{https://gdal.org/programs/ogr2ogr.html}{ogr2ogr
@@ -96,20 +101,24 @@ documentation}.}
 \item{clipdst, clipdstsql, clipdstlayer, clipdstwhere, wrapdateline}{See \href{https://gdal.org/programs/ogr2ogr.html}{ogr2ogr
 documentation}.}
 
-\item{datelineoffset, simplify, segmentize, fieldTypeToString}{See
+\item{datelineoffset, simplify, segmentize, makevalid}{See
 See \href{https://gdal.org/programs/ogr2ogr.html}{ogr2ogr
 documentation}.}
 
-\item{mapFieldType, unsetFieldWidth, splitlistfields, maxsubfields}{See \href{https://gdal.org/programs/ogr2ogr.html}{ogr2ogr
+\item{fieldTypeToString, mapFieldType, unsetFieldWidth}{See \href{https://gdal.org/programs/ogr2ogr.html}{ogr2ogr
 documentation}.}
 
-\item{explodecollections, zfield, gcp, order, tps, fieldmap, addfields}{See \href{https://gdal.org/programs/ogr2ogr.html}{ogr2ogr
+\item{splitlistfields, maxsubfields, explodecollections, zfield, gcp}{See \href{https://gdal.org/programs/ogr2ogr.html}{ogr2ogr
 documentation}.}
 
-\item{relaxedFieldNameMatch, forceNullable, unsetDefault, unsetFid}{See \href{https://gdal.org/programs/ogr2ogr.html}{ogr2ogr
+\item{order, tps, fieldmap, addfields, relaxedFieldNameMatch}{See \href{https://gdal.org/programs/ogr2ogr.html}{ogr2ogr
 documentation}.}
 
-\item{nomd, mo}{See
+\item{forceNullable, unsetDefault, unsetFid, emptyStrAsNull, nomd}{See
+\href{https://gdal.org/programs/ogr2ogr.html}{ogr2ogr
+documentation}.}
+
+\item{mo, noNativeData}{See
 \href{https://gdal.org/programs/ogr2ogr.html}{ogr2ogr
 documentation}.}
 

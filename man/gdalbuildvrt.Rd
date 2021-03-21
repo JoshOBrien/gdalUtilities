@@ -17,21 +17,24 @@ gdalbuildvrt(
   b,
   sd,
   allow_projection_difference,
+  optim,
   q,
   addalpha,
   hidenodata,
   srcnodata,
   vrtnodata,
+  ignore_srcmaskband,
   a_srs,
   r,
+  oo,
   input_file_list,
   overwrite,
   dryrun = FALSE
 )
 }
 \arguments{
-\item{gdalfile}{Character vector supplying file paths to one or more
-input datasets.}
+\item{gdalfile}{Character vector supplying file paths to one or
+more input datasets.}
 
 \item{output.vrt}{Character. Path to output VRT file. Typically,
 output file will have suffix \code{".vrt"}.}
@@ -44,13 +47,17 @@ project's
 \href{https://gdal.org/programs/gdalbuildvrt.html}{gdalbuildvrt
 documentation} for details.}
 
-\item{allow_projection_difference, q, addalpha, hidenodata}{See the
+\item{allow_projection_difference, q, optim, addalpha, hidenodata}{See
+the GDAL project's
+\href{https://gdal.org/programs/gdalbuildvrt.html}{gdalbuildvrt
+documentation} for details.}
+
+\item{srcnodata, vrtnodata, ignore_srcmaskband, a_srs, r, oo}{See the
 GDAL project's
 \href{https://gdal.org/programs/gdalbuildvrt.html}{gdalbuildvrt
 documentation} for details.}
 
-\item{srcnodata, vrtnodata, a_srs, r, input_file_list, overwrite}{See
-the GDAL project's
+\item{input_file_list, overwrite}{See the GDAL project's
 \href{https://gdal.org/programs/gdalbuildvrt.html}{gdalbuildvrt
 documentation} for details.}
 

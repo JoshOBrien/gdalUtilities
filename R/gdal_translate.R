@@ -10,19 +10,25 @@
 ##'     file.
 ##' @param ... Here, a placeholder argument that forces users to
 ##'     supply exact names of all subsequent formal arguments.
-##' @param ot,strict,of,b,mask,expand,outsize,tr,r,scale,exponent See
-##'     the GDAL project's
+##' @param ot,strict,IF,of,b,mask,expand,outsize,tr,r,scale,exponent
+##'     See the GDAL project's
 ##'     \href{https://gdal.org/programs/gdal_translate.html}{gdal_translate
 ##'     documentation} for details.
 ##' @param unscale,srcwin,projwin,projwin_srs,srs,epo,eco See the GDAL
 ##'     project's
 ##'     \href{https://gdal.org/programs/gdal_translate.html}{gdal_translate
 ##'     documentation} for details.
-##' @param a_srs,a_ullr,a_nodata,mo,co,gcp,q,sds,stats,norat See the
-##'     GDAL project's
+##' @param a_srs,a_scale,a_offset,a_ullr,a_nodata, See the GDAL
+##'     project's
 ##'     \href{https://gdal.org/programs/gdal_translate.html}{gdal_translate
 ##'     documentation} for details.
-##' @param oo,sd_index,config See the GDAL project's
+##' @param colorinterp Along with \code{colorinterp}, arguments named
+##'     \code{colorinterp_bn}, where \code{bn} refers the number of a
+##'     band are also allowed. See the GDAL project's
+##'     \href{https://gdal.org/programs/gdal_translate.html}{gdal_translate
+##'     documentation} for details.
+##' @param mo,co,nogcp,gcp,q,sds,stats,norat,noxmp,oo,sd_index,config
+##'     See the GDAL project's
 ##'     \href{https://gdal.org/programs/gdal_translate.html}{gdal_translate
 ##'     documentation} for details.
 ##' @param dryrun Logical (default \code{FALSE}). If \code{TRUE},
@@ -70,18 +76,28 @@
 ##' }
 ##' }
 gdal_translate <-
-    function(src_dataset, dst_dataset, ..., ot, strict, of, b, mask,
-             expand, outsize, tr, r, scale, exponent, unscale, srcwin,
-             projwin, projwin_srs, srs, epo, eco, a_srs, a_ullr,
-             a_nodata, mo, co, gcp, q, sds, stats, norat, oo,
-             sd_index, config,
-             dryrun = FALSE)
+    function(src_dataset, dst_dataset, ..., ot, strict, IF, of, b,
+             mask, expand, outsize, tr, r, scale, exponent, unscale,
+             srcwin, projwin, projwin_srs, srs, epo, eco, a_srs,
+             a_scale, a_offset, a_ullr, a_nodata, colorinterp,
+             mo, co, nogcp, gcp, q, sds, stats, noxmp, norat, oo,
+             sd_index, config, dryrun = FALSE)
 {
+    ## First, handle any colorinterp_XX arguments
+    dots <- list(...)
+    CI <- dots[grepl("colorinterp_[[:digit:]]+", names(dots))]
+    CI_opt_names <- gsub("colorinterp", "-colorinterp", names(CI))
+    CI_opts <- as.vector(rbind(CI_opt_names, unlist(CI)))
+
     ## Unlike `as.list(match.call())`, forces eval of arguments
-    args <-  mget(names(match.call())[-1])
+    nms <- setdiff(names(match.call())[-1], names(CI))
+    args <-  mget(nms)
     args[c("src_dataset", "dst_dataset", "dryrun")] <- NULL
     formalsTable <- getFormalsTable("gdal_translate")
     opts <- process_args(args, formalsTable)
+
+    ## Add back in any colorinterp_XX opts
+    opts <- c(opts, CI_opts)
 
     if(dryrun) {
         x <- CLI_call("gdal_translate", src_dataset, dst_dataset, opts=opts)

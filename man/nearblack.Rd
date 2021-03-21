@@ -9,7 +9,6 @@ nearblack(
   o = infile,
   ...,
   of,
-  co,
   white,
   color,
   near,
@@ -17,6 +16,7 @@ nearblack(
   setalpha,
   setmask,
   q,
+  co,
   dryrun = FALSE
 )
 }
@@ -32,7 +32,7 @@ modified in place.}
 \item{...}{Here, a placeholder argument that forces users to
 supply exact names of all subsequent formal arguments.}
 
-\item{of, co, white, color, near, nb, setalpha, setmask, q}{See the GDAL
+\item{of, white, color, near, nb, setalpha, setmask, q, co}{See the GDAL
 project's
 \href{https://gdal.org/programs/nearblack.html}{nearblack
 documentation} for details.}

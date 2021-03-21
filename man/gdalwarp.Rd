@@ -12,6 +12,7 @@ gdalwarp(
   t_srs,
   ct,
   to,
+  novshiftgrid,
   order,
   tps,
   rpc,
@@ -30,10 +31,13 @@ gdalwarp(
   r,
   srcnodata,
   dstnodata,
+  srcalpha,
+  nosrcalpha,
   dstalpha,
   wm,
   multi,
   q,
+  IF,
   of,
   co,
   cutline,
@@ -61,23 +65,25 @@ datasource.}
 \item{...}{Here, a placeholder argument that forces users to
 supply exact names of all subsequent formal arguments.}
 
-\item{s_srs, t_srs, ct, to, order, tps, rpc, geoloc, et, refine_gcps}{See
+\item{s_srs, t_srs, ct, to, novshiftgrid, order, tps, rpc, geoloc, et}{See
 the GDAL project's
 \href{https://gdal.org/programs/gdalwarp.html}{gdalwarp
 documentation} for details.}
 
-\item{te, te_srs, tr, tap, ts, ovr, wo, ot, wt, r, srcnodata, dstnodata}{See
+\item{refine_gcps, te, te_srs, tr, tap, ts, ovr, wo, ot, wt, r, srcnodata}{See the GDAL project's
+\href{https://gdal.org/programs/gdalwarp.html}{gdalwarp
+documentation} for details.}
+
+\item{dstnodata, srcalpha, nosrcalpha, dstalpha, wm, multi, q, IF, of, co}{See the GDAL project's
+\href{https://gdal.org/programs/gdalwarp.html}{gdalwarp
+documentation} for details.}
+
+\item{cutline, cl, cwhere, csql, cblend, crop_to_cutline, overwrite}{See
 the GDAL project's
 \href{https://gdal.org/programs/gdalwarp.html}{gdalwarp
 documentation} for details.}
 
-\item{dstalpha, wm, multi, q, of, co, cutline, cl, cwhere, csql, cblend}{See
-the GDAL project's
-\href{https://gdal.org/programs/gdalwarp.html}{gdalwarp
-documentation} for details.}
-
-\item{crop_to_cutline, overwrite, nomd, cvmd, setci, oo, doo, config}{See
-the GDAL project's
+\item{nomd, cvmd, setci, oo, doo, config}{See the GDAL project's
 \href{https://gdal.org/programs/gdalwarp.html}{gdalwarp
 documentation} for details.}
 

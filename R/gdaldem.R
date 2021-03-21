@@ -16,8 +16,8 @@
 ##'     GDAL project's
 ##'     \href{https://gdal.org/programs/gdaldem.html}{gdaldem
 ##'     documentation} for details.
-##' @param multidirectional,p,trigonometric,zero_for_flat See the GDAL
-##'     project's
+##' @param multidirectional,igor,p,trigonometric,zero_for_flat See the
+##'     GDAL project's
 ##'     \href{https://gdal.org/programs/gdaldem.html}{gdaldem
 ##'     documentation} for details.
 ##' @param color_text_file,alpha,exact_color_entry,nearest_color_entry
@@ -60,7 +60,7 @@
 gdaldem <-
     function(mode, input_dem, output_map, ..., of,
              compute_edges, alg, b, co, q, z, s, az, alt, combined,
-             multidirectional, p, trigonometric, zero_for_flat,
+             multidirectional, igor, p, trigonometric, zero_for_flat,
              color_text_file = character(0), alpha, exact_color_entry,
              nearest_color_entry,
              dryrun = FALSE)

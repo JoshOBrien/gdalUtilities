@@ -1,7 +1,15 @@
 
-* Truly current TODO [0/1]
+* Truly current TODO [1/2]
 
-- [ ] Add new arguments. The argument lists for most functions haven't
+- [ ] Add a note about needing to use ~IF=~ (instead of ~if=~) to pass
+  on values to the ~-if~ option of ~gdal_tranlate~ and one or two
+  other GDAL functions, since ~if~ is a reserved name in R.
+
+- In September 2020, with version 0.9-6, ~sf::gdal_utils()~ added
+  ~mdiminfo~ and ~mdimtranslate~. Find some sample data on which to
+  test them, and then add wrappers for both functions to the package.
+
+- [X] Add new arguments. The argument lists for most functions haven't
   been updated since 2018-01-4, when GDAL was at version 2.2.3 and the
   *sf* package may have been using an even earlier version. *sf* now
   uses GDAL 3.2.1, so I can add any features added before that.
@@ -9,11 +17,7 @@
 * Recipe for adding a utility
  - The notes for how to do that are [[file:c:/gitRepos/1-my-packages/gdUtils/TODO.org][here]].
   
-* Current TODO list
-  - In September 2020, with version 0.9-6, ~sf::gdal_utils()~ added
-    ~mdiminfo~ and ~mdimtranslate~. Find some sample data on which to
-    test them, and then add wrappers for both functions to the
-    package.
+* Older TODO list
   
 Before uploading this to GitHub, I should
  - Double-check the initial [[https://github.com/r-spatial/sf/issues/329][conversation with Edzer]] about what he

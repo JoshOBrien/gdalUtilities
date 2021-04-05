@@ -1,6 +1,6 @@
 # GDAL Utility Functions for R
 
-[![Project Status: Active - The project has reached a stable, usable state and is being actively developed.](https://www.repostatus.org/badges/latest/active.svg)](https://www.repostatus.org/#active)
+[![Project Status: Active - The project has reached a stable, usable state and is being actively developed.](https://www.repostatus.org/badges/latest/active.svg)](https://www.repostatus.org/)
 [![License](https://JoshOBrien.github.io/badges/GPL2+.svg)](https://www.gnu.org/licenses/gpl-2.0.html)
 [![](https://www.r-pkg.org/badges/version/gdalUtilities)](https://www.r-pkg.org/pkg/gdalUtilities)
 [![CRAN RStudio mirror downloads](https://cranlogs.r-pkg.org/badges/gdalUtilities)](https://www.r-pkg.org/pkg/gdalUtilities)

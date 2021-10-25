@@ -28,7 +28,8 @@
 ##' @author Joshua O'Brien
 ##' @examples
 ##' \donttest{
-##' if(require(raster)) {
+##' if(requireNamespace("raster", quietly = TRUE)) {
+##'     library(raster)
 ##'     ## Prepare file paths of example shapefile and template raster file
 ##'     vect_file <- system.file("external/lux.shp", package = "raster")
 ##'     td <- tempdir()

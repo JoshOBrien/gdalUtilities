@@ -109,7 +109,9 @@ file.copy(system.file("extdata/europe.tif", package = "gdalUtilities"),
 gdal_translate(in_raster, out_raster, outsize = c("50\%","50\%"))
 
 ## Check that it worked
-if(require(rasterVis)) {
+if(requireNamespace("raster", quietly = TRUE)) {
+  library(raster)
+  if(require(rasterVis)) {
     r1 <- raster(in_raster)
     r1[is.na(r1)] <- 0
     r1 <- as.factor(r1)
@@ -131,6 +133,7 @@ if(require(rasterVis)) {
     plot(p1, split = c(1, 1, 2, 1))
     plot(p2, split = c(2, 1, 2, 1), newpage = FALSE)
 
+  }
 }
 }
 }

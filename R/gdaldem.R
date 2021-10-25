@@ -46,7 +46,9 @@
 ##' gdaldem("aspect", in_dem, out_aspect)
 ##'
 ##' ## View results
-##' if(require(rasterVis)) {
+##' if(requireNamespace("raster", quietly = TRUE)) {
+##'   library(raster)
+##'   if(require(rasterVis)) {
 ##'     lp <- function(f) {
 ##'         levelplot(raster(f), main = substitute(f),
 ##'                   margin = FALSE, colorkey = FALSE)
@@ -55,6 +57,7 @@
 ##'     plot(lp(out_slope),  split = c(2,1,2,2), newpage = FALSE)
 ##'     plot(lp(out_shade),  split = c(1,2,2,2), newpage = FALSE)
 ##'     plot(lp(out_aspect), split = c(2,2,2,2), newpage = FALSE)
+##'   }
 ##' }
 ##' }
 gdaldem <-

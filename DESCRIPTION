@@ -21,14 +21,13 @@ Description: R's 'sf' package ships with self-contained 'GDAL'
 License: GPL (>= 2)
 URL: https://github.com/JoshOBrien/gdalUtilities/
 BugReports: https://github.com/JoshOBrien/gdalUtilities/issues/
-Depends:
-    raster
 Imports:
     sf
 Suggests:
+    raster,
     rasterVis,
     RColorBrewer,
     testthat,
     gdalUtils
-RoxygenNote: 7.1.1
+RoxygenNote: 7.1.2
 Encoding: UTF-8

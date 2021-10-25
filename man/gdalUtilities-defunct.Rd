@@ -12,13 +12,12 @@ gRasterize(...)
 \item{...}{Function arguments}
 }
 \description{
-These functions have been completely removed form this package.
+These functions have been removed from this package.
 }
 \details{
 \code{gRasterize} was removed due to its dependency on the
-\pkg{raster} package. With its removal, \pkg{gdalUtilities} no
-longer depends on the raster package. The source for
-\code{gRasterize} may still be found (and sourced, using
-\code{devtools::source_gist()}) at
+\pkg{raster} package, on which \pkg{gdalUtilities} no longer
+Depends. The source for \code{gRasterize} may still be found (and
+sourced, using \code{devtools::source_gist()}) at
 \url{https://gist.github.com/JoshOBrien/7cf19b8b686e6d6230a78a1a9799883b}.
 }

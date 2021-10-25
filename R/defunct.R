@@ -1,6 +1,6 @@
 ##' Defunct function(s) in the gdalUtilities package
 ##'
-##' These functions have been completely removed form this package.
+##' These functions have been removed from this package.
 ##'
 ##' \code{gRasterize} was removed due to its dependency on the
 ##' \pkg{raster} package, on which \pkg{gdalUtilities} no longer

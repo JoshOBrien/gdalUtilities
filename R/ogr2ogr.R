@@ -69,7 +69,8 @@
 ##' ## https://en.wikipedia.org/wiki/Lambert_conformal_conic_projection
 ##' ogr2ogr(lux, lux_lcc, t_srs = "EPSG:3347", overwrite = TRUE)
 ##'
-##' if(require(raster)) {
+##' if(requireNamespace("raster", quietly = TRUE)) {
+##'     library(raster)
 ##'     op <- par(mfcol = c(1,2))
 ##'     plot(shapefile(lux_merc), main = "WGS 84",
 ##'          border = "darkgrey", col = gray.colors(12))

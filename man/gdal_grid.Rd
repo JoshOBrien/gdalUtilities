@@ -106,7 +106,8 @@ gdal_grid(src_datasource = vrt_header_file,
           of = "GTiff", ot = "Float64", l = "dem")
 
 ## Check that it works
-if(require(raster)) {
+if(requireNamespace("raster", quietly = TRUE)) {
+    library(raster)
     plot(raster(out_raster))
     text(Northing ~ Easting, data = pts,
          labels = seq_len(nrow(pts)), cex = 0.7)

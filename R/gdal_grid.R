@@ -65,7 +65,8 @@
 ##'           of = "GTiff", ot = "Float64", l = "dem")
 ##'
 ##' ## Check that it works
-##' if(requireNamespace("raster", quietly = TRUE)) {
+##' if(requireNamespace("raster", quietly = TRUE) &
+##'    requireNamespace("rgdal", quietly = TRUE)) {
 ##'     library(raster)
 ##'     plot(raster(out_raster))
 ##'     text(Northing ~ Easting, data = pts,

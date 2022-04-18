@@ -107,13 +107,13 @@ basic rules:
 
 ## Comparison to **gdalUtils** package
 
-Jonathan Greenberg's [**gdalUtils**
-package](https://cran.r-project.org/package=gdalUtils) has long
-provided functionality very much like **gdalUtilities**, with one
-important caveat. Unlike the current package, **gdalUtils** requires
-that an independent local system installation of GDAL already be in
-place. (It works, in essence, by constructing system calls to GDAL,
-which it then farms out via calls to the R function `system()`.)
+Jonathan Greenberg's (currently archived) [**gdalUtils**
+package](https://cran.r-project.org/package=gdalUtils) long provided
+functionality very much like **gdalUtilities**, with one important
+caveat. Unlike the current package, **gdalUtils** required that an
+independent local system installation of GDAL already be in place. (It
+worked, in essence, by constructing system calls to GDAL, which it
+then farms out via calls to the R function `system()`.)
 **gdalUtilities**, by constrast, sidesteps any dependence on an
 additional external program. It does so by constructing calls to the R
 function `sf::gdal_utils()` which provides a raw interface to GDAL

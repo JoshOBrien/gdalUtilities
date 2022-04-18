@@ -37,11 +37,11 @@
 ##' td <- tempdir()
 ##' out_vrt <- file.path(td, "out.vrt")
 ##' layer1 <-
-##'     system.file("external/tahoe_lidar_bareearth.tif",
-##'                 package = "gdalUtils")
+##'     system.file("extdata/tahoe_lidar_bareearth.tif",
+##'                 package = "gdalUtilities")
 ##' layer2 <-
-##'     system.file("external/tahoe_lidar_highesthit.tif",
-##'                 package = "gdalUtils")
+##'     system.file("extdata/tahoe_lidar_highesthit.tif",
+##'                 package = "gdalUtilities")
 ##'
 ##' ## Build VRT and check that it works
 ##' gdalbuildvrt(gdalfile = c(layer1, layer2), output.vrt = out_vrt)

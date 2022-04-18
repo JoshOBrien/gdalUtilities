@@ -1,5 +1,4 @@
 TODO.org
 ^.*\.Rproj$
 ^\.Rproj\.user$
-^examples.R$
-^examples_alt.R$
+^examples/

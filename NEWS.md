@@ -1,3 +1,12 @@
+## Version 1.2.1
+
+* Removed **gdalUtils** from Suggests, as it was removed from CRAN on
+  2022-04-18. (I had used it in this package's test suite, comparing
+  its results with those of this package.)
+  
+* Added **rgdal** to Suggests, to cure a CRAN complaint about its
+  needing to be available to run the example in ?gdal_grid. 
+
 ## Version 1.2.0
 
 * Removed `gRasterize()` function and, as a result, the

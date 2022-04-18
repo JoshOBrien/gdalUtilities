@@ -1,8 +1,8 @@
 Package: gdalUtilities
 Type: Package
 Title: Wrappers for 'GDAL' Utilities Executables
-Version: 1.2.0
-Date: 2021-10-26
+Version: 1.2.1
+Date: 2022-04-18
 Author: Joshua O'Brien
 Maintainer: Joshua O'Brien <joshmobrien@gmail.com>
 Description: R's 'sf' package ships with self-contained 'GDAL'
@@ -25,9 +25,9 @@ Imports:
     sf
 Suggests:
     raster,
+    rgdal,
     rasterVis,
     RColorBrewer,
-    testthat,
-    gdalUtils
+    testthat
 RoxygenNote: 7.1.2
 Encoding: UTF-8

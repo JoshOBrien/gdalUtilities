@@ -336,7 +336,7 @@ te,                           -te,                          4,    FALSE
 tr,                           -tr,                          2,    FALSE
 tap,                          -tap,                         0,    FALSE
 separate,                     -separate,                    0,    FALSE
-b,                            -b,                           1,    FALSE
+b,                            -b,                           1,    TRUE
 sd,                           -sd,                          1,    FALSE
 allow_projection_difference,  -allow_projection_difference, 0,    FALSE
 q,                            -q,                           0,    FALSE

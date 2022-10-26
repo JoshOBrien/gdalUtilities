@@ -1,46 +1,68 @@
 
-* Truly current TODO [1/2]
-
-- [ ] Add a note about needing to use ~IF=~ (instead of ~if=~) to pass
-  on values to the ~-if~ option of ~gdal_tranlate~ and one or two
-  other GDAL functions, since ~if~ is a reserved name in R.
-
-- In September 2020, with version 0.9-6, ~sf::gdal_utils()~ added
-  ~mdiminfo~ and ~mdimtranslate~. Find some sample data on which to
-  test them, and then add wrappers for both functions to the package.
+* Current TODO [1/2]
 
 - [X] Add new arguments. The argument lists for most functions haven't
-  been updated since 2018-01-4, when GDAL was at version 2.2.3 and the
-  *sf* package may have been using an even earlier version. *sf* now
-  uses GDAL 3.2.1, so I can add any features added before that.
+  been updated since 2021-03-21 (commit 4b2bbe), when the version of
+  GDAL used by *sf* was at version 3.2.1. *sf* now uses GDAL 3.4.1, so
+  I can add any features added before that. A 2022-10-24 systematic
+  search through the online help files for each of the utilities I
+  support shows I need to add the following:
+
+  - gdal_translate: ~a_coord_epoch~ (new in version 3.4).
+
+  - gdalbuildvrt: ~ignore_srcmaskband~ (new in version 3.3), ~strict~
+    and ~non_strict~ (new in version 3.4.2).
+
+  - gdalwarp: ~s_coord_epoch~, ~t_coord_epoch~, ~vshift~ & ~novshift~
+    (since version 3.4), plus remove now defunct ~novshiftgrid~.
+
+  - ogr2ogr: ~a_coord_epoch~, ~s_coord_epoch~, and ~t_coord_epoch~
+    (new in version 3.4), ~emptyStrAsNull~ & ~resolveDomains~ (new in
+    version 3.3)
+
+- [ ] In September 2020, with version 0.9-6, ~sf::gdal_utils()~ added
+  ~mdiminfo~ and ~mdimtranslate~. Find some sample data on which to
+  test them (e.g. [[https://stackoverflow.com/a/28984566/980833][here]]), get it working from the command line (a
+  simple call to ~gdalmdiminfo time.nc~ works), and then add wrappers
+  for both functions to the package.
+
 
 * Recipe for adding a utility
+
  - The notes for how to do that are [[file:c:/gitRepos/1-my-packages/gdUtils/TODO.org][here]].
   
 * Older TODO list
   
 Before uploading this to GitHub, I should
+
  - Double-check the initial [[https://github.com/r-spatial/sf/issues/329][conversation with Edzer]] about what he
    hoped for.
+
  - Get a better example of using gdalwarp (??)
+
  - Create a test suite showing that the results produced by
    gdalUtilities (with GDAL inside) and gdalUtils (making system calls
    to external GDAL) are checksum identical.
+
  - In help pages, link to related GDAL documentation pages (as, for
    example, here: http://www.gdal.org/ogr2ogr.html).
+
  - Check implementation of variable length and repeatable arguments.
+
  - Document  usage of variable length and repeatable arguments.
+
  - Add an option (to each function?) for just returning the command
    line equivalent of the current call.
 
 * From where does/should data come?
+
  - My ~"maunga.tif"~ is derived from the dataset shipped with
    *gdistance*, got by doing:
    #+BEGIN_SRC R
    raster(system.file("external/maungawhau.grd", package="gdistance"))
    #+END_SRC
 
- -  Similarly, my ~"europe.tif"~ is also gotten from *gdistance*, by
+ - Similarly, my ~"europe.tif"~ is also gotten from *gdistance*, by
    doing:
    #+BEGIN_SRC R
    raster(system.file("external/Europe.grd", package="gdistance"))
@@ -60,6 +82,7 @@ Before uploading this to GitHub, I should
 - [X] ~gdal_grid~
 
 * Utilities taking more than one list of options
+
 It's looking (?) like this only applies to gdaldemprocessing. For it,
 the two additional arguments are ~pszProcessing~ and (one of
 "hillshade", "slope", "aspect", "color-relief", "TRI", "TPI", and
@@ -106,6 +129,7 @@ gdUtils::r_ogr2ogr(src_datasource_name, dst_datasource_name,
   "fills it in" with the value of the infile. (See [[https://github.com/OSGeo/gdal/blob/trunk/gdal/apps/nearblack_bin.cpp#L132-L134][here]] and [[https://github.com/OSGeo/gdal/blob/trunk/gdal/apps/nearblack_bin.cpp#L142-L146][here]].)
 
 * Argument-processing complications
+
 ** Formals taking variable number of arguments
 - In [[http://www.gdal.org/ogr2ogr.html][~ogr2ogr~]], for example, the ~-clipsrc~ formal has this signature:
   ~-clipsrc [xmin ymin xmax ymax]|WKT|datasource|spat_extent~

@@ -80,10 +80,11 @@ projwin_srs,   -projwin_srs,   1,    FALSE
 epo,           -epo,           0,    FALSE
 eco,           -eco,           0,    FALSE
 a_srs,         -a_srs,         1,    FALSE
-a_scale,       -a_scale,       1,    FALSE
-a_offset,      -a_offset,      1,    FALSE
+a_coord_epoch, -a_coord_epoch, 1,    FALSE
 a_ullr,        -a_ullr,        4,    FALSE
 a_nodata,      -a_nodata,      1,    FALSE
+a_scale,       -a_scale,       1,    FALSE
+a_offset,      -a_offset,      1,    FALSE
 colorinterp,   -colorinterp,   1,    FALSE
 mo,            -mo,            1,    TRUE
 co,            -co,            1,    TRUE
@@ -108,7 +109,10 @@ s_srs,           -s_srs,           1,    FALSE
 t_srs,           -t_srs,           1,    FALSE
 ct,              -ct,              1,    FALSE
 to,              -to,              1,    FALSE
-novshiftgrid,    -novshiftgrid,    1,    FALSE
+vshift,          -vshift,          0,    FALSE
+novshift,        -novshift,        0,    FALSE
+s_coord_epoch,   -s_coord_epoch,   1,    FALSE
+t_coord_epoch,   -t_coord_epoch,   1,    FALSE
 order,           -order,           1,    FALSE
 tps,             -tps,             0,    FALSE
 rpc,             -rpc,             0,    FALSE
@@ -241,11 +245,15 @@ mapFieldType,          -mapFieldType,         1,    FALSE
 fieldmap,              -fieldmap,             1,    FALSE
 splitlistfields,       -splitlistfields,      0,    FALSE
 maxsubfields,          -maxsubfields,         1,    FALSE
+resolveDomains,        -resolveDomains,       0,    FALSE
 explodecollections,    -explodecollections,   0,    FALSE
 zfield,                -zfield,               1,    FALSE
 gcp,                   -gcp,                  4,    TRUE
 order,                 -order,                1,    FALSE
 tps,                   -tps,                  0,    FALSE
+s_coord_epoch,         -s_coord_epoch,        1,    FALSE
+t_coord_epoch,         -t_coord_epoch,        1,    FALSE
+a_coord_epoch,         -a_coord_epoch,        1,    FALSE
 nomd,                  -nomd,                 0,    FALSE
 mo,                    -mo,                   1,    TRUE
 noNativeData,          -noNativeData,         0,    FALSE",
@@ -349,7 +357,9 @@ ignore_srcmaskband,           -ignore_srcmaskband,          0,    FALSE
 a_srs,                        -a_srs,                       1,    FALSE
 r,                            -r,                           1,    FALSE
 oo,                           -oo,                          1,    TRUE
-in0put_file_list,              -input_file_list,             1,    FALSE
+input_file_list,              -input_file_list,             1,    FALSE
+strict,                       -strict,                      0,    FALSE
+non_strict,                   -non_strict,                  0,    FALSE
 overwrite,                    -overwrite,                   0,    FALSE",
 stringsAsFactors = FALSE, strip.white = TRUE,
 colClasses = c("character", "character", "numeric", "logical"))

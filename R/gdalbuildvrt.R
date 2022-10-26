@@ -22,7 +22,8 @@
 ##'     GDAL project's
 ##'     \href{https://gdal.org/programs/gdalbuildvrt.html}{gdalbuildvrt
 ##'     documentation} for details.
-##' @param input_file_list,overwrite See the GDAL project's
+##' @param input_file_list,strict,non_strict,overwrite See the GDAL
+##'     project's
 ##'     \href{https://gdal.org/programs/gdalbuildvrt.html}{gdalbuildvrt
 ##'     documentation} for details.
 ##' @param dryrun Logical (default \code{FALSE}). If \code{TRUE},

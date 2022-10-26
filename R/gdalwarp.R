@@ -9,8 +9,11 @@
 ##' @param dstfile Character. Path to a GDAL-supported output file.
 ##' @param ... Here, a placeholder argument that forces users to
 ##'     supply exact names of all subsequent formal arguments.
-##' @param s_srs,t_srs,ct,to,novshiftgrid,order,tps,rpc,geoloc,et See
-##'     the GDAL project's
+##' @param s_srs,t_srs,ct,to,vshift,novshift See the GDAL project's
+##'     \href{https://gdal.org/programs/gdalwarp.html}{gdalwarp
+##'     documentation} for details.
+##' @param s_coord_epoch,t_coord_epoch,order,tps,rpc,geoloc,et See the
+##'     GDAL project's
 ##'     \href{https://gdal.org/programs/gdalwarp.html}{gdalwarp
 ##'     documentation} for details.
 ##' @param refine_gcps,te,te_srs,tr,tap,ts,ovr,wo,ot,wt,r,srcnodata

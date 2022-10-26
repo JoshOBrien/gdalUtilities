@@ -27,22 +27,25 @@
 ##' @param clipdst,clipdstsql,clipdstlayer,clipdstwhere,wrapdateline
 ##'     See \href{https://gdal.org/programs/ogr2ogr.html}{ogr2ogr
 ##'     documentation}.
-##' @param datelineoffset,simplify,segmentize,makevalid See
+##' @param datelineoffset,simplify,segmentize,makevalid,addfields See
 ##'     See \href{https://gdal.org/programs/ogr2ogr.html}{ogr2ogr
 ##'     documentation}.
-##' @param fieldTypeToString,mapFieldType,unsetFieldWidth
+##' @param unsetFid,emptyStrAsNull,relaxedFieldNameMatch,forceNullable
+##'     See See \href{https://gdal.org/programs/ogr2ogr.html}{ogr2ogr
+##'     documentation}.
+##' @param unsetDefault,fieldTypeToString,unsetFieldWidth,mapFieldType
 ##'     See \href{https://gdal.org/programs/ogr2ogr.html}{ogr2ogr
 ##'     documentation}.
-##' @param splitlistfields,maxsubfields,explodecollections,zfield,gcp
-##'     See \href{https://gdal.org/programs/ogr2ogr.html}{ogr2ogr
-##'     documentation}.
-##' @param order,tps,fieldmap,addfields,relaxedFieldNameMatch
-##'     See \href{https://gdal.org/programs/ogr2ogr.html}{ogr2ogr
-##'     documentation}.
-##' @param forceNullable,unsetDefault,unsetFid,emptyStrAsNull,nomd See
+##' @param fieldmap,splitlistfields,maxsubfields See
 ##'     \href{https://gdal.org/programs/ogr2ogr.html}{ogr2ogr
 ##'     documentation}.
-##' @param mo,noNativeData See
+##' @param resolveDomains,explodecollections,zfield,gcp,order,tps See
+##'     \href{https://gdal.org/programs/ogr2ogr.html}{ogr2ogr
+##'     documentation}.
+##' @param s_coord_epoch,t_coord_epoch,a_coord_epoch See
+##'     \href{https://gdal.org/programs/ogr2ogr.html}{ogr2ogr
+##'     documentation}.
+##' @param nomd,mo,noNativeData See
 ##'     \href{https://gdal.org/programs/ogr2ogr.html}{ogr2ogr
 ##'     documentation}.
 ##' @param dryrun Logical (default \code{FALSE}). If \code{TRUE},

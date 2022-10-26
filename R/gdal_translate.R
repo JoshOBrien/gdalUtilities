@@ -18,8 +18,8 @@
 ##'     project's
 ##'     \href{https://gdal.org/programs/gdal_translate.html}{gdal_translate
 ##'     documentation} for details.
-##' @param a_srs,a_scale,a_offset,a_ullr,a_nodata, See the GDAL
-##'     project's
+##' @param a_srs,a_coord_epoch,a_ullr,a_nodata,a_scale,a_offset, See
+##'     the GDAL project's
 ##'     \href{https://gdal.org/programs/gdal_translate.html}{gdal_translate
 ##'     documentation} for details.
 ##' @param colorinterp Along with \code{colorinterp}, arguments named

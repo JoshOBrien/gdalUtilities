@@ -281,8 +281,8 @@ listmdd,       -listmdd,      0,    FALSE
 mdd,           -mdd,          1,    FALSE
 wkt_format,    -wkt_format,   1,    FALSE
 sd,            -sd,           1,    FALSE
-oo,            -oo,           1,    FALSE,
-IF,            -if,           1,    FALSE",
+oo,            -oo,           1,    TRUE,
+IF,            -if,           1,    TRUE",
 stringsAsFactors = FALSE, strip.white = TRUE,
 colClasses = c("character", "character", "numeric", "logical"))
 

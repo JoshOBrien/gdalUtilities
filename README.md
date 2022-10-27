@@ -103,31 +103,16 @@ basic rules:
    ```
 
 
-## Comparison to **gdalUtils** package
-
-Jonathan Greenberg's (currently archived) [**gdalUtils**
-package](https://cran.r-project.org/package=gdalUtils) long provided
-functionality very much like **gdalUtilities**, with one important
-caveat. Unlike the current package, **gdalUtils** required that an
-independent local system installation of GDAL already be in place. (It
-worked, in essence, by constructing system calls to GDAL, which it
-then farms out via calls to the R function `system()`.)
-**gdalUtilities**, by constrast, sidesteps any dependence on an
-additional external program. It does so by constructing calls to the R
-function `sf::gdal_utils()` which provides a raw interface to GDAL
-binaries that are bundled together as part of the R package **sf**.
-
-
 ## Supported GDAL utilities
 
 At present, `sf::gdal_utils()` (and thus the **gdalUtilities**
-package) provides bindings for only a subset of the GDAL utilities. A
-list of the supported utilities, followed by those that are not
-supported, are given below:
+package) provides bindings for only a subset of the GDAL
+utilities. Lists of the supported and unsupported utilities are given
+below:
 
 ### GDAL utilities provided by this package
 ```r
-## Supported 'GDAL Utility Programs'
+## Supported 'Raster Programs'
 gdal_grid
 gdal_rasterize
 gdal_translate
@@ -137,13 +122,17 @@ gdalinfo
 gdalwarp
 nearblack
 
-## Supported 'OGR Utility Programs'
+## Supported 'Multidimensional Raster Programs'
+gdalmdiminfo
+gdalmdimtranslate
+
+## Supported 'Vector Programs'
 ogr2ogr
 ```
 
 ### GDAL utilities *not* provided by this package
 ```r
-## Unsupported 'GDAL Utility Programs'
+## Unsupported 'Raster Programs'
 gdal_contour
 gdaladdo
 gdallocationinfo
@@ -151,7 +140,7 @@ gdalmanage
 gdaltindex
 gdaltransform
 
-## Unsupported 'OGR Utility Programs' 
+## Unsupported 'Vector Programs' 
 ogrinfo
 ogrlineref
 ogrtindex

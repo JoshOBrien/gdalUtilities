@@ -1,3 +1,20 @@
+## Version 1.2.2
+
+* New functions `gdalmdiminfo()` and `gdalmdimtranslate()` support
+  calls to those GDAL utilities.
+  
+* `gdalinfo()` gains a `quiet=` argument that controls whether or not
+  the information it returns is printed to the console. (Formerly,
+  printing to the console was always on.)
+  
+* `gdalinfo()` now (silently) returns a character vector containing
+  the report returned by GDAL's gdalinfo utility. (Until now, it
+  simply returned the name of the file supplied to its `datasetname=`
+  formal argument.)
+  
+* Added formal arguments corresponding to all new command line options
+  added between GDAL versions 3.2.1 and 3.4.1.
+
 ## Version 1.2.1
 
 * Removed **gdalUtils** from Suggests, as it was removed from CRAN on

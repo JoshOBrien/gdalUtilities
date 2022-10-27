@@ -20,7 +20,8 @@ getFormalsTable <- function(fun) {
            ogr2ogr        = get("args_ogr2ogr", envir=.gdUtilsEnv),
            nearblack      = get("args_nearblack", envir=.gdUtilsEnv),
            gdal_grid      = get("args_gdal_grid", envir=.gdUtilsEnv),
-           gdalbuildvrt   = get("args_gdalbuildvrt", envir=.gdUtilsEnv))
+           gdalbuildvrt   = get("args_gdalbuildvrt", envir=.gdUtilsEnv),
+           gdalmdiminfo   = get("args_gdalmdiminfo", envir=.gdUtilsEnv))
 }
 
 
@@ -361,6 +362,21 @@ input_file_list,              -input_file_list,             1,    FALSE
 strict,                       -strict,                      0,    FALSE
 non_strict,                   -non_strict,                  0,    FALSE
 overwrite,                    -overwrite,                   0,    FALSE",
+stringsAsFactors = FALSE, strip.white = TRUE,
+colClasses = c("character", "character", "numeric", "logical"))
+
+
+.gdUtilsEnv[["args_gdalmdiminfo"]] <- read.csv(text = "
+arg,           flag,          narg, repeatable
+datasetname,   ,              1,    FALSE
+oo,            -oo,           1,    TRUE,
+arrayoption,   -arrayoption,  1,    TRUE,
+detailed,      -detailed,     0,    FALSE
+nopretty,      -nopretty,     0,    FALSE
+array,         -array,        1,    FALSE
+limit,         -limit,        1,    FALSE
+stats,         -stats,        0,    FALSE
+IF,            -if,           1,    TRUE",
 stringsAsFactors = FALSE, strip.white = TRUE,
 colClasses = c("character", "character", "numeric", "logical"))
 

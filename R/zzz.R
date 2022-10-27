@@ -10,18 +10,19 @@
 ##     ls(asNamespace("gdalUtilities")[[".gdUtilsEnv"]]))
 getFormalsTable <- function(fun) {
     switch(fun,
-           gdal_rasterize = get("args_gdal_rasterize", envir=.gdUtilsEnv),
-           gdal_translate = get("args_gdal_translate", envir=.gdUtilsEnv),
-           gdalwarp       = get("args_gdalwarp", envir=.gdUtilsEnv),
-           gdaldem        = get("args_gdaldem", envir=.gdUtilsEnv),
-           ## gdal_contour   = get("args_gdal_contour", envir=.gdUtilsEnv),
-           gdalinfo       = get("args_gdalinfo", envir=.gdUtilsEnv),
-           ## gdaltindex     = get("args_gdaltindex", envir=.gdUtilsEnv),
-           ogr2ogr        = get("args_ogr2ogr", envir=.gdUtilsEnv),
-           nearblack      = get("args_nearblack", envir=.gdUtilsEnv),
-           gdal_grid      = get("args_gdal_grid", envir=.gdUtilsEnv),
-           gdalbuildvrt   = get("args_gdalbuildvrt", envir=.gdUtilsEnv),
-           gdalmdiminfo   = get("args_gdalmdiminfo", envir=.gdUtilsEnv))
+           gdal_rasterize    = get("args_gdal_rasterize", envir=.gdUtilsEnv),
+           gdal_translate    = get("args_gdal_translate", envir=.gdUtilsEnv),
+           gdalwarp          = get("args_gdalwarp", envir=.gdUtilsEnv),
+           gdaldem           = get("args_gdaldem", envir=.gdUtilsEnv),
+           ## gdal_contour      = get("args_gdal_contour", envir=.gdUtilsEnv),
+           gdalinfo          = get("args_gdalinfo", envir=.gdUtilsEnv),
+           ## gdaltindex        = get("args_gdaltindex", envir=.gdUtilsEnv),
+           ogr2ogr           = get("args_ogr2ogr", envir=.gdUtilsEnv),
+           nearblack         = get("args_nearblack", envir=.gdUtilsEnv),
+           gdal_grid         = get("args_gdal_grid", envir=.gdUtilsEnv),
+           gdalbuildvrt      = get("args_gdalbuildvrt", envir=.gdUtilsEnv),
+           gdalmdiminfo      = get("args_gdalmdiminfo", envir=.gdUtilsEnv),
+           gdalmdimtranslate = get("args_gdalmdimtranslate", envir=.gdUtilsEnv))
 }
 
 
@@ -369,8 +370,8 @@ colClasses = c("character", "character", "numeric", "logical"))
 .gdUtilsEnv[["args_gdalmdiminfo"]] <- read.csv(text = "
 arg,           flag,          narg, repeatable
 datasetname,   ,              1,    FALSE
-oo,            -oo,           1,    TRUE,
-arrayoption,   -arrayoption,  1,    TRUE,
+oo,            -oo,           1,    TRUE
+arrayoption,   -arrayoption,  1,    TRUE
 detailed,      -detailed,     0,    FALSE
 nopretty,      -nopretty,     0,    FALSE
 array,         -array,        1,    FALSE
@@ -380,6 +381,21 @@ IF,            -if,           1,    TRUE",
 stringsAsFactors = FALSE, strip.white = TRUE,
 colClasses = c("character", "character", "numeric", "logical"))
 
+
+.gdUtilsEnv[["args_gdalmdimtranslate"]] <- read.csv(text = "
+arg,           flag,          narg, repeatable
+src_filename,  ,              1,    FALSE
+dst_filename,  ,              1,    FALSE
+co,            -co,           1,    TRUE
+IF,            -if,           1,    TRUE
+of,            -of,           1,    FALSE
+array,         -array,        1,    TRUE
+group,         -group,        1,    TRUE
+subset,        -subset,       1,    TRUE
+scaleaxes,     -scaleaxes,    1,    TRUE
+oo,            -oo,           1,    TRUE",
+stringsAsFactors = FALSE, strip.white = TRUE,
+colClasses = c("character", "character", "numeric", "logical"))
 
 
 

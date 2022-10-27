@@ -26,7 +26,8 @@ gdalinfo(
   oo,
   IF,
   config,
-  dryrun = FALSE
+  dryrun = FALSE,
+  quiet = FALSE
 )
 }
 \arguments{
@@ -48,9 +49,13 @@ documentation} for details.}
 instead of executing the requested call to GDAL, the function
 will print the command-line call that would produce the
 equivalent output.}
+
+\item{quiet}{Logical (default \code{FALSE}). If \code{TRUE},
+suppress printing of output to the console.}
 }
 \value{
-Silently returns path to \code{datasetname}.
+Silently returns a character vector containing the
+    information returned by the gdalinfo utility.
 }
 \description{
 This function provides an interface mirroring that of the GDAL

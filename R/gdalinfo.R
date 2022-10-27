@@ -19,7 +19,10 @@
 ##'     instead of executing the requested call to GDAL, the function
 ##'     will print the command-line call that would produce the
 ##'     equivalent output.
-##' @return Silently returns path to \code{datasetname}.
+##' @param quiet Logical (default \code{FALSE}). If \code{TRUE},
+##'     suppress printing of output to the console.
+##' @return Silently returns a character vector containing the
+##'     information returned by the gdalinfo utility.
 ##' @export
 ##' @author Joshua O'Brien
 ##' @examples
@@ -28,20 +31,22 @@
 gdalinfo <-
     function(datasetname, ..., json, mm, stats, approx_stats, hist,
              nogcp, nomd, norat, noct, nofl, checksum, proj4, listmdd,
-             mdd, wkt_format, sd, oo, IF, config, dryrun = FALSE)
+             mdd, wkt_format, sd, oo, IF, config, dryrun = FALSE,
+             quiet = FALSE)
 {
     ## Unlike `as.list(match.call())`, forces eval of arguments
     args <-  mget(names(match.call())[-1])
-    args[c("datasetname", "dryrun")] <- NULL
+    args[c("datasetname", "dryrun", "quiet")] <- NULL
     formalsTable <- getFormalsTable("gdalinfo")
     opts <- process_args(args, formalsTable)
     opts <- c("", opts) ## To ensure we never pass in a NULL
 
     if(dryrun) {
-        x <- CLI_call("gdalinfo", datasetname, opts=opts)
+        x <- CLI_call("gdalinfo", datasetname, opts = opts)
         return(x)
     }
 
-    gdal_utils("info", datasetname, options=opts)
-    invisible(datasetname)
+    info <- gdal_utils("info", datasetname, options = opts,
+                       quiet = quiet)
+    invisible(info)
 }

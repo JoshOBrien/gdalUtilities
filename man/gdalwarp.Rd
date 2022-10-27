@@ -97,7 +97,7 @@ GDAL project's
 documentation} for details.}
 }
 \value{
-None. Called instead for its side effect.
+Silently returns path to \code{dstfile}.
 }
 \description{
 This function provides an interface mirroring that of the GDAL

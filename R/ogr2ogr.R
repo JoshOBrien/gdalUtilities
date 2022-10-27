@@ -54,7 +54,7 @@
 ##'     equivalent output.
 ##' @name ogr2ogr
 ##' @rdname ogr2ogr
-##' @return None. Called instead for its side effect.
+##' @return Silently returns path to \code{dst_datasource_name}.
 ##' @export
 ##' @author Joshua O'Brien
 ##' @examples

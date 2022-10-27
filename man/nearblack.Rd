@@ -43,7 +43,7 @@ will print the command-line call that would produce the
 equivalent output.}
 }
 \value{
-Silently returns path to \code{datasetname}.
+Silently returns path to \code{o}.
 }
 \description{
 This function provides an interface mirroring that of the GDAL

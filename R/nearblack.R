@@ -20,7 +20,7 @@
 ##'     instead of executing the requested call to GDAL, the function
 ##'     will print the command-line call that would produce the
 ##'     equivalent output.
-##' @return Silently returns path to \code{datasetname}.
+##' @return Silently returns path to \code{o}.
 ##' @export
 ##' @author Joshua O'Brien
 ##' @examples

@@ -25,7 +25,7 @@
 ##'     instead of executing the requested call to GDAL, the function
 ##'     will print the command-line call that would produce the
 ##'     equivalent output.
-##' @return None. Called instead for its side effect.
+##' @return Silently returns path to \code{dst_filename}.
 ##' @importFrom sf gdal_utils
 ##' @export
 ##' @author Joshua O'Brien

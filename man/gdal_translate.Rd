@@ -88,7 +88,7 @@ will print the command-line call that would produce the
 equivalent output.}
 }
 \value{
-None. Called instead for its side effect.
+Silently returns path to \code{dst_dataset}.
 }
 \description{
 This function provides an interface mirroring that of the GDAL

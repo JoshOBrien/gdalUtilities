@@ -133,7 +133,7 @@ documentation}.}
 documentation}.}
 }
 \value{
-None. Called instead for its side effect.
+Silently returns path to \code{dst_datasource_name}.
 }
 \description{
 This function provides an interface mirroring that of the GDAL

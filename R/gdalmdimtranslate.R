@@ -22,8 +22,33 @@
 ##' @export
 ##' @author Joshua O'Brien
 ##' @examples
-##' ff <- system.file("nc/cropped.nc", package = "sf")
+##' \donttest{
+##' ## A simple dataset bundled with the sf package
+##' FF <- system.file("nc/cropped.nc", package = "sf")
+##' td <- tempdir()
+##' out_tiff <- file.path(td, "out.tiff")
+##' gdalinfo(FF)
+##' gdalmdimtranslate(FF, out_tiff, array = "sst")
+##' gdalinfo(out_tiff)
 ##'
+##' ## A more interesting dataset bundled with the stars package
+##' if (requireNamespace("raster", quietly = TRUE)) {
+##'     library(raster)
+##'     FF <- system.file("nc/reduced.nc", package = "stars")
+##'     gdalinfo(FF)
+##'     td <- tempdir()
+##'     out_1_tiff <- file.path(td, "out_1.tiff")
+##'     gdalmdimtranslate(FF, out_1_tiff, array = "sst")
+##'     plot(raster(out_1_tiff),
+##'          main = "Sea Surface Temperature\n(2x2 degree cells)")
+##'     ## Translate to a tiff, coarsen by a factor of 5
+##'     out_2_tiff <- file.path(td, "out_2.tiff")
+##'     gdalmdimtranslate(FF, out_2_tiff, array = "sst",
+##'                       scaleaxes = "lon(5),lat(5)")
+##'     plot(raster(out_2_tiff),
+##'          main = "Sea Surface Temperature\n(10x10 degree cells)")
+##' }
+##' }
 gdalmdimtranslate <-
     function(src_filename, dst_filename, ..., co, IF, of, array,
              group, subset, scaleaxes, oo, dryrun = FALSE)

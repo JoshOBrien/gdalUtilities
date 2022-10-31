@@ -7,12 +7,8 @@
 ##' @param datasetname Path to a GDAL-supported readable datasource.
 ##' @param ... Here, a placeholder argument that forces users to
 ##'     supply exact names of all subsequent formal arguments.
-##' @param json,mm,stats,approx_stats,hist,nogcp,nomd,norat,noct See
+##' @param oo,arrayoption,detailed,nopretty,array,limit,stats,IF
 ##'     the GDAL project's
-##'     \href{https://gdal.org/programs/gdalmdiminfo.html}{gdalmdiminfo
-##'     documentation} for details.
-##' @param nofl,checksum,proj4,listmdd,mdd,wkt_format,sd,oo,IF,config
-##'     See the GDAL project's
 ##'     \href{https://gdal.org/programs/gdalmdiminfo.html}{gdalmdiminfo
 ##'     documentation} for details.
 ##' @param dryrun Logical (default \code{FALSE}). If \code{TRUE},

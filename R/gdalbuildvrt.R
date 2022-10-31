@@ -52,7 +52,7 @@ gdalbuildvrt <-
              tap, separate, b, sd, allow_projection_difference, optim,
              q, addalpha, hidenodata, srcnodata, vrtnodata,
              ignore_srcmaskband, a_srs, r, oo, input_file_list,
-             overwrite, dryrun = FALSE)
+             strict, non_strict, overwrite, dryrun = FALSE)
 {
     ## Unlike `as.list(match.call())`, forces eval of arguments
     args <-  mget(names(match.call())[-1])

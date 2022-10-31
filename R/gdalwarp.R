@@ -78,13 +78,13 @@
 ##' }
 ##' }
 gdalwarp <-
-    function(srcfile, dstfile, ..., s_srs, t_srs, ct, to,
-             novshiftgrid, order, tps, rpc, geoloc, et, refine_gcps,
-             te, te_srs, tr, tap, ts, ovr, wo, ot, wt, r, srcnodata,
-             dstnodata, srcalpha, nosrcalpha, dstalpha, wm, multi, q,
-             IF, of, co, cutline, cl, cwhere, csql, cblend,
-             crop_to_cutline, overwrite, nomd, cvmd, setci, oo, doo,
-             config, dryrun = FALSE)
+    function(srcfile, dstfile, ..., s_srs, t_srs, ct, to, vshift,
+             novshift, s_coord_epoch, t_coord_epoch, order, tps, rpc,
+             geoloc, et, refine_gcps, te, te_srs, tr, tap, ts, ovr,
+             wo, ot, wt, r, srcnodata, dstnodata, srcalpha,
+             nosrcalpha, dstalpha, wm, multi, q, IF, of, co, cutline,
+             cl, cwhere, csql, cblend, crop_to_cutline, overwrite,
+             nomd, cvmd, setci, oo, doo, config, dryrun = FALSE)
 {
     ## Unlike `as.list(match.call())`, forces eval of arguments
     args <-  mget(names(match.call())[-1])

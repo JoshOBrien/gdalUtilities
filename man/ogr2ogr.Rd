@@ -52,22 +52,26 @@ ogr2ogr(
   segmentize,
   makevalid,
   fieldTypeToString,
-  mapFieldType,
   unsetFieldWidth,
+  mapFieldType,
+  fieldmap,
   splitlistfields,
   maxsubfields,
+  resolveDomains,
   explodecollections,
   zfield,
   gcp,
   order,
   tps,
-  fieldmap,
+  s_coord_epoch,
+  t_coord_epoch,
+  a_coord_epoch,
   addfields,
+  unsetFid,
+  emptyStrAsNull,
   relaxedFieldNameMatch,
   forceNullable,
   unsetDefault,
-  unsetFid,
-  emptyStrAsNull,
   nomd,
   mo,
   noNativeData,
@@ -109,10 +113,18 @@ documentation}.}
 \href{https://gdal.org/programs/ogr2ogr.html}{ogr2ogr
 documentation}.}
 
-\item{unsetDefault, fieldTypeToString, unsetFieldWidth, mapFieldType}{See \href{https://gdal.org/programs/ogr2ogr.html}{ogr2ogr
+\item{resolveDomains, explodecollections, zfield, gcp, order, tps}{See
+\href{https://gdal.org/programs/ogr2ogr.html}{ogr2ogr
+documentation}.}
+
+\item{s_coord_epoch, t_coord_epoch, a_coord_epoch}{See
+\href{https://gdal.org/programs/ogr2ogr.html}{ogr2ogr
 documentation}.}
 
 \item{unsetFid, emptyStrAsNull, relaxedFieldNameMatch, forceNullable}{See See \href{https://gdal.org/programs/ogr2ogr.html}{ogr2ogr
+documentation}.}
+
+\item{unsetDefault, fieldTypeToString, unsetFieldWidth, mapFieldType}{See \href{https://gdal.org/programs/ogr2ogr.html}{ogr2ogr
 documentation}.}
 
 \item{nomd, mo, noNativeData}{See
@@ -123,14 +135,6 @@ documentation}.}
 instead of executing the requested call to GDAL, the function
 will print the command-line call that would produce the
 equivalent output.}
-
-\item{resolveDomains, explodecollections, zfield, gcp, order, tps}{See
-\href{https://gdal.org/programs/ogr2ogr.html}{ogr2ogr
-documentation}.}
-
-\item{s_coord_epoch, t_coord_epoch, a_coord_epoch}{See
-\href{https://gdal.org/programs/ogr2ogr.html}{ogr2ogr
-documentation}.}
 }
 \value{
 Silently returns path to \code{dst_datasource_name}.

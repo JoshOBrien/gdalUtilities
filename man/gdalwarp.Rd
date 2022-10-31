@@ -12,7 +12,10 @@ gdalwarp(
   t_srs,
   ct,
   to,
-  novshiftgrid,
+  vshift,
+  novshift,
+  s_coord_epoch,
+  t_coord_epoch,
   order,
   tps,
   rpc,
@@ -69,6 +72,11 @@ supply exact names of all subsequent formal arguments.}
 \href{https://gdal.org/programs/gdalwarp.html}{gdalwarp
 documentation} for details.}
 
+\item{s_coord_epoch, t_coord_epoch, order, tps, rpc, geoloc, et}{See the
+GDAL project's
+\href{https://gdal.org/programs/gdalwarp.html}{gdalwarp
+documentation} for details.}
+
 \item{refine_gcps, te, te_srs, tr, tap, ts, ovr, wo, ot, wt, r, srcnodata}{See the GDAL project's
 \href{https://gdal.org/programs/gdalwarp.html}{gdalwarp
 documentation} for details.}
@@ -90,11 +98,6 @@ documentation} for details.}
 instead of executing the requested call to GDAL, the function
 will print the command-line call that would produce the
 equivalent output.}
-
-\item{s_coord_epoch, t_coord_epoch, order, tps, rpc, geoloc, et}{See the
-GDAL project's
-\href{https://gdal.org/programs/gdalwarp.html}{gdalwarp
-documentation} for details.}
 }
 \value{
 Silently returns path to \code{dstfile}.

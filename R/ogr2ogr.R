@@ -91,11 +91,12 @@ ogr2ogr <-
              clipsrc, clipsrcsql, clipsrclayer, clipsrcwhere, clipdst,
              clipdstsql, clipdstlayer, clipdstwhere, wrapdateline,
              datelineoffset, simplify, segmentize, makevalid,
-             fieldTypeToString, mapFieldType, unsetFieldWidth,
-             splitlistfields, maxsubfields, explodecollections,
-             zfield, gcp, order, tps, fieldmap, addfields,
-             relaxedFieldNameMatch, forceNullable, unsetDefault,
-             unsetFid, emptyStrAsNull, nomd, mo, noNativeData,
+             fieldTypeToString, unsetFieldWidth, mapFieldType,
+             fieldmap, splitlistfields, maxsubfields, resolveDomains,
+             explodecollections, zfield, gcp, order, tps,
+             s_coord_epoch, t_coord_epoch, a_coord_epoch, addfields,
+             unsetFid, emptyStrAsNull, relaxedFieldNameMatch,
+             forceNullable, unsetDefault, nomd, mo, noNativeData,
              dryrun = FALSE)
 {
     ## Unlike `as.list(match.call())`, forces eval of arguments

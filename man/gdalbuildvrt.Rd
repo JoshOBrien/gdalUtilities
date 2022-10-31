@@ -28,6 +28,8 @@ gdalbuildvrt(
   r,
   oo,
   input_file_list,
+  strict,
+  non_strict,
   overwrite,
   dryrun = FALSE
 )

@@ -82,9 +82,9 @@ gdal_translate <-
     function(src_dataset, dst_dataset, ..., ot, strict, IF, of, b,
              mask, expand, outsize, tr, r, scale, exponent, unscale,
              srcwin, projwin, projwin_srs, srs, epo, eco, a_srs,
-             a_scale, a_offset, a_ullr, a_nodata, colorinterp,
-             mo, co, nogcp, gcp, q, sds, stats, noxmp, norat, oo,
-             sd_index, config, dryrun = FALSE)
+             a_coord_epoch, a_ullr, a_nodata, a_scale, a_offset,
+             colorinterp, mo, co, nogcp, gcp, q, sds, stats, noxmp,
+             norat, oo, sd_index, config, dryrun = FALSE)
 {
     ## First, handle any colorinterp_XX arguments
     dots <- list(...)

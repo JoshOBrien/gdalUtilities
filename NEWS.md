@@ -13,7 +13,9 @@
   formal argument.)
   
 * Added formal arguments corresponding to all new command line options
-  added between GDAL versions 3.2.1 and 3.4.1.
+  added between GDAL versions 3.2.1 and 3.5.2.
+  
+* Added dependency on package **sf** >= 1.0-9.
 
 ## Version 1.2.1
 

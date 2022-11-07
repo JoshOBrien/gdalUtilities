@@ -25,7 +25,8 @@ gdalmdiminfo(
 \item{...}{Here, a placeholder argument that forces users to
 supply exact names of all subsequent formal arguments.}
 
-\item{oo, arrayoption, detailed, nopretty, array, limit, stats, IF}{the GDAL project's
+\item{oo, arrayoption, detailed, nopretty, array, limit, stats, IF}{the
+GDAL project's
 \href{https://gdal.org/programs/gdalmdiminfo.html}{gdalmdiminfo
 documentation} for details.}
 
@@ -39,7 +40,8 @@ suppress printing of output to the console.}
 }
 \value{
 Silently returns a character vector containing the
-    information returned by the gdalmdiminfo utility.
+    information in JSON format returned by the gdalmdiminfo
+    utility.
 }
 \description{
 This function provides an interface mirroring that of the GDAL

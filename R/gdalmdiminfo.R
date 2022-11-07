@@ -7,8 +7,8 @@
 ##' @param datasetname Path to a GDAL-supported readable datasource.
 ##' @param ... Here, a placeholder argument that forces users to
 ##'     supply exact names of all subsequent formal arguments.
-##' @param oo,arrayoption,detailed,nopretty,array,limit,stats,IF
-##'     the GDAL project's
+##' @param oo,arrayoption,detailed,nopretty,array,limit,stats,IF the
+##'     GDAL project's
 ##'     \href{https://gdal.org/programs/gdalmdiminfo.html}{gdalmdiminfo
 ##'     documentation} for details.
 ##' @param dryrun Logical (default \code{FALSE}). If \code{TRUE},
@@ -18,7 +18,8 @@
 ##' @param quiet Logical (default \code{FALSE}). If \code{TRUE},
 ##'     suppress printing of output to the console.
 ##' @return Silently returns a character vector containing the
-##'     information returned by the gdalmdiminfo utility.
+##'     information in JSON format returned by the gdalmdiminfo
+##'     utility.
 ##' @export
 ##' @author Joshua O'Brien
 ##' @examples

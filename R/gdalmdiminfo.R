@@ -23,8 +23,10 @@
 ##' @export
 ##' @author Joshua O'Brien
 ##' @examples
+##' \donttest{
 ##' ff <- system.file("nc/cropped.nc", package = "sf")
 ##' gdalmdiminfo(ff)
+##' }
 gdalmdiminfo <-
     function(datasetname, ..., oo, arrayoption, detailed, nopretty,
              array, limit, stats, IF, dryrun = FALSE, quiet = FALSE)

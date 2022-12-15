@@ -24,7 +24,7 @@ BugReports: https://github.com/JoshOBrien/gdalUtilities/issues/
 Imports:
     sf (>= 1.0-9)
 Suggests:
-    raster,
+    raster (>= 3.6-3),
     rasterVis,
     RColorBrewer,
     testthat,

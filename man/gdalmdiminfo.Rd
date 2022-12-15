@@ -50,8 +50,10 @@ utility and the arguments that it takes, see the documentation at
 \url{https://gdal.org/programs/gdalmdiminfo.html}.
 }
 \examples{
+\donttest{
 ff <- system.file("nc/cropped.nc", package = "sf")
 gdalmdiminfo(ff)
+}
 }
 \author{
 Joshua O'Brien

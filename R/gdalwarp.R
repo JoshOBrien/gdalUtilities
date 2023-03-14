@@ -28,13 +28,18 @@
 ##'     the GDAL project's
 ##'     \href{https://gdal.org/programs/gdalwarp.html}{gdalwarp
 ##'     documentation} for details.
-##' @param nomd,cvmd,setci,oo,doo,config See the GDAL project's
+##' @param nomd,cvmd,setci,oo,doo See the GDAL project's
 ##'     \href{https://gdal.org/programs/gdalwarp.html}{gdalwarp
 ##'     documentation} for details.
 ##' @param dryrun Logical (default \code{FALSE}). If \code{TRUE},
 ##'     instead of executing the requested call to GDAL, the function
 ##'     will print the command-line call that would produce the
 ##'     equivalent output.
+##' @param config_options A named character vector with GDAL config
+##'     options, of the form \code{c(option1=value1,
+##'     option2=value2)}. (See
+##'     \href{https://gdal.org/user/configoptions.html}{here} for a
+##'     complete list of supported config options.)
 ##' @return Silently returns path to \code{dstfile}.
 ##' @export
 ##' @author Joshua O'Brien
@@ -84,11 +89,12 @@ gdalwarp <-
              wo, ot, wt, r, srcnodata, dstnodata, srcalpha,
              nosrcalpha, dstalpha, wm, multi, q, IF, of, co, cutline,
              cl, cwhere, csql, cblend, crop_to_cutline, overwrite,
-             nomd, cvmd, setci, oo, doo, config, dryrun = FALSE)
+             nomd, cvmd, setci, oo, doo,
+             config_options = character(0), dryrun = FALSE)
 {
     ## Unlike `as.list(match.call())`, forces eval of arguments
     args <-  mget(names(match.call())[-1])
-    args[c("srcfile", "dstfile", "dryrun")] <- NULL
+    args[c("srcfile", "dstfile", "config_options", "dryrun")] <- NULL
     formalsTable <- getFormalsTable("gdalwarp")
     opts <- process_args(args, formalsTable)
 
@@ -97,6 +103,10 @@ gdalwarp <-
         return(x)
     }
 
-    gdal_utils("warp", srcfile, dstfile, opts)
+    gdal_utils("warp",
+               source = srcfile,
+               destination = dstfile,
+               options = opts,
+               config_options = config_options)
     invisible(dstfile)
 }

@@ -22,6 +22,10 @@
 ##'     instead of executing the requested call to GDAL, the function
 ##'     will print the command-line call that would produce the
 ##'     equivalent output.
+##' @param config_options A named character vector with GDAL config
+##'     options, of the form \code{c(option1=value1, option2=value2)}. (See
+##'     \href{https://gdal.org/user/configoptions.html}{here} for a
+##'     complete list of supported config options.)
 ##' @return Silently returns path to \code{dst_filename}.
 ##' @export
 ##' @importFrom sf gdal_utils
@@ -53,10 +57,11 @@ gdal_rasterize <-
     function(src_datasource, dst_filename, ..., b, i, at, burn, a,
              threeD, add, l, where, sql, dialect, of, a_srs, to, co,
              a_nodata, init, te, tr, tap, ts, ot, optim, q,
-             dryrun = FALSE) {
+             config_options = character(0), dryrun = FALSE)
+{
     ## Unlike `as.list(match.call())`, forces eval of arguments
     args <-  mget(names(match.call())[-1])
-    args[c("src_datasource", "dst_filename", "dryrun")] <- NULL
+    args[c("src_datasource", "dst_filename", "config_options", "dryrun")] <- NULL
     formalsTable <- getFormalsTable("gdal_rasterize")
     opts <- process_args(args, formalsTable)
 
@@ -65,6 +70,10 @@ gdal_rasterize <-
         return(x)
     }
 
-    gdal_utils("rasterize", src_datasource, dst_filename, opts)
+    gdal_utils("rasterize",
+               source = src_datasource,
+               destination = dst_filename,
+               options = opts,
+               config_options = config_options)
     invisible(dst_filename)
 }

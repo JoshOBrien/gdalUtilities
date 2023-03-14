@@ -48,6 +48,10 @@
 ##' @param nomd,mo,noNativeData See
 ##'     \href{https://gdal.org/programs/ogr2ogr.html}{ogr2ogr
 ##'     documentation}.
+##' @param config_options A named character vector with GDAL config
+##'     options, of the form \code{c(option1=value1, option2=value2)}. (See
+##'     \href{https://gdal.org/user/configoptions.html}{here} for a
+##'     complete list of supported config options.)
 ##' @param dryrun Logical (default \code{FALSE}). If \code{TRUE},
 ##'     instead of executing the requested call to GDAL, the function
 ##'     will print the command-line call that would produce the
@@ -97,12 +101,13 @@ ogr2ogr <-
              s_coord_epoch, t_coord_epoch, a_coord_epoch, addfields,
              unsetFid, emptyStrAsNull, relaxedFieldNameMatch,
              forceNullable, unsetDefault, nomd, mo, noNativeData,
-             dryrun = FALSE)
+             config_options = character(0), dryrun = FALSE)
 {
     ## Unlike `as.list(match.call())`, forces eval of arguments
     args <-  mget(names(match.call())[-1])
     args[c("src_datasource_name",
-           "dst_datasource_name", "dryrun")] <- NULL
+           "dst_datasource_name",
+           "config_options", "dryrun")] <- NULL
     formalsTable <- getFormalsTable("ogr2ogr")
     opts <- process_args(args, formalsTable)
 
@@ -112,7 +117,10 @@ ogr2ogr <-
         return(x)
     }
 
-    gdal_utils("vectortranslate", src_datasource_name,
-               dst_datasource_name, opts)
+    gdal_utils("vectortranslate",
+               source = src_datasource_name,
+               destination = dst_datasource_name,
+               options = opts,
+               config_options = config_options)
     invisible(dst_datasource_name)
 }

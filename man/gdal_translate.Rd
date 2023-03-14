@@ -45,7 +45,7 @@ gdal_translate(
   norat,
   oo,
   sd_index,
-  config,
+  config_options = character(0),
   dryrun = FALSE
 )
 }
@@ -68,7 +68,7 @@ project's
 \href{https://gdal.org/programs/gdal_translate.html}{gdal_translate
 documentation} for details.}
 
-\item{a_srs, a_coord_epoch, a_ullr, a_nodata, a_scale, a_offset, }{See
+\item{a_srs, a_coord_epoch, a_ullr, a_nodata, a_scale, a_offset}{See
 the GDAL project's
 \href{https://gdal.org/programs/gdal_translate.html}{gdal_translate
 documentation} for details.}
@@ -79,9 +79,14 @@ band are also allowed. See the GDAL project's
 \href{https://gdal.org/programs/gdal_translate.html}{gdal_translate
 documentation} for details.}
 
-\item{mo, co, nogcp, gcp, q, sds, stats, norat, noxmp, oo, sd_index, config}{See the GDAL project's
+\item{mo, co, nogcp, gcp, q, sds, stats, norat, noxmp, oo, sd_index}{See the GDAL project's
 \href{https://gdal.org/programs/gdal_translate.html}{gdal_translate
 documentation} for details.}
+
+\item{config_options}{A named character vector with GDAL config
+options, of the form \code{c(option1=value1, option2=value2)}. (See
+\href{https://gdal.org/user/configoptions.html}{here} for a
+complete list of supported config options.)}
 
 \item{dryrun}{Logical (default \code{FALSE}). If \code{TRUE},
 instead of executing the requested call to GDAL, the function

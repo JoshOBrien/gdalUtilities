@@ -18,13 +18,17 @@
 ##'     GDAL project's
 ##'     \href{https://gdal.org/programs/gdal_grid.html}{gdal_grid
 ##'     documentation} for details.
-##' @param l,where,sql,co,q,config See the GDAL project's
+##' @param l,where,sql,co,q See the GDAL project's
 ##'     \href{https://gdal.org/programs/gdal_grid.html}{gdal_grid
 ##'     documentation} for details.
 ##' @param dryrun Logical (default \code{FALSE}). If \code{TRUE},
 ##'     instead of executing the requested call to GDAL, the function
 ##'     will print the command-line call that would produce the
 ##'     equivalent output.
+##' @param config_options A named character vector with GDAL config
+##'     options, of the form \code{c(option1=value1, option2=value2)}. (See
+##'     \href{https://gdal.org/user/configoptions.html}{here} for a
+##'     complete list of supported config options.)
 ##' @return Silently returns path to \code{dst_filename}.
 ##' @importFrom sf gdal_utils
 ##' @export
@@ -76,12 +80,12 @@ gdal_grid <-
     function(src_datasource, dst_filename, ..., ot, of, txe, tye, tr,
              outsize, a_srs, zfield, z_increase, z_multiply, a, spat,
              clipsrc, clipsrcsql, clipsrclayer, clipsrcwhere, l,
-             where, sql, co, q, config,
-             dryrun = FALSE)
+             where, sql, co, q,
+             config_options = character(0), dryrun = FALSE)
 {
     ## Unlike `as.list(match.call())`, forces eval of arguments
     args <-  mget(names(match.call())[-1])
-    args[c("src_datasource", "dst_filename", "dryrun")] <- NULL
+    args[c("src_datasource", "dst_filename", "config_options", "dryrun")] <- NULL
     formalsTable <- getFormalsTable("gdal_grid")
     opts <- process_args(args, formalsTable)
 
@@ -90,6 +94,10 @@ gdal_grid <-
         return(x)
     }
 
-    gdal_utils("grid", src_datasource, dst_filename, opts)
+    gdal_utils("grid",
+               source = src_datasource,
+               destination = dst_filename,
+               options = opts,
+               config_options = config_options)
     invisible(dst_filename)
 }

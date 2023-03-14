@@ -25,8 +25,8 @@ gdalinfo(
   sd,
   oo,
   IF,
-  config,
   dryrun = FALSE,
+  config_options = character(0),
   quiet = FALSE
 )
 }
@@ -41,7 +41,7 @@ the GDAL project's
 \href{https://gdal.org/programs/gdalinfo.html}{gdalinfo
 documentation} for details.}
 
-\item{nofl, checksum, proj4, listmdd, mdd, wkt_format, sd, oo, IF, config}{See the GDAL project's
+\item{nofl, checksum, proj4, listmdd, mdd, wkt_format, sd, oo, IF}{See the GDAL project's
 \href{https://gdal.org/programs/gdalinfo.html}{gdalinfo
 documentation} for details.}
 
@@ -49,6 +49,11 @@ documentation} for details.}
 instead of executing the requested call to GDAL, the function
 will print the command-line call that would produce the
 equivalent output.}
+
+\item{config_options}{A named character vector with GDAL config
+options, of the form \code{c(option1=value1, option2=value2)}. (See
+\href{https://gdal.org/user/configoptions.html}{here} for a
+complete list of supported config options.)}
 
 \item{quiet}{Logical (default \code{FALSE}). If \code{TRUE},
 suppress printing of output to the console.}

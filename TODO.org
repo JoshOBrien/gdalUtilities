@@ -1,30 +1,45 @@
 
-* Current TODO [1/2]
+* Current TODO [0/2]
 
-- [X] Add new arguments. The argument lists for most functions haven't
-  been updated since 2021-03-21 (commit 4b2bbe), when the version of
-  GDAL used by *sf* was at version 3.2.1. *sf* now uses GDAL 3.4.1, so
-  I can add any features added before that. A 2022-10-24 systematic
-  search through the online help files for each of the utilities I
-  support shows I need to add the following:
+- [ ] Add code needed to properly render the handling of
+  ~config_options=~ when ~dryrun=TRUE~. 
 
-  - gdal_translate: ~a_coord_epoch~ (new in version 3.4).
+- [ ] Add example of config_options usage to GitHub documentation
+  page. Perhaps something like the following? (I've added this
+  capability based on [[https://github.com/r-spatial/sf/issues/2003#issuecomment-1438165654][this 2023-02-21 ping]] from Edzer Pebesma.)
+  
 
-  - gdalbuildvrt: ~ignore_srcmaskband~ (new in version 3.3), ~strict~
-    and ~non_strict~ (new in version 3.4.2).
 
-  - gdalwarp: ~s_coord_epoch~, ~t_coord_epoch~, ~vshift~ & ~novshift~
-    (since version 3.4), plus remove now defunct ~novshiftgrid~.
+#+begin_src R
+library("sf")
+# Linking to GEOS 3.11.1, GDAL 3.6.2, PROJ 9.1.1; sf_use_s2() is TRUE
+library("RSQLite")
+in_file = system.file("shape/storms_xyz.shp", package = "sf")
+out_file = tempfile(fileext = ".gpkg")
+gdal_utils(
+  util = "vectortranslate",
+  source = in_file,
+  destination = out_file,
+  options = c("-f", "GPKG"),
+  config_options = c(OGR_CURRENT_DATE = "2020-01-02T03:04:05.678Z")
+)
+con <- dbConnect(SQLite(), out_file)
+dbGetQuery(con, 'SELECT last_change FROM gpkg_contents')$last_change
+# [1] "2020-01-02T03:04:05.678Z"
+#+end_src
 
-  - ogr2ogr: ~a_coord_epoch~, ~s_coord_epoch~, and ~t_coord_epoch~
-    (new in version 3.4), ~emptyStrAsNull~ & ~resolveDomains~ (new in
-    version 3.3)
+#+begin_src 
+library(gdalUtilities)
 
-- [ ] In September 2020, with version 0.9-6, ~sf::gdal_utils()~ added
-  ~mdiminfo~ and ~mdimtranslate~. Find some sample data on which to
-  test them (e.g. [[https://stackoverflow.com/a/28984566/980833][here]]), get it working from the command line (a
-  simple call to ~gdalmdiminfo time.nc~ works), and then add wrappers
-  for both functions to the package.
+library("RSQLite")
+in_file = system.file("shape/storms_xyz.shp", package = "sf")
+out_file = tempfile(fileext = ".gpkg")
+ogr2ogr(in_file, out_file,
+  f = "GPKG",
+  config_options = c(OGR_CURRENT_DATE = "2020-01-02T03:04:05.678Z"))
+con <- dbConnect(SQLite(), out_file)
+dbGetQuery(con, 'SELECT last_change FROM gpkg_contents')$last_change
+#+end_src
 
 
 * Recipe for adding a utility

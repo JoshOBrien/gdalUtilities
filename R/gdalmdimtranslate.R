@@ -18,6 +18,10 @@
 ##'     instead of executing the requested call to GDAL, the function
 ##'     will print the command-line call that would produce the
 ##'     equivalent output.
+##' @param config_options A named character vector with GDAL config
+##'     options, of the form \code{c(option1=value1, option2=value2)}. (See
+##'     \href{https://gdal.org/user/configoptions.html}{here} for a
+##'     complete list of supported config options.)
 ##' @return Silently returns path to \code{dst_filename}.
 ##' @export
 ##' @author Joshua O'Brien
@@ -51,11 +55,12 @@
 ##' }
 gdalmdimtranslate <-
     function(src_filename, dst_filename, ..., co, IF, of, array,
-             group, subset, scaleaxes, oo, dryrun = FALSE)
+             group, subset, scaleaxes, oo,
+             config_options = character(0), dryrun = FALSE)
 {
     ## Unlike `as.list(match.call())`, forces eval of arguments
     args <-  mget(names(match.call())[-1])
-    args[c("src_filename", "dst_filename", "dryrun")] <- NULL
+    args[c("src_filename", "dst_filename", "config_options", "dryrun")] <- NULL
     formalsTable <- getFormalsTable("gdalmdimtranslate")
     opts <- process_args(args, formalsTable)
 
@@ -65,7 +70,10 @@ gdalmdimtranslate <-
         return(x)
     }
 
-    gdal_utils("mdimtranslate", src_filename, dst_filename,
-               options = opts)
+    gdal_utils("mdimtranslate",
+               source = src_filename,
+               destination = dst_filename,
+               options = opts,
+               config_options = config_options)
     invisible(dst_filename)
 }

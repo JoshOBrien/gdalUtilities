@@ -30,6 +30,10 @@
 ##'     instead of executing the requested call to GDAL, the function
 ##'     will print the command-line call that would produce the
 ##'     equivalent output.
+##' @param config_options A named character vector with GDAL config
+##'     options, of the form \code{c(option1=value1, option2=value2)}. (See
+##'     \href{https://gdal.org/user/configoptions.html}{here} for a
+##'     complete list of supported config options.)
 ##' @return Silently returns path to \code{output.vrt}.
 ##' @export
 ##' @author Joshua O'Brien
@@ -52,11 +56,12 @@ gdalbuildvrt <-
              tap, separate, b, sd, allow_projection_difference, optim,
              q, addalpha, hidenodata, srcnodata, vrtnodata,
              ignore_srcmaskband, a_srs, r, oo, input_file_list,
-             strict, non_strict, overwrite, dryrun = FALSE)
+             strict, non_strict, overwrite,
+             config_options = character(0), dryrun = FALSE)
 {
     ## Unlike `as.list(match.call())`, forces eval of arguments
     args <-  mget(names(match.call())[-1])
-    args[c("gdalfile", "output.vrt", "dryrun")] <- NULL
+    args[c("gdalfile", "output.vrt", "config_options", "dryrun")] <- NULL
     formalsTable <- getFormalsTable("gdalbuildvrt")
     opts <- process_args(args, formalsTable)
 
@@ -67,6 +72,10 @@ gdalbuildvrt <-
         return(x)
     }
 
-    gdal_utils("buildvrt", gdalfile, output.vrt, opts)
+    gdal_utils("buildvrt",
+               source = gdalfile,
+               destination = output.vrt,
+               options = opts,
+               config_options = config_options)
     invisible(output.vrt)
 }

@@ -75,6 +75,7 @@ ogr2ogr(
   nomd,
   mo,
   noNativeData,
+  config_options = character(0),
   dryrun = FALSE
 )
 }
@@ -130,6 +131,11 @@ documentation}.}
 \item{nomd, mo, noNativeData}{See
 \href{https://gdal.org/programs/ogr2ogr.html}{ogr2ogr
 documentation}.}
+
+\item{config_options}{A named character vector with GDAL config
+options, of the form \code{c(option1=value1, option2=value2)}. (See
+\href{https://gdal.org/user/configoptions.html}{here} for a
+complete list of supported config options.)}
 
 \item{dryrun}{Logical (default \code{FALSE}). If \code{TRUE},
 instead of executing the requested call to GDAL, the function

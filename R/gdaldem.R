@@ -28,6 +28,10 @@
 ##'     instead of executing the requested call to GDAL, the function
 ##'     will print the command-line call that would produce the
 ##'     equivalent output.
+##' @param config_options A named character vector with GDAL config
+##'     options, of the form \code{c(option1=value1, option2=value2)}. (See
+##'     \href{https://gdal.org/user/configoptions.html}{here} for a
+##'     complete list of supported config options.)
 ##' @return Silently returns path to \code{output_map}.
 ##' @export
 ##' @author Joshua O'Brien
@@ -66,12 +70,12 @@ gdaldem <-
              multidirectional, igor, p, trigonometric, zero_for_flat,
              color_text_file = character(0), alpha, exact_color_entry,
              nearest_color_entry,
-             dryrun = FALSE)
+             config_options = character(0), dryrun = FALSE)
 {
     ## Unlike `as.list(match.call())`, forces eval of arguments
     args <-  mget(names(match.call())[-1])
-    args[c("mode", "input_dem", "output_map",
-           "color_text_file", "dryrun")] <- NULL
+    args[c("mode", "input_dem", "output_map", "color_text_file",
+           "config_options", "dryrun")] <- NULL
     formalsTable <- getFormalsTable("gdaldem")
     opts <- process_args(args, formalsTable)
 
@@ -83,7 +87,12 @@ gdaldem <-
     }
 
     ## (My name for "mode" and "output_map")
-    gdal_utils("demprocessing", input_dem, output_map, opts,
-               processing = mode, colorfilename = color_text_file)
+    gdal_utils("demprocessing",
+               source = input_dem,
+               destination = output_map,
+               options = opts,
+               processing = mode,
+               colorfilename = color_text_file,
+               config_options = config_options)
     invisible(output_map)
 }

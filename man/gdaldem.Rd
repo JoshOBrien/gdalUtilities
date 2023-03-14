@@ -29,6 +29,7 @@ gdaldem(
   alpha,
   exact_color_entry,
   nearest_color_entry,
+  config_options = character(0),
   dryrun = FALSE
 )
 }
@@ -58,6 +59,11 @@ documentation} for details.}
 \item{color_text_file, alpha, exact_color_entry, nearest_color_entry}{See the GDAL project's
 \href{https://gdal.org/programs/gdaldem.html}{gdaldem
 documentation} for details.}
+
+\item{config_options}{A named character vector with GDAL config
+options, of the form \code{c(option1=value1, option2=value2)}. (See
+\href{https://gdal.org/user/configoptions.html}{here} for a
+complete list of supported config options.)}
 
 \item{dryrun}{Logical (default \code{FALSE}). If \code{TRUE},
 instead of executing the requested call to GDAL, the function

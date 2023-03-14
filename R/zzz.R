@@ -97,8 +97,7 @@ sds,           -sds,           0,    FALSE
 stats,         -stats,         0,    FALSE
 norat,         -norat,         0,    FALSE
 noxmp,         -noxmp,         0,    FALSE
-oo,            -oo,            1,    FALSE
-config,        --config,       Inf,  FALSE",
+oo,            -oo,            1,    FALSE",
 stringsAsFactors = FALSE, strip.white = TRUE,
 colClasses = c("character", "character", "numeric", "logical"))
 
@@ -153,8 +152,7 @@ nomd,            -nomd,            0,    FALSE
 cvmd,            -cvmd,            1,    FALSE
 setci,           -setci,           0,    FALSE
 oo,              -oo,              1,    FALSE
-doo,             -doo,             1,    FALSE
-config,          --config,         Inf,  TRUE",
+doo,             -doo,             1,    FALSE",
 stringsAsFactors = FALSE, strip.white = TRUE,
 colClasses = c("character", "character", "numeric", "logical"))
 
@@ -330,8 +328,7 @@ l,               -l,             1,      FALSE
 where,           -where,         1,      FALSE
 sql,             -sql,           1,      FALSE
 co,              -co,            1,      FALSE
-q,               -q,             0,      FALSE
-config,          --config,       1,      TRUE",
+q,               -q,             0,      FALSE",
 stringsAsFactors=FALSE, strip.white = TRUE,
 colClasses=c("character", "character", "numeric", "logical"))
 

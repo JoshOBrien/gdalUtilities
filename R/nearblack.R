@@ -16,6 +16,10 @@
 ##'     project's
 ##'     \href{https://gdal.org/programs/nearblack.html}{nearblack
 ##'     documentation} for details.
+##' @param config_options A named character vector with GDAL config
+##'     options, of the form \code{c(option1=value1, option2=value2)}. (See
+##'     \href{https://gdal.org/user/configoptions.html}{here} for a
+##'     complete list of supported config options.)
 ##' @param dryrun Logical (default \code{FALSE}). If \code{TRUE},
 ##'     instead of executing the requested call to GDAL, the function
 ##'     will print the command-line call that would produce the
@@ -50,11 +54,12 @@
 ##' }
 nearblack <-
     function(infile, o = infile, ..., of, white, color, near, nb,
-             setalpha, setmask, q, co, dryrun = FALSE)
+             setalpha, setmask, q, co,
+             config_options = character(0), dryrun = FALSE)
 {
     ## Unlike `as.list(match.call())`, forces eval of arguments
     args <-  mget(names(match.call())[-1])
-    args[c("infile", "dryrun", "o")] <- NULL
+    args[c("infile", "o", "config_options", "dryrun")] <- NULL
     formalsTable <- getFormalsTable("nearblack")
     opts <- process_args(args, formalsTable)
 
@@ -65,6 +70,10 @@ nearblack <-
         return(x)
     }
 
-    gdal_utils("nearblack", infile, o, options=opts)
+    gdal_utils("nearblack",
+               source = infile,
+               destination = o,
+               options = opts,
+               config_options = config_options)
     invisible(o)
 }

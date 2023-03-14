@@ -55,7 +55,7 @@ gdalwarp(
   setci,
   oo,
   doo,
-  config,
+  config_options = character(0),
   dryrun = FALSE
 )
 }
@@ -90,9 +90,15 @@ the GDAL project's
 \href{https://gdal.org/programs/gdalwarp.html}{gdalwarp
 documentation} for details.}
 
-\item{nomd, cvmd, setci, oo, doo, config}{See the GDAL project's
+\item{nomd, cvmd, setci, oo, doo}{See the GDAL project's
 \href{https://gdal.org/programs/gdalwarp.html}{gdalwarp
 documentation} for details.}
+
+\item{config_options}{A named character vector with GDAL config
+options, of the form \code{c(option1=value1,
+option2=value2)}. (See
+\href{https://gdal.org/user/configoptions.html}{here} for a
+complete list of supported config options.)}
 
 \item{dryrun}{Logical (default \code{FALSE}). If \code{TRUE},
 instead of executing the requested call to GDAL, the function

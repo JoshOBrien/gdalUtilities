@@ -15,6 +15,10 @@
 ##'     instead of executing the requested call to GDAL, the function
 ##'     will print the command-line call that would produce the
 ##'     equivalent output.
+##' @param config_options A named character vector with GDAL config
+##'     options, of the form \code{c(option1=value1, option2=value2)}. (See
+##'     \href{https://gdal.org/user/configoptions.html}{here} for a
+##'     complete list of supported config options.)
 ##' @param quiet Logical (default \code{FALSE}). If \code{TRUE},
 ##'     suppress printing of output to the console.
 ##' @return Silently returns a character vector containing the
@@ -29,11 +33,12 @@
 ##' }
 gdalmdiminfo <-
     function(datasetname, ..., oo, arrayoption, detailed, nopretty,
-             array, limit, stats, IF, dryrun = FALSE, quiet = FALSE)
+             array, limit, stats, IF, dryrun = FALSE,
+             config_options = character(0), quiet = FALSE)
 {
     ## Unlike `as.list(match.call())`, forces eval of arguments
     args <-  mget(names(match.call())[-1])
-    args[c("datasetname", "dryrun", "quiet")] <- NULL
+    args[c("datasetname", "dryrun", "config_options", "quiet")] <- NULL
     formalsTable <- getFormalsTable("gdalmdiminfo")
     opts <- process_args(args, formalsTable)
     opts <- c("", opts) ## To ensure we never pass in a NULL
@@ -43,7 +48,9 @@ gdalmdiminfo <-
         return(x)
     }
 
-    info <- gdal_utils("mdiminfo", datasetname, options = opts,
+    info <- gdal_utils("mdiminfo", datasetname,
+                       options = opts,
+                       config_options = config_options,
                        quiet = quiet)
     invisible(info)
 }

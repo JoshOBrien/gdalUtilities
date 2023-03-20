@@ -1,3 +1,12 @@
+## Version 1.2.4
+
+* Added `config_options=` argument to all of the packaged utilities,
+  supporting usage of any of the GDAL Utility config options
+  documented at
+  [https://gdal.org/user/configoptions.html](https://gdal.org/user/configoptions.html). (This
+  change was enabled by the recent addition to an argument of the same
+  name to `sf::gdal_utils()`.)
+
 ## Version 1.2.3
 
 * Removed **rgdal** from Suggests and added explicit dependency on

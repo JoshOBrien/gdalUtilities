@@ -1,4 +1,5 @@
 TODO.org
+TODO-done.org
 ^.*\.Rproj$
 ^\.Rproj\.user$
 ^examples/

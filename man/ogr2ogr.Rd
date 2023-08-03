@@ -155,7 +155,7 @@ utility and the arguments that it takes, see the documentation at
 \donttest{
 ## Prepare file paths
 td <- tempdir()
-lux <- system.file("external/lux.shp", package = "raster")
+lux <- system.file("ex/lux.shp", package = "terra")
 lux_merc <- file.path(td, "mercator.shp")
 lux_lcc <- file.path(td, "lcc.shp")
 

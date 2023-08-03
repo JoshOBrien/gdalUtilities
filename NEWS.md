@@ -1,3 +1,9 @@
+## Version 1.2.5
+
+* Removed all uses of **raster** and **rasterVis** packages from
+  examples in the function help pages, replacing them with function
+  calls from the **terra** package.
+
 ## Version 1.2.4
 
 * Added `config_options=` argument to all of the packaged utilities,

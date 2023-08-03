@@ -94,18 +94,13 @@ gdaldem("shade", in_dem, out_shade)
 gdaldem("aspect", in_dem, out_aspect)
 
 ## View results
-if(requireNamespace("raster", quietly = TRUE)) {
-  library(raster)
-  if(require(rasterVis)) {
-    lp <- function(f) {
-        levelplot(raster(f), main = substitute(f),
-                  margin = FALSE, colorkey = FALSE)
-    }
-    plot(lp(in_dem),     split = c(1,1,2,2))
-    plot(lp(out_slope),  split = c(2,1,2,2), newpage = FALSE)
-    plot(lp(out_shade),  split = c(1,2,2,2), newpage = FALSE)
-    plot(lp(out_aspect), split = c(2,2,2,2), newpage = FALSE)
-  }
+if(require(terra)) {
+    op <- par(mfcol = c(1, 2))
+    plot(rast(in_dem),     main = "elevation")
+    plot(rast(out_slope),  main = "slope")
+    plot(rast(out_shade),  main = "hillshade")
+    plot(rast(out_aspect), main = "aspect")
+    par(op) ## Reset parameters to preexisting values
 }
 }
 }

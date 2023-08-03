@@ -55,31 +55,26 @@
 ##' gdal_translate(in_raster, out_raster, outsize = c("50%","50%"))
 ##'
 ##' ## Check that it worked
-##' if(requireNamespace("raster", quietly = TRUE)) {
-##'   library(raster)
-##'   if(require(rasterVis)) {
-##'     r1 <- raster(in_raster)
-##'     r1[is.na(r1)] <- 0
-##'     r1 <- as.factor(r1)
-##'     rat <- levels(r1)[[1]]
-##'     rat[["landcover"]] <- c("water", "land")
-##'     levels(r1) <- rat
-##'     p1 <- levelplot(r1, margin = FALSE, colorkey = FALSE,
-##'                     col.regions = c("lightblue", "brown"))
+##' if(require(terra)) {
 ##'
-##'     r2 <- raster(out_raster)
-##'     r2[is.na(r2)] <- 0
-##'     r2 <- as.factor(r2)
-##'     rat <- levels(r2)[[1]]
-##'     rat[["landcover"]] <- c("water", "land")
-##'     levels(r2) <- rat
-##'     p2 <- levelplot(r2, margin = FALSE, colorkey = FALSE,
-##'                     col.regions = c("lightblue", "brown"))
+##'   r1 <- rast(in_raster)
+##'   r1[is.na(r1)] <- 0
+##'   r1 <- as.factor(r1)
+##'   rat <- levels(r1)[[1]]
+##'   rat[["landcover"]] <- c("water", "land")
+##'   levels(r1) <- rat
 ##'
-##'     plot(p1, split = c(1, 1, 2, 1))
-##'     plot(p2, split = c(2, 1, 2, 1), newpage = FALSE)
+##'   r2 <- rast(out_raster)
+##'   r2[is.na(r2)] <- 0
+##'   r2 <- as.factor(r2)
+##'   rat <- levels(r2)[[1]]
+##'   rat[["landcover"]] <- c("water", "land")
+##'   levels(r2) <- rat
 ##'
-##'   }
+##'   op <- par(mfcol = c(1, 2))
+##'   plot(r1, col = c("lightblue", "brown"), legend = FALSE)
+##'   plot(r2, col = c("lightblue", "brown"), legend = FALSE)
+##'   par(op) ## Reset pre-existing parameters
 ##' }
 ##' }
 gdal_translate <-

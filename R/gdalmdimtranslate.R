@@ -36,20 +36,19 @@
 ##' gdalinfo(out_tiff)
 ##'
 ##' ## A more interesting dataset bundled with the stars package
-##' if (requireNamespace("raster", quietly = TRUE)) {
-##'     library(raster)
+##' if(require(terra)) {
 ##'     FF <- system.file("nc/reduced.nc", package = "stars")
 ##'     gdalinfo(FF)
 ##'     td <- tempdir()
 ##'     out_1_tiff <- file.path(td, "out_1.tiff")
 ##'     gdalmdimtranslate(FF, out_1_tiff, array = "sst")
-##'     plot(raster(out_1_tiff),
+##'     plot(rast(out_1_tiff),
 ##'          main = "Sea Surface Temperature\n(2x2 degree cells)")
 ##'     ## Translate to a tiff, coarsen by a factor of 5
 ##'     out_2_tiff <- file.path(td, "out_2.tiff")
 ##'     gdalmdimtranslate(FF, out_2_tiff, array = "sst",
 ##'                       scaleaxes = "lon(5),lat(5)")
-##'     plot(raster(out_2_tiff),
+##'     plot(rast(out_2_tiff),
 ##'          main = "Sea Surface Temperature\n(10x10 degree cells)")
 ##' }
 ##' }

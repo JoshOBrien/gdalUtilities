@@ -1,8 +1,8 @@
 Package: gdalUtilities
 Type: Package
 Title: Wrappers for 'GDAL' Utilities Executables
-Version: 1.2.4
-Date: 2023-03-20
+Version: 1.2.5
+Date: 2023-08-02
 Author: Joshua O'Brien
 Maintainer: Joshua O'Brien <joshmobrien@gmail.com>
 Description: R's 'sf' package ships with self-contained 'GDAL'
@@ -13,21 +13,20 @@ Description: R's 'sf' package ships with self-contained 'GDAL'
     'GDAL' command line interface. The utilities operate on data
     stored in files and typically write their output to other
     files. Therefore, to process data stored in any of R's more common
-    spatial formats (i.e. those supported by the 'sp', 'sf', and
-    'raster' packages), first write them to disk, then process them
-    with the package's wrapper functions before reading the outputted
-    results back into R. GDAL function arguments introduced in GDAL
-    version 3.5.2 or earlier are supported.
+    spatial formats (i.e. those supported by the 'sf' and 'terra'
+    packages), first write them to disk, then process them with the
+    package's wrapper functions before reading the outputted results
+    back into R. GDAL function arguments introduced in GDAL version
+    3.5.2 or earlier are supported.
 License: GPL (>= 2)
 URL: https://github.com/JoshOBrien/gdalUtilities/
 BugReports: https://github.com/JoshOBrien/gdalUtilities/issues/
 Imports:
     sf (>= 1.0-11)
 Suggests:
-    raster (>= 3.6-3),
-    rasterVis,
+    terra,
+    stars,
     RColorBrewer,
-    testthat,
-    stars
+    testthat
 RoxygenNote: 7.2.3
 Encoding: UTF-8

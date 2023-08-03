@@ -69,9 +69,9 @@
 ##'           of = "GTiff", ot = "Float64", l = "dem")
 ##'
 ##' ## Check that it works
-##' if(requireNamespace("raster", quietly = TRUE)) {
-##'     library(raster)
-##'     plot(raster(out_raster))
+##' if(requireNamespace("terra", quietly = TRUE)) {
+##'     library(terra)
+##'     plot(rast(out_raster))
 ##'     text(Northing ~ Easting, data = pts,
 ##'          labels = seq_len(nrow(pts)), cex = 0.7)
 ##' }

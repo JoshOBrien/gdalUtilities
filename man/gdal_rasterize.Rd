@@ -77,25 +77,25 @@ utility and the arguments that it takes, see the documentation at
 }
 \examples{
 \donttest{
-if(requireNamespace("raster", quietly = TRUE)) {
-    library(raster)
+if(require(terra)) {
     ## Prepare file paths of example shapefile and template raster file
-    vect_file <- system.file("external/lux.shp", package = "raster")
+    vect_file <- system.file("ex/lux.shp", package = "terra")
     td <- tempdir()
     rast_file <- file.path(td, "lux_rast.tif")
 
     ## Construct and save an appropriately sized 'empty' raster
-    SPDF <- shapefile(vect_file)
-    lonlatratio <- 1 / cospi(mean(coordinates(SPDF)[,2]) / 180)
-    rr <- raster(extent(SPDF),
-                 resolution = c(lonlatratio * 0.01, 0.01),
-                 crs = crs(SPDF))
+    LUX <- vect(vect_file)
+    lonlatratio <- 1 / cospi(mean(geom(LUX)[, "y"]) / 180)
+    rr <- rast(ext(LUX),
+               resolution = c(lonlatratio * 0.01, 0.01),
+               crs = crs(LUX), vals = NA)
+
     ## Note: this next line warns that raster is empty
     writeRaster(rr, filename = rast_file, overwrite = TRUE)
 
     ## Rasterize polygon using empty raster and check that it worked
     gdal_rasterize(vect_file, rast_file, a = "ID_2")
-    plot(raster(rast_file))
+    plot(rast(rast_file))
 }
 }
 }

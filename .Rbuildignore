@@ -3,3 +3,6 @@ TODO-done.org
 ^.*\.Rproj$
 ^\.Rproj\.user$
 ^examples/
+^_pkgdown\.yml$
+^docs$
+^pkgdown$

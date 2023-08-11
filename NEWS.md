@@ -1,3 +1,10 @@
+## Changes since CRAN release of Version 1.2.5
+
+* Remove the test suite, which hasn't been used since Version
+  1.2.0. All of the tests involved comparison of results from the
+  now-defunct/archived **gdalUtils** package. Also removed the
+  no longer needed **testthat** package from Suggests.
+
 ## Version 1.2.5
 
 * Removed all uses of **raster** and **rasterVis** packages from

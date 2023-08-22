@@ -19,7 +19,7 @@ Description: R's 'sf' package ships with self-contained 'GDAL'
     back into R. GDAL function arguments introduced in GDAL version
     3.5.2 or earlier are supported.
 License: GPL (>= 2)
-URL: https://github.com/JoshOBrien/gdalUtilities/
+URL: https://github.com/JoshOBrien/gdalUtilities/, https://joshobrien.github.io/gdalUtilities/
 BugReports: https://github.com/JoshOBrien/gdalUtilities/issues/
 Imports:
     sf (>= 1.0-11)

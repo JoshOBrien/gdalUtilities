@@ -6,3 +6,4 @@ TODO-done.org
 ^_pkgdown\.yml$
 ^docs$
 ^pkgdown$
+^\.github$
